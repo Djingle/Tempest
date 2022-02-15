@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.6)
 
 add_subdirectory(SDL)
 
-project(Test_SDL LANGUAGES CXX)
+project(Tempest LANGUAGES CXX)
 
 add_executable (${PROJECT_NAME} "")
 target_sources(${PROJECT_NAME} PRIVATE tp_sdl.cpp)

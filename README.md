@@ -6,10 +6,11 @@ Code de départ pour les projets utilisant la librarie SDL2 pour faire du rendu 
 
 Pout télécharger le code et le compiler sur tous les systèmes vous pouvez utiliser les instructions suivantes:
 
-	git clone --recurse-submodule git@git.unistra.fr:thery/sdl2_base_vectors.git
-	mkdir BuildSDLEx
-	cd BuildSDLEx
-	cmake ../sdl2_base_vectors
+	git clone --recurse-submodule https://git.unistra.fr/wbensaid/projet-tempest
+	cd projet-tempest
+	mkdir build
+	cd build
+	cmake ..
 	make -j 8
 
 Il est bien sur possible d'utiliser l'interface de cmake.
