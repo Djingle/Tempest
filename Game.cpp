@@ -1,6 +1,6 @@
 #include "Game.hpp"
 #include <iostream>
-Uint8 color[4] = {255,255,0,255};
+
 int last_x;
 int last_y;
 Game::Game()
@@ -54,12 +54,8 @@ void Game::handleEvents()
             isRunning_ = false;
             break;
         case SDLK_SPACE:
-            const Uint8* state = SDL_GetKeyboardState(NULL);
-            if (state[SDL_SCANCODE_SPACE])
-            {
-                SDL_SetRenderDrawColor(renderer_, 0,0,0,255);
-                SDL_RenderClear(renderer_);
-            }
+            SDL_SetRenderDrawColor(renderer_, 0,0,0,255);
+            SDL_RenderClear(renderer_);
             break;
         }
         break;
@@ -88,17 +84,11 @@ void Game::clean()
 
 void Game::draw()
 {
-	// const Uint8* state = SDL_GetKeyboardState(NULL);
-	// if (state[SDL_SCANCODE_SPACE])
-	// {
-	// 	SDL_SetRenderDrawColor(renderer_, 0,0,0,255);
-	// 	SDL_RenderClear(renderer_);
-	// }
 	int x,y;
 	if ( SDL_GetMouseState(&x,&y) & SDL_BUTTON(SDL_BUTTON_LEFT) ) 
 	{
 		const Uint8* state = SDL_GetKeyboardState(NULL);
-		SDL_SetRenderDrawColor(renderer_, color[0], color[1], color[2], color[3]);
+		SDL_SetRenderDrawColor(renderer_, 255, 255, 0,255);
 		if (state[SDL_SCANCODE_RSHIFT])
 		{
 			SDL_RenderDrawLine(renderer_, last_x,last_y,x,y);
