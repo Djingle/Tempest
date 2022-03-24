@@ -1,8 +1,6 @@
 #include "Game.hpp"
 #include <iostream>
 
-int last_x;
-int last_y;
 Game::Game()
 {
     isRunning_ = false;
@@ -53,10 +51,6 @@ void Game::handleEvents()
         case SDLK_ESCAPE:
             isRunning_ = false;
             break;
-        case SDLK_SPACE:
-            SDL_SetRenderDrawColor(renderer_, 0,0,0,255);
-            SDL_RenderClear(renderer_);
-            break;
         }
         break;
     }
@@ -69,8 +63,7 @@ void Game::update()
 
 void Game::render()
 {
-    //SDL_RenderClear(renderer_);
-    draw();
+    SDL_RenderClear(renderer_);
     SDL_RenderPresent(renderer_);
 }
 
@@ -80,25 +73,3 @@ void Game::clean()
     SDL_DestroyRenderer(renderer_);
     SDL_Quit();
     std::cout << "Game cleaned..." << std::endl;
-}
-
-void Game::draw()
-{
-	int x,y;
-	if ( SDL_GetMouseState(&x,&y) & SDL_BUTTON(SDL_BUTTON_LEFT) ) 
-	{
-		const Uint8* state = SDL_GetKeyboardState(NULL);
-		SDL_SetRenderDrawColor(renderer_, 255, 255, 0,255);
-		if (state[SDL_SCANCODE_RSHIFT])
-		{
-			SDL_RenderDrawLine(renderer_, last_x,last_y,x,y);
-		}
-		else
-		{
-			SDL_RenderDrawPoint(renderer_, x, y);
-		}
-		last_x = x;
-		last_y = y;
-        SDL_SetRenderDrawColor(renderer_, 0,0,0,255);
-	}
-}
