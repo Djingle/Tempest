@@ -19,7 +19,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     {
         flags = SDL_WINDOW_FULLSCREEN;
     }
-    if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
+    if (SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO ) == 0)
     {
         std::cout << "Subsystems initialized..." << std::endl;
         window_ = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
