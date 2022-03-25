@@ -16,6 +16,7 @@ class Game {
         void update();
         void render();
         void clean();
+        inline SDL_Renderer* get_renderer() const {return renderer_;};
         inline bool running() const {return isRunning_;};
 };
 #endif
