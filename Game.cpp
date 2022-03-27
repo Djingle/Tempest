@@ -3,22 +3,22 @@
 #include <vector>
 #include "Terrain.hpp"
 
-const vertex& f1 = {100, 100};
-const vertex& f2 = {300, 100};
-const vertex& f3 = {500, 100};
-const vertex& f4 = {700, 100};
-const vertex& b1 = {100, 500};
-const vertex& b2 = {300, 500};
-const vertex& b3 = {500, 500};
-const vertex& b4 = {700, 500};
+// const vertex& f1 = {100, 100};
+// const vertex& f2 = {300, 100};
+// const vertex& f3 = {500, 100};
+// const vertex& f4 = {700, 100};
+// const vertex& b1 = {100, 500};
+// const vertex& b2 = {300, 500};
+// const vertex& b3 = {500, 500};
+// const vertex& b4 = {700, 500};
 
-const Lane test_lane1{f1, f2, b1, b2};
-const Lane test_lane2{f2, f3, b2, b3};
-const Lane test_lane3{f3, f4, b3, b4};
+// const Lane test_lane1{f1, f2, b1, b2};
+// const Lane test_lane2{f2, f3, b2, b3};
+// const Lane test_lane3{f3, f4, b3, b4};
 
-std::vector<Lane> mes_lanes = {test_lane1, test_lane2, test_lane3};
+// std::vector<Lane> mes_lanes = {test_lane1, test_lane2, test_lane3};
 
-Terrain test_terrain{1, mes_lanes};
+Terrain test_terrain{1, 1};
 
 Game::Game()
 {
@@ -70,6 +70,11 @@ void Game::handleEvents()
         case SDLK_ESCAPE:
             isRunning_ = false;
             break;
+        case SDLK_LEFT:
+            
+            break;
+        case SDLK_RIGHT:
+            break;
         }
         break;
     case SDLK_d:
@@ -80,7 +85,7 @@ void Game::handleEvents()
 
 void Game::update()
 {
-    
+    test_terrain.update();
 }
 
 void Game::render()
