@@ -7,12 +7,13 @@ class Terrain {
     private:
         std::vector<Lane> lanes_;
         unsigned int player_pos_; // The Lane the player is on
+        bool circular_;
     public:
-        Terrain(unsigned int player_pos, std::vector<Lane> lanes);
-        Terrain(unsigned int player_pos, unsigned int lvl);
+        Terrain(unsigned int lvl);
         inline int get_nb_lanes() const { return lanes_.size(); }
+        inline const bool& is_circular() const { return circular_; }
         void load(unsigned int lvl);
-        void update();
+        void update(unsigned int player_pos);
         void render(SDL_Renderer* renderer);
         void clean();
 };

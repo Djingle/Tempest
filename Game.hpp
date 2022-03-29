@@ -1,13 +1,17 @@
 #ifndef Game_hpp
 #define Game_hpp
 #include <SDL.h>
-
+#include "Player.hpp"
+/**
+ * @brief 
+ * 
+ */
 class Game {
     private:
-        bool isRunning_;
+        bool is_running_;
         SDL_Window* window_;
         SDL_Renderer* renderer_;
-        void draw();
+        Player player_;
     public:
         Game();
         ~Game();
@@ -17,6 +21,6 @@ class Game {
         void render();
         void clean();
         inline SDL_Renderer* get_renderer() const {return renderer_;};
-        inline bool running() const {return isRunning_;};
+        inline bool running() const {return is_running_;};
 };
 #endif

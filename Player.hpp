@@ -4,9 +4,8 @@
 #include "Terrain.hpp"
 
 class Player: public Character {
-    private:
-        int terrain_pos_;
     public:
+        Player();
         void render(SDL_Renderer* renderer);
         void move_right(const Terrain& terrain);
         void move_left(const Terrain& terrain);

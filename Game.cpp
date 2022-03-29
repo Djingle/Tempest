@@ -2,37 +2,27 @@
 #include <iostream>
 #include <vector>
 #include "Terrain.hpp"
+#include "Player.hpp"
 
-// const vertex& f1 = {100, 100};
-// const vertex& f2 = {300, 100};
-// const vertex& f3 = {500, 100};
-// const vertex& f4 = {700, 100};
-// const vertex& b1 = {100, 500};
-// const vertex& b2 = {300, 500};
-// const vertex& b3 = {500, 500};
-// const vertex& b4 = {700, 500};
+Terrain test_terrain{1};
 
-// const Lane test_lane1{f1, f2, b1, b2};
-// const Lane test_lane2{f2, f3, b2, b3};
-// const Lane test_lane3{f3, f4, b3, b4};
-
-// std::vector<Lane> mes_lanes = {test_lane1, test_lane2, test_lane3};
-
-Terrain test_terrain{1, 1};
-
-Game::Game()
+Game::Game() :
+    is_running_{false},
+    window_{NULL},
+    renderer_{NULL},
+    player_{Player()}
 {
-    isRunning_ = false;
-    window_ = NULL;
-    renderer_ = NULL;
+    std::cout << "New game" << std::endl;
 }
+
 Game::~Game()
 {
     clean();
 }
+
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
-    isRunning_ = false;
+    is_running_ = false;
     int flags = 0;
     if (fullscreen)
     {
@@ -49,7 +39,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
             if (renderer_ != NULL)
             {
                 std::cout << "Renderer created..." << std::endl;
-                isRunning_ = true;
+                is_running_ = true;
             }
         }
     }
@@ -62,17 +52,19 @@ void Game::handleEvents()
     switch (event.type)
     {
     case SDL_QUIT:
-        isRunning_ = false;
+        is_running_ = false;
         break;
     case SDL_KEYDOWN:
         switch (event.key.keysym.sym)
         {
         case SDLK_ESCAPE:
-            isRunning_ = false;
+            is_running_ = false;
             break;
         case SDLK_LEFT:
+            player_.move_left(test_terrain);
             break;
         case SDLK_RIGHT:
+            player_.move_right(test_terrain);
             break;
         }
         break;
@@ -84,7 +76,7 @@ void Game::handleEvents()
 
 void Game::update()
 {
-    test_terrain.update();
+    test_terrain.update(player_.get_lane_id());
 }
 
 void Game::render()
