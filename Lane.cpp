@@ -1,7 +1,7 @@
 #include "Lane.hpp"
 #include "Game.hpp"
 
-Lane::Lane(const vertex& f_left, const vertex& f_right, const vertex& b_left, const vertex& b_right) :
+Lane::Lane(const vertex f_left, const vertex f_right, const vertex b_left, const vertex b_right) :
     is_active_{false},
     f_left_{f_left},
     f_right_{f_right},

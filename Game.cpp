@@ -71,7 +71,6 @@ void Game::handleEvents()
             isRunning_ = false;
             break;
         case SDLK_LEFT:
-            
             break;
         case SDLK_RIGHT:
             break;
