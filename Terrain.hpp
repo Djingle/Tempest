@@ -10,6 +10,7 @@ class Terrain {
     public:
         Terrain(unsigned int player_pos, std::vector<Lane> lanes);
         Terrain(unsigned int player_pos, unsigned int lvl);
+        inline int get_nb_lanes() const { return lanes_.size(); }
         void load(unsigned int lvl);
         void update();
         void render(SDL_Renderer* renderer);
