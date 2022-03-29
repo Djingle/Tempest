@@ -25,7 +25,6 @@ Terrain::Terrain(unsigned int player_pos, unsigned int lvl):player_pos_{player_p
     if (file.is_open()) 
     {
         unsigned int nb_lanes;
-        
         int xmin,xmax,ymin,ymax;
         file >> nb_lanes;
         file >> xmin >> xmax;
@@ -38,12 +37,10 @@ Terrain::Terrain(unsigned int player_pos, unsigned int lvl):player_pos_{player_p
             // const vertex& b = {normalize(x2,xmin,xmax),normalize(y2,ymin,ymax)};
             // const vertex& c = {normalize(x3,xmin,xmax),normalize(y3,ymin,ymax)};
             // const vertex& d = {normalize(x4,xmin,xmax),normalize(y4,ymin,ymax)};
-            std::cout << "Lane " << i << " : " << x1 << " " << y1 << " " << x2 << " " << y2 << " " << x3 << " " << y3 << " " << x4 << " " << y4 << std::endl;
-            const vertex a = std::make_pair(x1,y1);
-            const vertex b = std::make_pair(x2,y2);
-            const vertex c = std::make_pair(x3,y3);
-            const vertex d = std::make_pair(x4,y4);
-            std::cout << a.first << " " << a.second << "\t" << b.first << " " << b.second << "\t" << c.first << " " << c.second << "\t" << d.first << " " << d.second << std::endl;
+            const vertex &a = {x1,y1};
+            const vertex &b = {x2,y2};
+            const vertex &c = {x3,y3};
+            const vertex &d = {x4,y4};
             const Lane tmp_lane{a, b, c, d};
             lanes_.push_back(tmp_lane);
         }

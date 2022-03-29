@@ -7,7 +7,7 @@ Lane::Lane(const vertex& f_left, const vertex& f_right, const vertex& b_left, co
     f_right_{f_right},
     b_left_{b_left},
     b_right_{b_right}
-{ std::cout << "New lane : " << f_left.first << " " << f_left.second << " " << f_right.first << " " << f_right.second << " " << b_left.first << " " << b_left.second << " " << b_right.first << " " << b_right.second << std::endl; }
+{ std::cout << "New lane : (" << f_left.first << ";" << f_left.second << ") (" << f_right.first << ";" << f_right.second << ") (" << b_left.first << ";" << b_left.second << ") (" << b_right.first << "; " << b_right.second << ")" << std::endl; }
 
 void Lane::set_active(bool is_active)
 {
@@ -34,9 +34,9 @@ void Lane::clean()
 
 std::ostream& operator<<(std::ostream& os, const Lane& lane)
 {
-    os << "FrontLeft : (" << lane.f_right_.first << " ; " << lane.f_right_.second << ")\n" << 
-          "FrontRight : (" << lane.f_left_.first << " ; " << lane.f_left_.second << ")\n" << 
-          "BackLeft : (" << lane.b_left_.first << " ; " << lane.b_left_.second << ")\n" << 
-          "BackRight : (" << lane.b_right_.first << " ; " << lane.b_right_.second << ")\n" ;
+    os << "FrontRight : (" << std::to_string(lane.f_right_.first) << "," << std::to_string(lane.f_right_.second) << ")" << std::endl;
+    os << "FrontLeft : (" << std::to_string(lane.f_left_.first) << "," << std::to_string(lane.f_left_.second) << ")" << std::endl;
+    os << "BackLeft : (" << std::to_string(lane.b_left_.first) << "," << std::to_string(lane.b_left_.second) << ")" << std::endl;
+    os << "BackRight : (" << std::to_string(lane.b_right_.first) << "," << std::to_string(lane.b_right_.second) << ")" << std::endl;
     return os;
 }
