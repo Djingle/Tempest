@@ -22,7 +22,7 @@ Terrain::Terrain(unsigned int player_pos, unsigned int lvl):player_pos_{player_p
 {
     std::ifstream file;
     file.open("../Assets/Levels/level"+std::to_string(lvl)+".txt");
-    if (file.is_open())
+    if (file.is_open()) 
     {
         unsigned int nb_lanes;
         

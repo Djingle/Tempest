@@ -7,7 +7,6 @@ class Terrain {
     private:
         std::vector<Lane> lanes_;
         unsigned int player_pos_; // The Lane the player is on
-
     public:
         Terrain(unsigned int player_pos, std::vector<Lane> lanes);
         Terrain(unsigned int player_pos, unsigned int lvl);
@@ -15,7 +14,6 @@ class Terrain {
         void update();
         void render(SDL_Renderer* renderer);
         void clean();
-
 };
 
 #endif
