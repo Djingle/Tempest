@@ -68,9 +68,6 @@ void Game::handleEvents()
             break;
         }
         break;
-    case SDLK_d:
-        
-        break;
     }
 }
 

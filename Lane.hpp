@@ -15,6 +15,7 @@ class Lane {
     public:
         Lane(const vertex f_left, const vertex f_right, const vertex b_left, const vertex b_right);
         void set_active(bool is_active);
+        inline bool get_active() const {return is_active_;} 
         void render(SDL_Renderer* renderer) const;
         void clean();
         friend std::ostream& operator<<(std::ostream& os, const Lane& lane);

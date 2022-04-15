@@ -23,6 +23,7 @@ void Lane::render(SDL_Renderer* renderer) const
 
     // Draw side lines, in yellow if active, blue else
     if (is_active_) SDL_SetRenderDrawColor(renderer, 245, 236, 66, 0);
+    else SDL_SetRenderDrawColor(renderer, 0, 0, 255, 0);
     SDL_RenderDrawLineF(renderer, f_left_.first, f_left_.second, b_left_.first, b_left_.second);
     SDL_RenderDrawLineF(renderer, f_right_.first, f_right_.second, b_right_.first, b_right_.second);
 } 

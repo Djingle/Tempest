@@ -6,10 +6,14 @@
 #include <fstream>
 #include <cmath>
 
-// int normalize(float x,float min,float max)
-// {
-//     return lround(((x-min)/(max-min)));
-// }
+vertex normalize(float x,float min_x,float max_x,float y, float min_y, float max_y)
+{
+    int x_norm = lround((x-min_x)/(max_x-min_x));
+    int y_norm = lround((y-min_y)/(max_y-min_y));
+    std::cout << "x_norm: " << x_norm << " y_norm: " << y_norm << std::endl;
+    return {x_norm,y_norm}; 
+}
+
 Terrain::Terrain(unsigned int lvl)
 {
     std::ifstream file;
@@ -19,6 +23,7 @@ Terrain::Terrain(unsigned int lvl)
         unsigned int nb_lanes;
         int xmin,xmax,ymin,ymax;
         file >> nb_lanes;
+        file >> circular_;
         file >> xmin >> xmax;
         file >> ymin >> ymax;
         for (unsigned int i = 0; i < nb_lanes; i++)
@@ -29,6 +34,10 @@ Terrain::Terrain(unsigned int lvl)
             const vertex b = {x2,y2};
             const vertex c = {x3,y3};
             const vertex d = {x4,y4};
+            const vertex a_normalize = normalize(x1,xmin,xmax,y1,ymin,ymax);
+            const vertex b_normalize = normalize(x2,xmin,xmax,y2,ymin,ymax);
+            const vertex c_normalize = normalize(x3,xmin,xmax,y3,ymin,ymax);
+            const vertex d_normalize = normalize(x4,xmin,xmax,y4,ymin,ymax);
             const Lane tmp_lane{a, b, c, d};
             lanes_.push_back(tmp_lane);
         }
@@ -41,17 +50,17 @@ Terrain::Terrain(unsigned int lvl)
 
 void Terrain::update(unsigned int player_pos)
 {
-    lanes_[player_pos--%lanes_.size()].set_active(false);
-    lanes_[player_pos++%lanes_.size()].set_active(false);
-    lanes_[player_pos].set_active(true);
+    player_pos_ = player_pos;
+    for (auto &lane : lanes_) {
+        lane.set_active(false);
+    }
+    lanes_[player_pos_].set_active(true);
 }
 
 void Terrain::render(SDL_Renderer* renderer)
 {
-    int i=0;
     for (auto lane : lanes_) {
-        if (i!=player_pos_) lane.render(renderer);
-        i++;
+        lane.render(renderer);
     }
     lanes_[player_pos_].render(renderer);
 }

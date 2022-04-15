@@ -1,24 +1,23 @@
 #include "Player.hpp"
-static int i = 0;
+
 Player::Player(): Character(3, 0, 0) {
-    i++;
-    std::cout << "New Player " << i << std::endl;
 }
 
 void Player::move_right(const Terrain& terrain)
 {
-    //How can I know what lane is next? Player has to know his position on the terrain? (ie int)
-    if (terrain.is_circular()) lane_id_ = (lane_id_++)%terrain.get_nb_lanes();
-    else if (lane_id_ < terrain.get_nb_lanes()-1) lane_id_++;
+    if (lane_id_ < terrain.get_nb_lanes()-1) lane_id_++;
+    else if (terrain.is_circular()) lane_id_ = 0;
 }
 
 void Player::move_left(const Terrain& terrain)
 {
-    if (terrain.is_circular()) lane_id_ = (lane_id_--)%terrain.get_nb_lanes();
-    else if (lane_id_ > 0) lane_id_--;
+    if (lane_id_ > 0) lane_id_--;
+    else if (terrain.is_circular()) lane_id_ = terrain.get_nb_lanes()-1;
 }
 
-void Player::render(SDL_Renderer* renderer)
+void Player::render(SDL_Renderer* renderer, vertex left, vertex right)
 {
-    //The player has to know which lane he's on so that he can render itself
+    float pente = ( left.first - right.first ) / ( left.second - right.second );
+    float ord_orig = right.second - pente * right.first;
 }
+
