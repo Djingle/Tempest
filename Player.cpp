@@ -15,9 +15,19 @@ void Player::move_left(const Terrain& terrain)
     else if (terrain.is_circular()) lane_id_ = terrain.get_nb_lanes()-1;
 }
 
-void Player::render(SDL_Renderer* renderer, vertex left, vertex right)
+void Player::shoot()
 {
-    float pente = ( left.first - right.first ) / ( left.second - right.second );
-    float ord_orig = right.second - pente * right.first;
+    
 }
 
+void Player::render(SDL_Renderer* renderer, const vertex& left, const vertex& right)
+{
+    vertex f, b, m, tmp;
+    float pente = ( left.first - right.first ) / ( left.second - right.second );
+    float ord_orig = right.second - pente * right.first;
+
+    m.first = ( left.first - right.first ) / 2;
+    m.second = ( left.second - right.second ) / 2;
+
+    
+}

@@ -1,5 +1,6 @@
 #include "Lane.hpp"
 #include "Game.hpp"
+#include <ctgmath>
 
 Lane::Lane(const vertex f_left, const vertex f_right, const vertex b_left, const vertex b_right) :
     is_active_{false},
@@ -7,7 +8,15 @@ Lane::Lane(const vertex f_left, const vertex f_right, const vertex b_left, const
     f_right_{f_right},
     b_left_{b_left},
     b_right_{b_right}
-{ std::cout << "New lane : (" << f_left.first << ";" << f_left.second << ") (" << f_right.first << ";" << f_right.second << ") (" << b_left.first << ";" << b_left.second << ") (" << b_right.first << "; " << b_right.second << ")" << std::endl; }
+{
+    u.first = b_left_.first - b_right_.first;
+    u.second = b_left_.first - b_left_.second;
+    float norme = sqrt(u.first*u.first + u.second*u.second);
+    u.first /= norme;
+    u.second /= norme;
+    
+    std::cout << "New lane : (" << f_left.first << ";" << f_left.second << ") (" << f_right.first << ";" << f_right.second << ") (" << b_left.first << ";" << b_left.second << ") (" << b_right.first << "; " << b_right.second << ")" << std::endl; 
+}
 
 void Lane::set_active(bool is_active)
 {

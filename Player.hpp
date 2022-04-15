@@ -7,9 +7,10 @@
 class Player: public Character {
     public:
         Player();
-        void render(SDL_Renderer* renderer, vertex left, vertex right);
+        void render(SDL_Renderer* renderer, const vertex& left, const vertex& right);
         void move_right(const Terrain& terrain);
         void move_left(const Terrain& terrain);
+        void shoot();
 };
 
 #endif
