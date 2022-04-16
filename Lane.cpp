@@ -9,12 +9,16 @@ Lane::Lane(const vertex f_left, const vertex f_right, const vertex b_left, const
     b_left_{b_left},
     b_right_{b_right}
 {
-    u.first = b_left_.first - b_right_.first;
-    u.second = b_left_.first - b_left_.second;
+    u = { f_left_.first - f_right_.first, f_left_.second - f_right_.second };
     float norme = sqrt(u.first*u.first + u.second*u.second);
     u.first /= norme;
     u.second /= norme;
-    
+    vertex m1 = {(b_left_.first + b_right_.first)/2, (b_left_.second + b_right_.second)/2};
+    vertex m2 = {(f_left_.first + f_right_.first)/2, (f_left_.second + f_right_.second)/2};
+    v = {m2.first-m1.first, m2.second-m1.second};
+    norme = sqrt(v.first*v.first + v.second*v.second);
+    v.first /= norme;
+    v.second /= norme;
     std::cout << "New lane : (" << f_left.first << ";" << f_left.second << ") (" << f_right.first << ";" << f_right.second << ") (" << b_left.first << ";" << b_left.second << ") (" << b_right.first << "; " << b_right.second << ")" << std::endl; 
 }
 

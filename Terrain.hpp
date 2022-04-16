@@ -10,7 +10,10 @@ class Terrain {
         bool circular_;
     public:
         Terrain(unsigned int lvl);
+
         inline int get_nb_lanes() const { return lanes_.size(); }
+        inline const Lane& get_lane(unsigned int i) const { return lanes_[i]; }
+
         inline const bool& is_circular() const { return circular_; }
         void load(unsigned int lvl);
         void update(unsigned int player_pos);

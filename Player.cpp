@@ -20,14 +20,27 @@ void Player::shoot()
     
 }
 
-void Player::render(SDL_Renderer* renderer, const vertex& left, const vertex& right)
+void Player::render(SDL_Renderer* renderer, const Lane& lane)
 {
-    vertex f, b, m, tmp;
-    float pente = ( left.first - right.first ) / ( left.second - right.second );
-    float ord_orig = right.second - pente * right.first;
+    vertex l, r, b, f, m;
+    l = lane.get_f_left();
+    r = lane.get_f_right();
+    l.first -= 100*lane.get_u().first;
+    l.second -= 100*lane.get_u().second;
+    r.first += 100*lane.get_u().first;
+    r.second += 100*lane.get_u().second;
+    m = {(l.first + r.first)/2, (l.second + r.second)/2};
+    b = {m.first + 100*lane.get_v().first, m.second + 100*lane.get_v().second};
+    f = {m.first - 200*lane.get_v().first, m.second - 200*lane.get_v().second};
 
-    m.first = ( left.first - right.first ) / 2;
-    m.second = ( left.second - right.second ) / 2;
-
-    
+    SDL_SetRenderDrawColor(renderer, 245, 236, 66, 0);
+    SDL_RenderDrawLineF(renderer, l.first, l.second, b.first, b.second);
+    SDL_RenderDrawLineF(renderer, r.first, r.second, b.first, b.second);
+    SDL_RenderDrawLineF(renderer, l.first, l.second, f.first, f.second);
+    SDL_RenderDrawLineF(renderer, r.first, r.second, f.first, f.second);
+    // SDL_RenderDrawPointF(renderer, l.first, l.second);
+    // SDL_RenderDrawPointF(renderer, r.first, r.second);
+    // SDL_RenderDrawPointF(renderer, b.first, b.second);
+    // SDL_RenderDrawPointF(renderer, f.first, f.second);
+    // SDL_RenderDrawPointF(renderer, m.first, m.second);
 }

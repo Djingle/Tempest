@@ -80,6 +80,7 @@ void Game::render()
 {
     SDL_RenderClear(renderer_);
     test_terrain.render(renderer_);
+    player_.render(renderer_, test_terrain.get_lane(player_.get_lane_id()));
     SDL_RenderPresent(renderer_);
 }
 
