@@ -9,7 +9,7 @@
 vertex normalize(float x,float min_x,float max_x,float y, float min_y, float max_y)
 {
     int x_norm = lround((x-min_x)/(max_x-min_x)*800);
-    int y_norm = lround((y-min_y)/(max_y-min_y)*600);
+    int y_norm = 600-lround((y-min_y)/(max_y-min_y)*600);
     std::cout << "x_norm: " << x_norm << " y_norm: " << y_norm << std::endl;
     return {x_norm,y_norm}; 
 }
