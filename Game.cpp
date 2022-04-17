@@ -4,7 +4,7 @@
 #include "Terrain.hpp"
 #include "Player.hpp"
 
-Terrain test_terrain{1};
+Terrain test_terrain{2};
 
 Game::Game() :
     is_running_{false},
