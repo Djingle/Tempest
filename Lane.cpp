@@ -1,25 +1,24 @@
 #include "Lane.hpp"
 #include "Game.hpp"
-#include <ctgmath>
+#include <cmath>
 
-Lane::Lane(const vertex f_left, const vertex f_right, const vertex b_left, const vertex b_right) :
+Lane::Lane(const vertex center, const vertex f_left, const vertex f_right) :
     is_active_{false},
     f_left_{f_left},
     f_right_{f_right},
-    b_left_{b_left},
-    b_right_{b_right}
+    b_left_{m_homothety(f_left,center,0.25)},
+    b_right_{m_homothety(f_right,center,0.25)}
 {
     u = { f_left_.first - f_right_.first, f_left_.second - f_right_.second };
     float norme = sqrt(u.first*u.first + u.second*u.second);
     u.first /= norme;
     u.second /= norme;
-    vertex m1 = {(b_left_.first + b_right_.first)/2, (b_left_.second + b_right_.second)/2};
-    vertex m2 = {(f_left_.first + f_right_.first)/2, (f_left_.second + f_right_.second)/2};
-    v = {m2.first-m1.first, m2.second-m1.second};
+    vertex m = {(f_left_.first + f_right_.first)/2, (f_left_.second + f_right_.second)/2};
+    v = {m.first-center.first, m.second-center.second};
     norme = sqrt(v.first*v.first + v.second*v.second);
     v.first /= norme;
     v.second /= norme;
-    std::cout << "New lane : (" << f_left.first << ";" << f_left.second << ") (" << f_right.first << ";" << f_right.second << ") (" << b_left.first << ";" << b_left.second << ") (" << b_right.first << "; " << b_right.second << ")" << std::endl; 
+    std::cout << "New lane : (" << f_left.first << ";" << f_left.second << ") (" << f_right.first << ";" << f_right.second << ") (" << b_left_.first << ";" << b_left_.second << ") (" << b_right_.first << "; " << b_right_.second << ")" << std::endl; 
 }
 
 void Lane::set_active(bool is_active)

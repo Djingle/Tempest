@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <SDL.h>
-using vertex = std::pair<float, float>;
+#include "utils.hpp"
 
 class Lane {
     private:
@@ -16,6 +16,7 @@ class Lane {
         vertex v; // Vecteur vers le centre
     public:
         Lane(const vertex f_left, const vertex f_right, const vertex b_left, const vertex b_right);
+        Lane(const vertex center,const vertex f_right, const vertex f_left);
         void set_active(bool is_active);
 
         inline bool get_active() const {return is_active_;} 

@@ -1,15 +1,20 @@
 #include "Player.hpp"
 
-Player::Player(): Character(3, 0, 0) {
+Player::Player():
+    Object(0, 1.0),
+    nb_lives_{3},
+    score_{0}
+{
+    std::cout << "New Player" << std::endl;
 }
 
-void Player::move_right(const Terrain& terrain)
+void Player::move_right(const Level& terrain)
 {
     if (lane_id_ < terrain.get_nb_lanes()-1) lane_id_++;
     else if (terrain.is_circular()) lane_id_ = 0;
 }
 
-void Player::move_left(const Terrain& terrain)
+void Player::move_left(const Level& terrain)
 {
     if (lane_id_ > 0) lane_id_--;
     else if (terrain.is_circular()) lane_id_ = terrain.get_nb_lanes()-1;

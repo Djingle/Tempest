@@ -1,11 +1,11 @@
 #include "Game.hpp"
 #include <iostream>
 #include <vector>
-#include "Terrain.hpp"
+#include "Level.hpp"
 #include "Player.hpp"
+#include "Bullet.hpp"
 
-Terrain test_terrain{6};
-
+Level test_terrain{2};
 Game::Game() :
     is_running_{false},
     window_{NULL},
@@ -66,6 +66,9 @@ void Game::handleEvents()
         case SDLK_RIGHT:
             player_.move_right(test_terrain);
             break;
+        case SDLK_SPACE:
+            player_.shoot();
+            break;
         }
         break;
     }
@@ -81,6 +84,7 @@ void Game::render()
     SDL_RenderClear(renderer_);
     test_terrain.render(renderer_);
     player_.render(renderer_, test_terrain.get_lane(player_.get_lane_id()));
+    m_write(renderer_, "Hello World!", 100, 100);
     SDL_RenderPresent(renderer_);
 }
 
