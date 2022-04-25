@@ -26,6 +26,7 @@ class Lane {
         inline const vertex& get_b_right() const {return b_right_;}
         inline const vertex& get_u() const {return u;}
         inline const vertex& get_v() const {return v;}
+        inline vertex get_mid() const {return {(f_left_.first+f_right_.first)/2.0, (f_left_.second+f_right_.second)/2.0};}
         
         void render(SDL_Renderer* renderer) const;
         void clean();

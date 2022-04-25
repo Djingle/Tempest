@@ -2,6 +2,8 @@
 #define Game_hpp
 #include <SDL.h>
 #include "Player.hpp"
+#include "Bullet.hpp"
+#include <vector>
 /**
  * @brief 
  * 
@@ -12,6 +14,7 @@ class Game {
         SDL_Window* window_;
         SDL_Renderer* renderer_;
         Player player_;
+        std::vector<Bullet> bullets_;
     public:
         Game();
         ~Game();

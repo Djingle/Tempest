@@ -9,10 +9,11 @@ class Player: public Object {
         int nb_lives_;
         int score_;
     public:
-        Player();
-        void render(SDL_Renderer* renderer, const Lane& lane);
-        void update() {};
-        void clean() {};
+        Player(const Level& level);
+        //~Player();
+        void render(SDL_Renderer* renderer) override;
+        void update() override {}
+        void clean() override {}
         void move_right(const Level& terrain);
         void move_left(const Level& terrain);
         void shoot();

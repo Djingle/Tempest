@@ -4,7 +4,6 @@ vertex m_normalize(float x,float min_x,float max_x,float y, float min_y, float m
 {
     int x_norm = lround((x-min_x)/(max_x-min_x)*800);
     int y_norm = 600-lround((y-min_y)/(max_y-min_y)*600);
-    std::cout << "x_norm: " << x_norm << " y_norm: " << y_norm << std::endl;
     return {x_norm,y_norm}; 
 }
 
@@ -12,7 +11,6 @@ vertex m_homothety(vertex obj, vertex center, float scale)
 {
     int x_norm = lround((obj.first-center.first)*scale)+center.first;
     int y_norm = lround((obj.second-center.second)*scale)+center.second;
-    std::cout << "x_norm: " << x_norm << " y_norm: " << y_norm << std::endl;
     return {x_norm,y_norm}; 
 }
 int simplex[95][112] = {
@@ -597,8 +595,10 @@ void m_write(SDL_Renderer* renderer, const char* text, int x, int y, int r, int 
         for(int j=2; j<111; j+=2){
             int x_pos = simplex[ascii][j];
             int y_pos = simplex[ascii][j+1];
-            if(x_pos != -1 && y_pos != -1){
-                SDL_RenderDrawLine(renderer, x+x_pos, y-y_pos);
+            int x_pos_next = simplex[ascii][j+2];
+            int y_pos_next = simplex[ascii][j+3];
+            if(x_pos != -1 && y_pos != -1 && x_pos_next != -1 && y_pos_next != -1){
+                SDL_RenderDrawLine(renderer, x+x_pos, y-y_pos, x+x_pos_next, y-y_pos_next);
             }
         }
         x += width;

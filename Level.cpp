@@ -18,17 +18,14 @@ Level::Level(unsigned int lvl)
         file >> ymin >> ymax;
         file >> x_center >> y_center;
         file >> scale;
-        const vertex vertex_center = m_normalize(x_center,xmin,xmax,y_center,ymin,ymax);
-        int compteur = 0;
+        center_ = m_normalize(x_center,xmin,xmax,y_center,ymin,ymax);
         while(!file.eof())
         {
             int x_FR,y_FR,x_FL,y_FL; // FR = Front Right, FL = Front Left
             file >> x_FR >> y_FR >> x_FL >> y_FL;
             const vertex fr_norm = m_normalize(x_FR,xmin,xmax,y_FR,ymin,ymax);
             const vertex fl_norm = m_normalize(x_FL,xmin,xmax,y_FL,ymin,ymax);
-            std::cout << "Itération n°" << compteur << std::endl;
-            lanes_.push_back(Lane(vertex_center,fr_norm,fl_norm));
-            compteur++;
+            lanes_.push_back(Lane(center_,fr_norm,fl_norm));
         }
     }
     else

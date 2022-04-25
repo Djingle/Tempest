@@ -2,15 +2,13 @@
 #include <iostream>
 #include <vector>
 #include "Level.hpp"
-#include "Player.hpp"
-#include "Bullet.hpp"
 
 Level test_terrain{2};
 Game::Game() :
     is_running_{false},
     window_{NULL},
     renderer_{NULL},
-    player_{Player()}
+    player_{Player(test_terrain)}
 {
     std::cout << "New game" << std::endl;
 }
@@ -68,6 +66,7 @@ void Game::handleEvents()
             break;
         case SDLK_SPACE:
             player_.shoot();
+            if (Bullet::get_bullet_count() < 8) bullets_.push_back(Bullet(player_.get_lane_id(), test_terrain));
             break;
         }
         break;
@@ -77,13 +76,22 @@ void Game::handleEvents()
 void Game::update()
 {
     test_terrain.update(player_.get_lane_id());
+    for (auto bullet = bullets_.begin(); bullet != bullets_.end(); bullet++) {
+        bullet->update();
+        if (bullet->get_depth() <= 0.25) {
+            bullets_.erase(bullet);
+            delete &bullet;
+        };
+    }
 }
 
 void Game::render()
 {
     SDL_RenderClear(renderer_);
     test_terrain.render(renderer_);
-    player_.render(renderer_, test_terrain.get_lane(player_.get_lane_id()));
+    player_.render(renderer_);
+    for (auto& bullet : bullets_)
+        bullet.render(renderer_);
     m_write(renderer_, "Hello World!", 100, 100);
     SDL_RenderPresent(renderer_);
 }

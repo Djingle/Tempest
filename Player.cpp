@@ -1,7 +1,7 @@
 #include "Player.hpp"
 
-Player::Player():
-    Object(0, 1.0),
+Player::Player(const Level& level) :
+    Object{0, 1.0, level},
     nb_lives_{3},
     score_{0}
 {
@@ -25,8 +25,9 @@ void Player::shoot()
     
 }
 
-void Player::render(SDL_Renderer* renderer, const Lane& lane)
+void Player::render(SDL_Renderer* renderer)
 {
+    const Lane& lane = level_.get_lane(lane_id_);
     vertex l, r, b, f, m;
     l = lane.get_f_left();
     r = lane.get_f_right();
