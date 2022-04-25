@@ -592,13 +592,15 @@ void m_write(SDL_Renderer* renderer, const char* text, int x, int y, int r, int 
         int ascii = (int)text[i] - 32;
         int nb_vertex = simplex[ascii][0];
         int width = simplex[ascii][1];
-        for(int j=2; j<111; j+=2){
-            int x_pos = simplex[ascii][j];
-            int y_pos = simplex[ascii][j+1];
-            int x_pos_next = simplex[ascii][j+2];
-            int y_pos_next = simplex[ascii][j+3];
-            if(x_pos != -1 && y_pos != -1 && x_pos_next != -1 && y_pos_next != -1){
-                SDL_RenderDrawLine(renderer, x+x_pos, y-y_pos, x+x_pos_next, y-y_pos_next);
+        if(nb_vertex != 0){
+            for(int j=2; j<111; j+=2){
+                int x_pos = simplex[ascii][j];
+                int y_pos = simplex[ascii][j+1];
+                int x_pos_next = simplex[ascii][j+2];
+                int y_pos_next = simplex[ascii][j+3];
+                if(x_pos != -1 && y_pos != -1 && x_pos_next != -1 && y_pos_next != -1){
+                    SDL_RenderDrawLine(renderer, x+x_pos, y-y_pos, x+x_pos_next, y-y_pos_next);
+                }
             }
         }
         x += width;

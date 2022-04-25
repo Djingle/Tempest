@@ -34,6 +34,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         {
             std::cout << "Window created..." << std::endl;
             renderer_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+            hud_.init(renderer_, width, height/6);
             if (renderer_ != NULL)
             {
                 std::cout << "Renderer created..." << std::endl;
@@ -90,11 +91,11 @@ void Game::update()
 void Game::render()
 {
     SDL_RenderClear(renderer_);
+    hud_.render();
     test_terrain.render(renderer_);
     player_.render(renderer_);
     for (auto& bullet : bullets_)
         bullet.render(renderer_);
-    m_write(renderer_, "Hello World!", 100, 100);
     SDL_RenderPresent(renderer_);
 }
 

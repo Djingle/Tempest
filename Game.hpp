@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include "Player.hpp"
 #include "Bullet.hpp"
+#include "HUD.hpp"
 #include <vector>
 /**
  * @brief 
@@ -15,6 +16,7 @@ class Game {
         SDL_Renderer* renderer_;
         Player player_;
         std::vector<Bullet> bullets_;
+        HUD hud_;
     public:
         Game();
         ~Game();
