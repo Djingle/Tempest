@@ -12,7 +12,7 @@ class Object
     
     public :
         Object(int lane_id, float depth, const Level& level);
-        //virtual ~Object();
+        virtual ~Object(){};
         virtual void render(SDL_Renderer* renderer) = 0;
         virtual void update() = 0;
         virtual void clean() = 0;

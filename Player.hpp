@@ -10,7 +10,7 @@ class Player: public Object {
         int score_;
     public:
         Player(const Level& level);
-        //~Player();
+        virtual ~Player(){};
         void render(SDL_Renderer* renderer) override;
         void update() override {}
         void clean() override {}

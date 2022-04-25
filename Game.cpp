@@ -76,13 +76,15 @@ void Game::handleEvents()
 void Game::update()
 {
     test_terrain.update(player_.get_lane_id());
-    for (auto bullet = bullets_.begin(); bullet != bullets_.end(); bullet++) {
+    for (std::vector<Bullet>::iterator bullet = bullets_.begin(); bullet != bullets_.end(); ++bullet) {
         bullet->update();
-        if (bullet->get_depth() <= 0.25) {
-            bullets_.erase(bullet);
-            delete &bullet;
-        };
+        // if (bullet->get_depth() <= 0.25) {
+        //     bullets_.erase(bullet);
+        // }
     }
+    // if(bullets_[0].get_depth() <= 0.25) {
+    //     bullets_.erase(bullets_.begin());
+    // }
 }
 
 void Game::render()

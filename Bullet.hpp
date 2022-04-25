@@ -7,7 +7,7 @@ class Bullet : public Object {
         static int bullet_count_;
     public:
         Bullet(int lane_id, const Level& level);
-        ~Bullet();
+        virtual ~Bullet();
 
         static int get_bullet_count() { return bullet_count_; }
         void render(SDL_Renderer* renderer) override;
