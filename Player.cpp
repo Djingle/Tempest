@@ -39,14 +39,10 @@ void Player::render(SDL_Renderer* renderer)
     b = {m.first + 100*lane.get_v().first, m.second + 100*lane.get_v().second};
     f = {m.first - 200*lane.get_v().first, m.second - 200*lane.get_v().second};
 
-    SDL_SetRenderDrawColor(renderer, 245, 236, 66, 0);
+    SDL_SetRenderDrawColor(renderer, 245, 236, 66, 255);
     SDL_RenderDrawLineF(renderer, l.first, l.second, b.first, b.second);
     SDL_RenderDrawLineF(renderer, r.first, r.second, b.first, b.second);
     SDL_RenderDrawLineF(renderer, l.first, l.second, f.first, f.second);
     SDL_RenderDrawLineF(renderer, r.first, r.second, f.first, f.second);
-    // SDL_RenderDrawPointF(renderer, l.first, l.second);
-    // SDL_RenderDrawPointF(renderer, r.first, r.second);
-    // SDL_RenderDrawPointF(renderer, b.first, b.second);
-    // SDL_RenderDrawPointF(renderer, f.first, f.second);
-    // SDL_RenderDrawPointF(renderer, m.first, m.second);
+    std::cout << "l: " << l.first << " " << l.second << std::endl;
 }

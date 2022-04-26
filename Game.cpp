@@ -90,9 +90,6 @@ void Game::update()
 void Game::render()
 {
     SDL_RenderClear(renderer_);
-    
-    
-
     hud_.render(player_.get_score(),player_.get_nb_lives(),1);
     level_.render(renderer_);
     player_.render(renderer_);
