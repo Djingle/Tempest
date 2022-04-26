@@ -16,6 +16,7 @@ void HUD::init(SDL_Renderer* renderer) {
         std::cout << "Failed to create texture" << std::endl;
         exit(EXIT_FAILURE);
     }
+    SDL_SetTextureBlendMode(texture_, SDL_BLENDMODE_BLEND);
     dst_.x = 0;
     dst_.y = 0;
     dst_.w = w;
@@ -23,7 +24,7 @@ void HUD::init(SDL_Renderer* renderer) {
 }
 void HUD::render(int score,int nb_lives,int lvl) {
     SDL_SetRenderTarget(renderer_, texture_);
-    SDL_SetRenderDrawColor(renderer_, 0, 0, 0, 255);
+    SDL_SetRenderDrawColor(renderer_, 0, 0, 0, 0);
     SDL_RenderClear(renderer_);
     m_write(renderer_,std::to_string(score),dst_.w/4,dst_.h/2,0,255,0,255);
     m_write(renderer_,std::to_string(nb_lives),dst_.w/8,dst_.h-10,255,255,0,255);

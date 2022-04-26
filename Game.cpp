@@ -6,7 +6,6 @@ Game::Game() :
     is_running_{false},
     window_{NULL},
     renderer_{NULL},
-    level_{2},
     player_{level_}
 {
     std::cout << "New game" << std::endl;
@@ -34,7 +33,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
             std::cout << "Window created..." << std::endl;
             renderer_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
             hud_.init(renderer_);
-            level_.init(renderer_);
+            level_.init(renderer_,2);
             if (renderer_ != NULL)
             {
                 std::cout << "Renderer created..." << std::endl;
@@ -92,9 +91,10 @@ void Game::render()
 {
     SDL_RenderClear(renderer_);
     
-    level_.render(renderer_);
-        hud_.render(player_.get_score(),player_.get_nb_lives(),1);
+    
 
+    hud_.render(player_.get_score(),player_.get_nb_lives(),1);
+    level_.render(renderer_);
     player_.render(renderer_);
     for (auto& bullet : bullets_)
         bullet.render(renderer_);

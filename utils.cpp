@@ -1,10 +1,10 @@
 #include "utils.hpp"
 
-vertex m_normalize(float x,float min_x,float max_x,float y, float min_y, float max_y)
+vertex m_normalize(float x,float min_x,float max_x,float y, float min_y, float max_y, int width, int height)
 {
-    int x_norm = lround((x-min_x)/(max_x-min_x)*800);
-    int y_norm = 600-lround((y-min_y)/(max_y-min_y)*600);
-    return {x_norm,y_norm}; 
+    float x_norm = (x-min_x)/(max_x-min_x);
+    float y_norm = (y-min_y)/(max_y-min_y);
+    return {x_norm*width,height-(y_norm*height)};
 }
 
 vertex m_homothety(vertex obj, vertex center, float scale)

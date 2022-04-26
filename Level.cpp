@@ -4,12 +4,20 @@
 #include <vector>
 #include "Lane.hpp"
 #include <fstream>
-Level::Level(unsigned int lvl)
+void Level::init(SDL_Renderer* renderer,unsigned int lvl)
 {
+    int width,height;
+    SDL_GetRendererOutputSize(renderer,&width,&height);
     std::ifstream file;
     file.open("../Assets/Levels/level"+std::to_string(lvl)+".txt");
     if (file.is_open()) 
     {   
+        texture_ = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET,height, height);
+        SDL_SetTextureBlendMode(texture_, SDL_BLENDMODE_BLEND);
+        dst_.x = width/2 - height/2;
+        dst_.y = 0;
+        dst_.w = height;
+        dst_.h = height;
         int xmin,xmax,ymin,ymax;
         int x_center,y_center;
         float scale;
@@ -18,13 +26,13 @@ Level::Level(unsigned int lvl)
         file >> ymin >> ymax;
         file >> x_center >> y_center;
         file >> scale;
-        center_ = m_normalize(x_center,xmin,xmax,y_center,ymin,ymax);
+        center_ = m_normalize(x_center,xmin,xmax,y_center,ymin,ymax,height,height);
         while(!file.eof())
         {
             int x_FR,y_FR,x_FL,y_FL; // FR = Front Right, FL = Front Left
             file >> x_FR >> y_FR >> x_FL >> y_FL;
-            const vertex fr_norm = m_normalize(x_FR,xmin,xmax,y_FR,ymin,ymax);
-            const vertex fl_norm = m_normalize(x_FL,xmin,xmax,y_FL,ymin,ymax);
+            const vertex fr_norm = m_normalize(x_FR,xmin,xmax,y_FR,ymin,ymax,height,height);
+            const vertex fl_norm = m_normalize(x_FL,xmin,xmax,y_FL,ymin,ymax,height,height);
             lanes_.push_back(Lane(center_,fr_norm,fl_norm));
         }
     }
@@ -32,16 +40,8 @@ Level::Level(unsigned int lvl)
     {
         std::cout << "Error opening file" << std::endl;
     }
-}
-void Level::init(SDL_Renderer* renderer)
-{
-    int width,height;
-    SDL_GetRendererOutputSize(renderer,&width,&height);
-    texture_ = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET,height, height);
-    dst_.x = width/2 - height/2;
-    dst_.y = 0;
-    dst_.w = height;
-    dst_.h = height;
+
+    
     std::cout << "width = " << width << "\t height = " << height << std::endl;
     std::cout << "dst_.x = " << dst_.x << "\t dst_.y = " << dst_.y << std::endl;
 }
@@ -57,10 +57,8 @@ void Level::update(unsigned int player_pos)
 void Level::render(SDL_Renderer* renderer)
 {
     SDL_SetRenderTarget(renderer, texture_);
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     SDL_RenderClear(renderer);
-
-    
     for (auto lane : lanes_) {
         lane.render(renderer);
     }
