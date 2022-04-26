@@ -11,7 +11,7 @@ void HUD::init(SDL_Renderer* renderer) {
     renderer_ = renderer;
     int w, h;
     SDL_GetRendererOutputSize(renderer_, &w, &h);
-    texture_ = SDL_CreateTexture(renderer_, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
+    texture_ = SDL_CreateTexture(renderer_, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h/6);
     if (texture_ == NULL) {
         std::cout << "Failed to create texture" << std::endl;
         exit(EXIT_FAILURE);
@@ -28,8 +28,6 @@ void HUD::render(int score,int nb_lives,int lvl) {
     m_write(renderer_,std::to_string(score),dst_.w/4,dst_.h/2,0,255,0,255);
     m_write(renderer_,std::to_string(nb_lives),dst_.w/8,dst_.h-10,255,255,0,255);
     m_write(renderer_,std::to_string(lvl),dst_.w/2,dst_.h/2,0,0,255,255);
-    SDL_SetRenderDrawColor(renderer_, 0, 255, 0, 255);
-    SDL_RenderClear(renderer_);
     SDL_SetRenderTarget(renderer_, NULL);
     SDL_RenderCopy(renderer_, texture_, NULL, &dst_);
 }

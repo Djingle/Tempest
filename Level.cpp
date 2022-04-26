@@ -65,8 +65,8 @@ void Level::render(SDL_Renderer* renderer)
         lane.render(renderer);
     }
     lanes_[player_pos_].render(renderer);
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-    SDL_RenderClear(renderer);
+    // SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+    // SDL_RenderClear(renderer);
     SDL_SetRenderTarget(renderer, NULL);
     SDL_RenderCopy(renderer, texture_, NULL, &dst_);
 }
