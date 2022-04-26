@@ -7,12 +7,38 @@ vertex m_normalize(float x,float min_x,float max_x,float y, float min_y, float m
     return {x_norm*width,height-(y_norm*height)};
 }
 
-vertex m_homothety(vertex obj, vertex center, float scale)
+vertex v_homothety(vertex obj, vertex center, float scale)
 {
-    int x_norm = lround((obj.first-center.first)*scale)+center.first;
-    int y_norm = lround((obj.second-center.second)*scale)+center.second;
-    return {x_norm,y_norm}; 
+    int x_hom = lround((obj.first-center.first)*scale)+center.first;
+    int y_hom = lround((obj.second-center.second)*scale)+center.second;
+    return {x_hom,y_hom}; 
 }
+
+mesh m_homothety(mesh obj, vertex center, float scale) {
+    for (auto &v : obj)
+        v = v_homothety(v,center,scale);
+    return obj;
+}
+
+vertex v_rotate(vertex obj, vertex center, float angle)
+{
+    float x_rot = lround((obj.first-center.first)*cos(angle)-(obj.second-center.second)*sin(angle))+center.first;
+    float y_rot = lround((obj.first-center.first)*sin(angle)+(obj.second-center.second)*cos(angle))+center.second;
+    return {x_rot,y_rot}; 
+}
+
+mesh m_rotate(mesh obj, vertex center, float angle) {
+    for (auto &v : obj)
+        v = v_rotate(v,center,angle);
+    return obj;
+}
+
+float get_angle(vertex a, vertex b, vertex c)
+{
+    float result = atan2(c.second-b.second,c.first-b.first)-atan2(a.second-b.second,a.first-b.first);
+}
+
+
 int simplex[95][112] = {
     0,16, /* Ascii 32 */
    -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,

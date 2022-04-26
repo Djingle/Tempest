@@ -1,12 +1,18 @@
 #include "Player.hpp"
+#include "Bullet.hpp"
 
-Player::Player(const Level& level) :
-    Object{0, 1.0, level},
+mesh Player::vertices_{{{0.5, 0.5}}};
+
+Player::Player() :
+    Object(0, 1.0),
     nb_lives_{3},
-    score_{0}
+    score_{0},
+    is_shooting_{false}
 {
     std::cout << "New Player" << std::endl;
 }
+
+mesh Player::get_vertices() const { return vertices_; }
 
 void Player::move_right(const Level& terrain)
 {
@@ -20,14 +26,9 @@ void Player::move_left(const Level& terrain)
     else if (terrain.is_circular()) lane_id_ = terrain.get_nb_lanes()-1;
 }
 
-void Player::shoot()
+void Player::render(SDL_Renderer* renderer, const Level& level)
 {
-    
-}
-
-void Player::render(SDL_Renderer* renderer)
-{
-    const Lane& lane = level_.get_lane(lane_id_);
+    const Lane& lane = level.get_lane(lane_id_);
     vertex l, r, b, f, m;
     l = lane.get_f_left();
     r = lane.get_f_right();

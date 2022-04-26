@@ -2,6 +2,8 @@
 #include <assert.h>
 #include <iostream>
 #include "Game.hpp"
+#include "Bullet.hpp"
+
 
 Game *game = nullptr;
 

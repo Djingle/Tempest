@@ -2,11 +2,13 @@
 #include <iostream>
 #include <vector>
 #include "Level.hpp"
+
+Flipper flipper{0, 0.45};
 Game::Game() :
     is_running_{false},
     window_{NULL},
     renderer_{NULL},
-    player_{level_}
+    player_{Player()}
 {
     std::cout << "New game" << std::endl;
 }
@@ -65,8 +67,7 @@ void Game::handleEvents()
             player_.move_right(level_);
             break;
         case SDLK_SPACE:
-            player_.shoot();
-            if (Bullet::get_bullet_count() < 8) bullets_.push_back(Bullet(player_.get_lane_id(), level_));
+            player_.set_is_shooting(true);
             break;
         }
         break;
@@ -76,15 +77,22 @@ void Game::handleEvents()
 void Game::update()
 {
     level_.update(player_.get_lane_id());
-    for (std::vector<Bullet>::iterator bullet = bullets_.begin(); bullet != bullets_.end(); ++bullet) {
-        bullet->update();
-        // if (bullet->get_depth() <= 0.25) {
-        //     bullets_.erase(bullet);
-        // }
+
+    if (player_.get_is_shooting())
+    {
+        bullets_.push_back(Bullet(player_.get_lane_id(), 0.99, true));
+        player_.set_is_shooting(false);
     }
-    // if(bullets_[0].get_depth() <= 0.25) {
-    //     bullets_.erase(bullets_.begin());
-    // }
+    if (Bullet::get_bullet_count() > 0) {
+        std::vector<Bullet>::iterator bullet = bullets_.begin();
+        while (bullet != bullets_.end()) {
+            bullet->update();
+            if (bullet->get_depth() <= 0.20 || bullet->get_depth() >= 1.5) {
+                bullets_.erase(bullet);
+            }
+            else ++bullet;
+        }
+    }
 }
 
 void Game::render()
@@ -93,8 +101,10 @@ void Game::render()
     hud_.render(player_.get_score(),player_.get_nb_lives(),1);
     level_.render(renderer_);
     player_.render(renderer_);
-    for (auto& bullet : bullets_)
-        bullet.render(renderer_);
+    for (auto bullet : bullets_) {
+        bullet.render(renderer_, level_);
+    }
+    flipper.render(renderer_, test_terrain);
     SDL_RenderPresent(renderer_);
 }
 

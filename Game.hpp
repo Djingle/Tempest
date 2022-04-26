@@ -4,7 +4,9 @@
 #include "Player.hpp"
 #include "Bullet.hpp"
 #include "HUD.hpp"
+#include "Flipper.hpp"
 #include <vector>
+
 /**
  * @brief 
  * 
@@ -18,6 +20,7 @@ class Game {
         std::vector<Bullet> bullets_;
         HUD hud_;
         Level level_;
+        std::vector<Enemy> enemies_;
     public:
         Game();
         ~Game();
