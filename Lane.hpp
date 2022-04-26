@@ -16,7 +16,7 @@ class Lane {
         vertex v; // Vecteur vers le centre
     public:
         Lane(const vertex f_left, const vertex f_right, const vertex b_left, const vertex b_right);
-        Lane(const vertex center,const vertex f_right, const vertex f_left);
+        Lane(const vertex center,const float scale,const vertex f_right, const vertex f_left);
         void set_active(bool is_active);
 
         inline bool get_active() const {return is_active_;} 

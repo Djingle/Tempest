@@ -18,7 +18,7 @@ void Level::init(SDL_Renderer* renderer,unsigned int lvl)
         dst_.y = 0;
         dst_.w = height;
         dst_.h = height;
-        int xmin,xmax,ymin,ymax;
+        float xmin,xmax,ymin,ymax;
         int x_center,y_center;
         float scale;
         file >> circular_;
@@ -29,21 +29,15 @@ void Level::init(SDL_Renderer* renderer,unsigned int lvl)
         center_ = m_normalize(x_center,xmin,xmax,y_center,ymin,ymax,height,height);
         while(!file.eof())
         {
-            int x_FR,y_FR,x_FL,y_FL; // FR = Front Right, FL = Front Left
+            float x_FR,y_FR,x_FL,y_FL; // FR = Front Right, FL = Front Left
             file >> x_FR >> y_FR >> x_FL >> y_FL;
             const vertex fr_norm = m_normalize(x_FR,xmin,xmax,y_FR,ymin,ymax,height,height);
             const vertex fl_norm = m_normalize(x_FL,xmin,xmax,y_FL,ymin,ymax,height,height);
-            lanes_.push_back(Lane(center_,fr_norm,fl_norm));
+            lanes_.push_back(Lane(center_,scale,fr_norm,fl_norm));
         }
     }
     else
-    {
         std::cout << "Error opening file" << std::endl;
-    }
-
-    
-    std::cout << "width = " << width << "\t height = " << height << std::endl;
-    std::cout << "dst_.x = " << dst_.x << "\t dst_.y = " << dst_.y << std::endl;
 }
 void Level::update(unsigned int player_pos)
 {
@@ -67,6 +61,7 @@ void Level::render(SDL_Renderer* renderer)
     // SDL_RenderClear(renderer);
     SDL_SetRenderTarget(renderer, NULL);
     SDL_RenderCopy(renderer, texture_, NULL, &dst_);
+    SDL_SetRenderTarget(renderer, texture_);
 }
 
 void Level::clean()

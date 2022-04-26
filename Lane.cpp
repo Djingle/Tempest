@@ -2,12 +2,12 @@
 #include "Game.hpp"
 #include <cmath>
 
-Lane::Lane(const vertex center, const vertex f_left, const vertex f_right) :
+Lane::Lane(const vertex center,const float scale, const vertex f_left, const vertex f_right) :
     is_active_{false},
     f_left_{f_left},
     f_right_{f_right},
-    b_left_{m_homothety(f_left,center,0.25)},
-    b_right_{m_homothety(f_right,center,0.25)}
+    b_left_{m_homothety(f_left,center,scale)},
+    b_right_{m_homothety(f_right,center,scale)}
 {
     u = { f_left_.first - f_right_.first, f_left_.second - f_right_.second };
     float norme = sqrt(u.first*u.first + u.second*u.second);
