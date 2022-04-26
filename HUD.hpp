@@ -1,20 +1,18 @@
 #ifndef HUD_HPP
 #define HUD_HPP
+#include <SDL.h>
+#include "Player.hpp"
+#include "utils.hpp"
 class HUD {
     private :
-        int score;
-        int nb_lives;
-        int highscore;
+        SDL_Texture* texture_;
+        SDL_Renderer* renderer_;
+        SDL_Rect dst_;
     public :
         HUD();
         ~HUD();
-        void setScore(int score);
-        void setNbLives(int nb_lives);
-        void setHighscore(int highscore);
-        int getScore();
-        int getNbLives();
-        int getHighscore();
-        void render(SDL_Renderer* renderer) const;
+        void init(SDL_Renderer* renderer);
+        void render(int score,int nb_lives,int lvl);
         
 };
 #endif

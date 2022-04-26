@@ -4,7 +4,6 @@
 #include "Level.hpp"
 
 Flipper flipper{0, 0.45};
-Level test_terrain{2};
 Game::Game() :
     is_running_{false},
     window_{NULL},
@@ -35,6 +34,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         {
             std::cout << "Window created..." << std::endl;
             renderer_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+            hud_.init(renderer_);
+            level_.init(renderer_,2);
             if (renderer_ != NULL)
             {
                 std::cout << "Renderer created..." << std::endl;
@@ -60,10 +61,10 @@ void Game::handleEvents()
             is_running_ = false;
             break;
         case SDLK_LEFT:
-            player_.move_left(test_terrain);
+            player_.move_left(level_);
             break;
         case SDLK_RIGHT:
-            player_.move_right(test_terrain);
+            player_.move_right(level_);
             break;
         case SDLK_SPACE:
             player_.set_is_shooting(true);
@@ -75,7 +76,7 @@ void Game::handleEvents()
 
 void Game::update()
 {
-    test_terrain.update(player_.get_lane_id());
+    level_.update(player_.get_lane_id());
 
     if (player_.get_is_shooting())
     {
@@ -97,12 +98,12 @@ void Game::update()
 void Game::render()
 {
     SDL_RenderClear(renderer_);
-    test_terrain.render(renderer_);
-    player_.render(renderer_, test_terrain);
+    hud_.render(player_.get_score(),player_.get_nb_lives(),1);
+    level_.render(renderer_);
+    player_.render(renderer_);
     for (auto bullet : bullets_) {
-        bullet.render(renderer_, test_terrain);
+        bullet.render(renderer_, level_);
     }
-    m_write(renderer_, "Hello World!", 100, 100);
     flipper.render(renderer_, test_terrain);
     SDL_RenderPresent(renderer_);
 }

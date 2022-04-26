@@ -1,10 +1,10 @@
 #include "utils.hpp"
 
-vertex v_normalize(float x,float min_x,float max_x,float y, float min_y, float max_y)
+vertex m_normalize(float x,float min_x,float max_x,float y, float min_y, float max_y, int width, int height)
 {
-    int x_norm = lround((x-min_x)/(max_x-min_x)*800);
-    int y_norm = 600-lround((y-min_y)/(max_y-min_y)*600);
-    return {x_norm,y_norm}; 
+    float x_norm = (x-min_x)/(max_x-min_x);
+    float y_norm = (y-min_y)/(max_y-min_y);
+    return {x_norm*width,height-(y_norm*height)};
 }
 
 vertex v_homothety(vertex obj, vertex center, float scale)
@@ -612,24 +612,26 @@ int simplex[95][112] = {
    -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
 };
 
-void m_write(SDL_Renderer* renderer, const char* text, int x, int y, int r, int g, int b, int a){
+void m_write(SDL_Renderer* renderer, std::string text, int x, int y, int r, int g, int b, int a){
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
-    for(int i = 0; i < strlen(text); i++){
+    for(int i = 0; i < text.size(); i++){
         int ascii = (int)text[i] - 32;
         int nb_vertex = simplex[ascii][0];
         int width = simplex[ascii][1];
-        for(int j=2; j<111; j+=2){
-            int x_pos = simplex[ascii][j];
-            int y_pos = simplex[ascii][j+1];
-            int x_pos_next = simplex[ascii][j+2];
-            int y_pos_next = simplex[ascii][j+3];
-            if(x_pos != -1 && y_pos != -1 && x_pos_next != -1 && y_pos_next != -1){
-                SDL_RenderDrawLine(renderer, x+x_pos, y-y_pos, x+x_pos_next, y-y_pos_next);
+        if(nb_vertex != 0){
+            for(int j=2; j<111; j+=2){
+                int x_pos = simplex[ascii][j];
+                int y_pos = simplex[ascii][j+1];
+                int x_pos_next = simplex[ascii][j+2];
+                int y_pos_next = simplex[ascii][j+3];
+                if(x_pos != -1 && y_pos != -1 && x_pos_next != -1 && y_pos_next != -1){
+                    SDL_RenderDrawLine(renderer, x+x_pos, y-y_pos, x+x_pos_next, y-y_pos_next);
+                }
             }
         }
         x += width;
     }
 }
-void m_write(SDL_Renderer* renderer, const char* text, int x, int y){
+void m_write(SDL_Renderer* renderer, std::string text, int x, int y){
     m_write(renderer, text, x, y, 255, 255, 255, 255);
 }
