@@ -586,9 +586,9 @@ int simplex[95][112] = {
    -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
 };
 
-void m_write(SDL_Renderer* renderer, const char* text, int x, int y, int r, int g, int b, int a){
+void m_write(SDL_Renderer* renderer, std::string text, int x, int y, int r, int g, int b, int a){
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
-    for(int i = 0; i < strlen(text); i++){
+    for(int i = 0; i < text.size(); i++){
         int ascii = (int)text[i] - 32;
         int nb_vertex = simplex[ascii][0];
         int width = simplex[ascii][1];
@@ -606,6 +606,6 @@ void m_write(SDL_Renderer* renderer, const char* text, int x, int y, int r, int 
         x += width;
     }
 }
-void m_write(SDL_Renderer* renderer, const char* text, int x, int y){
+void m_write(SDL_Renderer* renderer, std::string text, int x, int y){
     m_write(renderer, text, x, y, 255, 255, 255, 255);
 }

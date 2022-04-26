@@ -9,7 +9,7 @@ Level::Level(unsigned int lvl)
     std::ifstream file;
     file.open("../Assets/Levels/level"+std::to_string(lvl)+".txt");
     if (file.is_open()) 
-    {
+    {   
         int xmin,xmax,ymin,ymax;
         int x_center,y_center;
         float scale;
@@ -33,7 +33,18 @@ Level::Level(unsigned int lvl)
         std::cout << "Error opening file" << std::endl;
     }
 }
-
+void Level::init(SDL_Renderer* renderer)
+{
+    int width,height;
+    SDL_GetRendererOutputSize(renderer,&width,&height);
+    texture_ = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET,height, height);
+    dst_.x = width/2 - height/2;
+    dst_.y = 0;
+    dst_.w = height;
+    dst_.h = height;
+    std::cout << "width = " << width << "\t height = " << height << std::endl;
+    std::cout << "dst_.x = " << dst_.x << "\t dst_.y = " << dst_.y << std::endl;
+}
 void Level::update(unsigned int player_pos)
 {
     player_pos_ = player_pos;
@@ -45,10 +56,19 @@ void Level::update(unsigned int player_pos)
 
 void Level::render(SDL_Renderer* renderer)
 {
+    SDL_SetRenderTarget(renderer, texture_);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+
+    
     for (auto lane : lanes_) {
         lane.render(renderer);
     }
     lanes_[player_pos_].render(renderer);
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+    SDL_RenderClear(renderer);
+    SDL_SetRenderTarget(renderer, NULL);
+    SDL_RenderCopy(renderer, texture_, NULL, &dst_);
 }
 
 void Level::clean()

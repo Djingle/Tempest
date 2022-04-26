@@ -17,6 +17,8 @@ class Player: public Object {
         void move_right(const Level& terrain);
         void move_left(const Level& terrain);
         void shoot();
+        inline int get_score() const {return score_;};
+        inline int get_nb_lives() const {return nb_lives_;};
 };
 
 #endif

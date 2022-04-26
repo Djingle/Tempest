@@ -17,6 +17,7 @@ class Game {
         Player player_;
         std::vector<Bullet> bullets_;
         HUD hud_;
+        Level level_;
     public:
         Game();
         ~Game();

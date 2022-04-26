@@ -2,13 +2,12 @@
 #include <iostream>
 #include <vector>
 #include "Level.hpp"
-
-Level test_terrain{2};
 Game::Game() :
     is_running_{false},
     window_{NULL},
     renderer_{NULL},
-    player_{Player(test_terrain)}
+    level_{2},
+    player_{level_}
 {
     std::cout << "New game" << std::endl;
 }
@@ -34,7 +33,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         {
             std::cout << "Window created..." << std::endl;
             renderer_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-            hud_.init(renderer_, width, height/6);
+            hud_.init(renderer_);
+            level_.init(renderer_);
             if (renderer_ != NULL)
             {
                 std::cout << "Renderer created..." << std::endl;
@@ -60,14 +60,14 @@ void Game::handleEvents()
             is_running_ = false;
             break;
         case SDLK_LEFT:
-            player_.move_left(test_terrain);
+            player_.move_left(level_);
             break;
         case SDLK_RIGHT:
-            player_.move_right(test_terrain);
+            player_.move_right(level_);
             break;
         case SDLK_SPACE:
             player_.shoot();
-            if (Bullet::get_bullet_count() < 8) bullets_.push_back(Bullet(player_.get_lane_id(), test_terrain));
+            if (Bullet::get_bullet_count() < 8) bullets_.push_back(Bullet(player_.get_lane_id(), level_));
             break;
         }
         break;
@@ -76,7 +76,7 @@ void Game::handleEvents()
 
 void Game::update()
 {
-    test_terrain.update(player_.get_lane_id());
+    level_.update(player_.get_lane_id());
     for (std::vector<Bullet>::iterator bullet = bullets_.begin(); bullet != bullets_.end(); ++bullet) {
         bullet->update();
         // if (bullet->get_depth() <= 0.25) {
@@ -91,8 +91,10 @@ void Game::update()
 void Game::render()
 {
     SDL_RenderClear(renderer_);
-    hud_.render();
-    test_terrain.render(renderer_);
+    
+    level_.render(renderer_);
+        hud_.render(player_.get_score(),player_.get_nb_lives(),1);
+
     player_.render(renderer_);
     for (auto& bullet : bullets_)
         bullet.render(renderer_);

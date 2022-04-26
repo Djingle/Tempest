@@ -11,8 +11,8 @@ class HUD {
     public :
         HUD();
         ~HUD();
-        void init(SDL_Renderer* renderer,int width, int height);
-        void render();
+        void init(SDL_Renderer* renderer);
+        void render(int score,int nb_lives,int lvl);
         
 };
 #endif
