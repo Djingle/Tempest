@@ -10,7 +10,8 @@ class Bullet : public Object {
         virtual ~Bullet();
 
         static int get_bullet_count() { return bullet_count_; }
-        void render(SDL_Renderer* renderer) override;
+        static void print_bullet_count() { std::cout << "Bullet count : " << bullet_count_ << std::endl; }
+        void render(SDL_Renderer* renderer, const Level& level) override;
         void update() override;
         void clean() override {};
 };

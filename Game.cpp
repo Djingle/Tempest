@@ -65,8 +65,7 @@ void Game::handleEvents()
             player_.move_right(test_terrain);
             break;
         case SDLK_SPACE:
-            player_.shoot();
-            if (Bullet::get_bullet_count() < 8) bullets_.push_back(Bullet(player_.get_lane_id(), test_terrain));
+            player_.set_is_shooting(true);
             break;
         }
         break;
@@ -76,14 +75,18 @@ void Game::handleEvents()
 void Game::update()
 {
     test_terrain.update(player_.get_lane_id());
-    for (std::vector<Bullet>::iterator bullet = bullets_.begin(); bullet != bullets_.end(); ++bullet) {
-        bullet->update();
-        // if (bullet->get_depth() <= 0.25) {
-        //     bullets_.erase(bullet);
-        // }
+    if (player_.get_is_shooting())
+    {
+        bullets_.push_back(Bullet(player_.get_lane_id(), test_terrain));
+        player_.set_is_shooting(false);
     }
-    // if(bullets_[0].get_depth() <= 0.25) {
-    //     bullets_.erase(bullets_.begin());
+    // if (Bullet::get_bullet_count() > 0) {
+        for (std::vector<Bullet>::iterator bullet = bullets_.begin(); bullet != bullets_.end(); ++bullet) {
+            bullet->update();
+            if (bullet->get_depth() <= 0.25) {
+                bullets_.erase(bullet);
+            }
+        }
     // }
 }
 
@@ -91,9 +94,9 @@ void Game::render()
 {
     SDL_RenderClear(renderer_);
     test_terrain.render(renderer_);
-    player_.render(renderer_);
+    player_.render(renderer_, test_terrain);
     for (auto& bullet : bullets_)
-        bullet.render(renderer_);
+        bullet.render(renderer_, test_terrain);
     m_write(renderer_, "Hello World!", 100, 100);
     SDL_RenderPresent(renderer_);
 }

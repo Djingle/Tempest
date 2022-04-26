@@ -2,10 +2,9 @@
 #include "Level.hpp"
 #include <iostream>
 
-Object::Object(int lane_id, float depth, const Level& level) :
+Object::Object(int lane_id, float depth) :
     lane_id_{lane_id},
-    depth_{depth},
-    level_{level}
+    depth_{depth}
 {
     std::cout << "New Object" << std::endl;
 }
