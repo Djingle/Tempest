@@ -3,12 +3,13 @@
 #include <vector>
 #include "Level.hpp"
 
+Flipper flipper{0, 0.45};
 Level test_terrain{2};
 Game::Game() :
     is_running_{false},
     window_{NULL},
     renderer_{NULL},
-    player_{Player(test_terrain)}
+    player_{Player()}
 {
     std::cout << "New game" << std::endl;
 }
@@ -75,19 +76,22 @@ void Game::handleEvents()
 void Game::update()
 {
     test_terrain.update(player_.get_lane_id());
+
     if (player_.get_is_shooting())
     {
-        bullets_.push_back(Bullet(player_.get_lane_id(), test_terrain));
+        bullets_.push_back(Bullet(player_.get_lane_id(), 0.99, true));
         player_.set_is_shooting(false);
     }
-    // if (Bullet::get_bullet_count() > 0) {
-        for (std::vector<Bullet>::iterator bullet = bullets_.begin(); bullet != bullets_.end(); ++bullet) {
+    if (Bullet::get_bullet_count() > 0) {
+        std::vector<Bullet>::iterator bullet = bullets_.begin();
+        while (bullet != bullets_.end()) {
             bullet->update();
-            if (bullet->get_depth() <= 0.25) {
+            if (bullet->get_depth() <= 0.20 || bullet->get_depth() >= 1.5) {
                 bullets_.erase(bullet);
             }
+            else ++bullet;
         }
-    // }
+    }
 }
 
 void Game::render()
@@ -95,9 +99,11 @@ void Game::render()
     SDL_RenderClear(renderer_);
     test_terrain.render(renderer_);
     player_.render(renderer_, test_terrain);
-    for (auto& bullet : bullets_)
+    for (auto bullet : bullets_) {
         bullet.render(renderer_, test_terrain);
+    }
     m_write(renderer_, "Hello World!", 100, 100);
+    flipper.render(renderer_, test_terrain);
     SDL_RenderPresent(renderer_);
 }
 

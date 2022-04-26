@@ -4,6 +4,7 @@
 #include "Game.hpp"
 #include "Bullet.hpp"
 
+
 Game *game = nullptr;
 
 int main(int argc, char** argv)
@@ -21,11 +22,7 @@ int main(int argc, char** argv)
         SDL_SetRenderDrawColor(game->get_renderer(), 0, 0, 0, 0);
 		frameStart = SDL_GetTicks();
 		game->handleEvents();
-        std::cout << "before : ";
-        Bullet::print_bullet_count();
 		game->update();
-        std::cout << "after : ";
-        Bullet::print_bullet_count();
 		game->render();
 		frameTime = SDL_GetTicks() - frameStart;
 		if (frameDelay > frameTime)

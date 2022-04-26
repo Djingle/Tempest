@@ -1,13 +1,18 @@
 #include "Player.hpp"
 #include "Bullet.hpp"
 
-Player::Player(const Level& level) :
-    Object{0, 1.0},
+mesh Player::vertices_{{{0.5, 0.5}}};
+
+Player::Player() :
+    Object(0, 1.0),
     nb_lives_{3},
-    score_{0}
+    score_{0},
+    is_shooting_{false}
 {
     std::cout << "New Player" << std::endl;
 }
+
+mesh Player::get_vertices() const { return vertices_; }
 
 void Player::move_right(const Level& terrain)
 {

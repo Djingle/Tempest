@@ -3,7 +3,9 @@
 #include <SDL.h>
 #include "Player.hpp"
 #include "Bullet.hpp"
+#include "Flipper.hpp"
 #include <vector>
+
 /**
  * @brief 
  * 
@@ -15,6 +17,7 @@ class Game {
         SDL_Renderer* renderer_;
         Player player_;
         std::vector<Bullet> bullets_;
+        std::vector<Enemy> enemies_;
     public:
         Game();
         ~Game();
