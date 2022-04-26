@@ -100,11 +100,11 @@ void Game::render()
     SDL_RenderClear(renderer_);
     hud_.render(player_.get_score(),player_.get_nb_lives(),1);
     level_.render(renderer_);
-    player_.render(renderer_);
+    player_.render(renderer_,level_);
     for (auto bullet : bullets_) {
         bullet.render(renderer_, level_);
     }
-    flipper.render(renderer_, test_terrain);
+    flipper.render(renderer_, level_);
     SDL_RenderPresent(renderer_);
 }
 

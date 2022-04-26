@@ -1,6 +1,6 @@
 #include "utils.hpp"
 
-vertex m_normalize(float x,float min_x,float max_x,float y, float min_y, float max_y, int width, int height)
+vertex v_normalize(float x,float min_x,float max_x,float y, float min_y, float max_y, int width, int height)
 {
     float x_norm = (x-min_x)/(max_x-min_x);
     float y_norm = (y-min_y)/(max_y-min_y);
@@ -36,6 +36,7 @@ mesh m_rotate(mesh obj, vertex center, float angle) {
 float get_angle(vertex a, vertex b, vertex c)
 {
     float result = atan2(c.second-b.second,c.first-b.first)-atan2(a.second-b.second,a.first-b.first);
+    return result;
 }
 
 

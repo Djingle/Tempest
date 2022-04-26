@@ -26,13 +26,13 @@ void Level::init(SDL_Renderer* renderer,unsigned int lvl)
         file >> ymin >> ymax;
         file >> x_center >> y_center;
         file >> scale;
-        center_ = m_normalize(x_center,xmin,xmax,y_center,ymin,ymax,height,height);
+        center_ = v_normalize(x_center,xmin,xmax,y_center,ymin,ymax,height,height);
         while(!file.eof())
         {
             float x_FR,y_FR,x_FL,y_FL; // FR = Front Right, FL = Front Left
             file >> x_FR >> y_FR >> x_FL >> y_FL;
-            const vertex fr_norm = m_normalize(x_FR,xmin,xmax,y_FR,ymin,ymax,height,height);
-            const vertex fl_norm = m_normalize(x_FL,xmin,xmax,y_FL,ymin,ymax,height,height);
+            const vertex fr_norm = v_normalize(x_FR,xmin,xmax,y_FR,ymin,ymax,height,height);
+            const vertex fl_norm = v_normalize(x_FL,xmin,xmax,y_FL,ymin,ymax,height,height);
             lanes_.push_back(Lane(center_,scale,fr_norm,fl_norm));
         }
     }

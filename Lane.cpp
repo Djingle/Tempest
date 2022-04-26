@@ -6,8 +6,8 @@ Lane::Lane(const vertex center,const float scale, const vertex f_left, const ver
     is_active_{false},
     f_left_{f_left},
     f_right_{f_right},
-    b_left_{m_homothety(f_left,center,scale)},
-    b_right_{m_homothety(f_right,center,scale)}
+    b_left_{v_homothety(f_left,center,scale)},
+    b_right_{v_homothety(f_right,center,scale)}
 {
     u = { f_left_.first - f_right_.first, f_left_.second - f_right_.second };
     float norme = sqrt(u.first*u.first + u.second*u.second);
