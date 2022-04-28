@@ -4,30 +4,8 @@
 #include <vector>
 #include "Lane.hpp"
 #include <fstream>
-
-Level::Level() :
-    lanes_{},
-    player_pos_{0},
-    circular_{false},
-    center_{0,0},
-    renderer_{nullptr}
-{   
-}
-
-Level::Level(const Level& level) :
-    lanes_{level.lanes_},
-    player_pos_{level.player_pos_},
-    circular_{level.circular_},
-    center_{level.center_},
-    renderer_{level.renderer_}
+void Level::init(unsigned int lvl,int height)
 {
-    std::cout << "Level copy constructor called" << std::endl;
-}
-
-void Level::init(SDL_Renderer* renderer,unsigned int lvl)
-{
-    int width,height;
-    SDL_GetRendererOutputSize(renderer,&width,&height);
     std::ifstream file;
     file.open("../Assets/Levels/level"+std::to_string(lvl)+".txt");
     if (file.is_open()) 
@@ -64,14 +42,10 @@ void Level::update(unsigned int player_pos)
 
 void Level::render(SDL_Renderer* renderer)
 {
-    
     for (auto lane : lanes_) {
         lane.render(renderer);
     }
     lanes_[player_pos_].render(renderer);
-    // SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-    // SDL_RenderClear(renderer);
-    
 }
 
 void Level::clean()
