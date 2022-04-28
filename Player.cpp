@@ -45,5 +45,5 @@ void Player::render(SDL_Renderer* renderer, const Level& level)
     SDL_RenderDrawLineF(renderer, r.first, r.second, b.first, b.second);
     SDL_RenderDrawLineF(renderer, l.first, l.second, f.first, f.second);
     SDL_RenderDrawLineF(renderer, r.first, r.second, f.first, f.second);
-    std::cout << "l: " << l.first << " " << l.second << std::endl;
+    //std::cout << "l: " << l.first << " " << l.second << std::endl;
 }

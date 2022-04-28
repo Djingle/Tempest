@@ -3,7 +3,7 @@
 #include <vector>
 #include "Level.hpp"
 
-Flipper flipper{0, 0.45};
+Flipper flipper{2, 0.45};
 Game::Game() :
     is_running_{false},
     window_{NULL},
@@ -100,6 +100,7 @@ void Game::update()
             else ++bullet;
         }
     }
+    flipper.update();
 }
 void Game::render()
 {

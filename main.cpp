@@ -18,7 +18,6 @@ int main(int argc, char** argv)
 	game->init("Tempest", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800,600, false);
 	while (game->running())
 	{
-        // We change the color in the lane renderer, we have to set back the base color here.
         SDL_SetRenderDrawColor(game->get_renderer(), 0, 0, 0, 0);
 		frameStart = SDL_GetTicks();
 		game->handleEvents();

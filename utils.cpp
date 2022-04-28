@@ -27,13 +27,42 @@ vertex v_rotate(vertex obj, vertex center, float angle)
     return {x_rot,y_rot}; 
 }
 
+vertex v_translate(vertex obj, float x, float y)
+{
+    return {obj.first+x,obj.second+y};
+}
+
+vertex v_scale0(vertex obj, float scale)
+{
+    int x_sc = lround(obj.first*scale);
+    int y_sc = lround(obj.second*scale);
+    return {x_sc,y_sc}; 
+}
+
+float v_distance(vertex v1, vertex v2)
+{
+    return sqrt(pow(v1.first-v2.first,2)+pow(v1.second-v2.second,2));
+}
+
 mesh m_rotate(mesh obj, vertex center, float angle) {
     for (auto &v : obj)
         v = v_rotate(v,center,angle);
     return obj;
 }
 
-float get_angle(vertex a, vertex b, vertex c)
+mesh m_scale0(mesh obj, float scale) {
+    for (auto &v : obj)
+        v = v_scale0(v,scale);
+    return obj;
+}
+
+mesh m_translate(mesh obj, float x, float y) {
+    for (auto &v : obj)
+        v = v_translate(v,x,y);
+    return obj;
+}
+
+float v_angle(vertex a, vertex b, vertex c)
 {
     float result = atan2(c.second-b.second,c.first-b.first)-atan2(a.second-b.second,a.first-b.first);
     return result;
