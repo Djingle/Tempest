@@ -3,12 +3,10 @@
 #include <vector>
 #include "Level.hpp"
 
-Flipper flipper{2, 0.45};
 Game::Game() :
     is_running_{false},
     window_{NULL},
-    renderer_{NULL},
-    player_{Player()}
+    renderer_{NULL}
 {
     std::cout << "New game" << std::endl;
 }
@@ -47,6 +45,11 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
                 level_.init(2,height);
                 is_running_ = true;
             }
+            //
+            std::cout << "3" << std::endl;
+            player_= Player(level_);
+            std::cout << "4" << std::endl;
+            //
         }
     }
 }
@@ -99,7 +102,6 @@ void Game::update()
             else ++bullet;
         }
     }
-    flipper.update();
 }
 void Game::render()
 {

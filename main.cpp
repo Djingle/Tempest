@@ -4,7 +4,6 @@
 #include "Game.hpp"
 #include "Bullet.hpp"
 
-
 Game *game = nullptr;
 
 int main(int argc, char** argv)
