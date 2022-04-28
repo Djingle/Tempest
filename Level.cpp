@@ -4,6 +4,26 @@
 #include <vector>
 #include "Lane.hpp"
 #include <fstream>
+
+Level::Level() :
+    lanes_{},
+    player_pos_{0},
+    circular_{false},
+    center_{0,0},
+    renderer_{nullptr}
+{   
+}
+
+Level::Level(const Level& level) :
+    lanes_{level.lanes_},
+    player_pos_{level.player_pos_},
+    circular_{level.circular_},
+    center_{level.center_},
+    renderer_{level.renderer_}
+{
+    std::cout << "Level copy constructor called" << std::endl;
+}
+
 void Level::init(SDL_Renderer* renderer,unsigned int lvl)
 {
     int width,height;

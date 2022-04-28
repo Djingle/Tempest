@@ -3,12 +3,10 @@
 #include <vector>
 #include "Level.hpp"
 
-Flipper flipper{2, 0.45};
 Game::Game() :
     is_running_{false},
     window_{NULL},
-    renderer_{NULL},
-    player_{Player()}
+    renderer_{NULL}
 {
     std::cout << "New game" << std::endl;
 }
@@ -42,12 +40,22 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
             dst_.w = height;
             dst_.h = height;
             hud_.init(renderer_);
+            static int i = 0;
+            //
+            std::cout << "1" << std::endl;
             level_.init(renderer_,2);
+            std::cout << "2" << std::endl;
+            //
             if (renderer_ != NULL)
             {
                 std::cout << "Renderer created..." << std::endl;
                 is_running_ = true;
             }
+            //
+            std::cout << "3" << std::endl;
+            player_= Player(level_);
+            std::cout << "4" << std::endl;
+            //
         }
     }
 }
@@ -100,7 +108,6 @@ void Game::update()
             else ++bullet;
         }
     }
-    flipper.update();
 }
 void Game::render()
 {
@@ -110,11 +117,10 @@ void Game::render()
     SDL_SetRenderDrawColor(renderer_, 0, 0, 0, 0);
     SDL_RenderClear(renderer_);
     level_.render(renderer_);
-    player_.render(renderer_,level_);
+    player_.render(renderer_);
     for (auto bullet : bullets_) {
-        bullet.render(renderer_, level_);
+        bullet.render(renderer_);
     }
-    flipper.render(renderer_, level_);
     SDL_SetRenderTarget(renderer_, NULL);
     SDL_RenderCopy(renderer_, texture_, NULL, &dst_);
     SDL_RenderPresent(renderer_);

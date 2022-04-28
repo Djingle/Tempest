@@ -12,15 +12,11 @@ class Bullet : public Object {
         Bullet(const Bullet& bullet);
         virtual ~Bullet();
 
+        void update();
+
         static const int& get_bullet_count() { return bullet_count_; }
         const bool& get_direction() const { return direction_; }
         static void print_bullet_count() { std::cout << "Bullet count : " << bullet_count_ << std::endl; }
-        mesh get_vertices() const override;
-
-        void render(SDL_Renderer* renderer, const Level& level) override;
-        void update() override;
-        void clean() override {};
-
 };
 
 #endif

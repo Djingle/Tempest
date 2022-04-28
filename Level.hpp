@@ -13,7 +13,8 @@ class Level {
         SDL_Texture* texture_;
         SDL_Rect dst_;
     public:
-
+        Level();
+        Level(const Level& level);
         inline int get_nb_lanes() const { return lanes_.size(); }
         inline const Lane& get_lane(unsigned int i) const { return lanes_[i]; }
         inline const bool& is_circular() const { return circular_; }

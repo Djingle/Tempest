@@ -32,6 +32,7 @@ class Game {
         void render();
         void clean();
         inline SDL_Renderer* get_renderer() const {return renderer_;};
+        const Level& get_level() const {return level_;};
         inline bool running() const {return is_running_;};
 };
 #endif
