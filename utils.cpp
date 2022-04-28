@@ -20,10 +20,10 @@ mesh m_homothety(mesh obj, vertex center, float scale) {
     return obj;
 }
 
-vertex v_rotate(vertex obj, vertex center, float angle)
+vertex v_rotate0(vertex obj, float angle)
 {
-    float x_rot = lround((obj.first-center.first)*cos(angle)-(obj.second-center.second)*sin(angle))+center.first;
-    float y_rot = lround((obj.first-center.first)*sin(angle)+(obj.second-center.second)*cos(angle))+center.second;
+    float x_rot = lround((obj.first)*cos(angle)-(obj.second)*sin(angle));
+    float y_rot = lround((obj.first)*sin(angle)+(obj.second)*cos(angle));
     return {x_rot,y_rot}; 
 }
 
@@ -44,9 +44,9 @@ float v_distance(vertex v1, vertex v2)
     return sqrt(pow(v1.first-v2.first,2)+pow(v1.second-v2.second,2));
 }
 
-mesh m_rotate(mesh obj, vertex center, float angle) {
+mesh m_rotate0(mesh obj, float angle) {
     for (auto &v : obj)
-        v = v_rotate(v,center,angle);
+        v = v_rotate0(v,angle);
     return obj;
 }
 
