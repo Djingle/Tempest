@@ -7,7 +7,7 @@ class Flipper : public Enemy
     private :
         bool is_shooting_;
         int is_moving_; // 0 = not moving, 1 = moving right, 2 = moving left
-        static mesh vertices_;
+        static const mesh vertices_;
     public : 
         Flipper(int lane_id, float depth);
         virtual ~Flipper();
