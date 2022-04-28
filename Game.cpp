@@ -42,7 +42,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
             dst_.w = height;
             dst_.h = height;
             hud_.init(renderer_);
-            level_.init(renderer_,2);
+            level_.init(height,2);
             if (renderer_ != NULL)
             {
                 std::cout << "Renderer created..." << std::endl;

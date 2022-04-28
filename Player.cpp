@@ -33,7 +33,7 @@ void Player::render(SDL_Renderer* renderer, const Level& level)
     l = lane.get_f_left();
     r = lane.get_f_right();
     l.first -= 100*lane.get_u().first;
-    l.second -= 100*lane.get_u().second;
+    l.second -= lane.get_u().second;
     r.first += 100*lane.get_u().first;
     r.second += 100*lane.get_u().second;
     m = {(l.first + r.first)/2, (l.second + r.second)/2};
@@ -45,5 +45,4 @@ void Player::render(SDL_Renderer* renderer, const Level& level)
     SDL_RenderDrawLineF(renderer, r.first, r.second, b.first, b.second);
     SDL_RenderDrawLineF(renderer, l.first, l.second, f.first, f.second);
     SDL_RenderDrawLineF(renderer, r.first, r.second, f.first, f.second);
-    std::cout << "l: " << l.first << " " << l.second << std::endl;
 }

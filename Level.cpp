@@ -4,10 +4,8 @@
 #include <vector>
 #include "Lane.hpp"
 #include <fstream>
-void Level::init(SDL_Renderer* renderer,unsigned int lvl)
+void Level::init(unsigned int lvl,int height)
 {
-    int width,height;
-    SDL_GetRendererOutputSize(renderer,&width,&height);
     std::ifstream file;
     file.open("../Assets/Levels/level"+std::to_string(lvl)+".txt");
     if (file.is_open()) 
@@ -44,14 +42,10 @@ void Level::update(unsigned int player_pos)
 
 void Level::render(SDL_Renderer* renderer)
 {
-    
     for (auto lane : lanes_) {
         lane.render(renderer);
     }
     lanes_[player_pos_].render(renderer);
-    // SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-    // SDL_RenderClear(renderer);
-    
 }
 
 void Level::clean()
