@@ -21,6 +21,8 @@ class Game {
         HUD hud_;
         Level level_;
         std::vector<Enemy> enemies_;
+        SDL_Texture* texture_;
+        SDL_Rect dst_;
     public:
         Game();
         ~Game();

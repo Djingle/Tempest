@@ -30,10 +30,17 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     {
         std::cout << "Subsystems initialized..." << std::endl;
         window_ = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
+        
         if (window_ != NULL)
         {
             std::cout << "Window created..." << std::endl;
             renderer_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+            texture_ = SDL_CreateTexture(renderer_, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET,height, height);
+            SDL_SetTextureBlendMode(texture_, SDL_BLENDMODE_BLEND);
+            dst_.x = width/2 - height/2;
+            dst_.y = 0;
+            dst_.w = height;
+            dst_.h = height;
             hud_.init(renderer_);
             level_.init(renderer_,2);
             if (renderer_ != NULL)
@@ -94,17 +101,21 @@ void Game::update()
         }
     }
 }
-
 void Game::render()
 {
     SDL_RenderClear(renderer_);
     hud_.render(player_.get_score(),player_.get_nb_lives(),1);
+    SDL_SetRenderTarget(renderer_, texture_);
+    SDL_SetRenderDrawColor(renderer_, 0, 0, 0, 0);
+    SDL_RenderClear(renderer_);
     level_.render(renderer_);
     player_.render(renderer_,level_);
     for (auto bullet : bullets_) {
         bullet.render(renderer_, level_);
     }
     flipper.render(renderer_, level_);
+    SDL_SetRenderTarget(renderer_, NULL);
+    SDL_RenderCopy(renderer_, texture_, NULL, &dst_);
     SDL_RenderPresent(renderer_);
 }
 

@@ -12,12 +12,6 @@ void Level::init(SDL_Renderer* renderer,unsigned int lvl)
     file.open("../Assets/Levels/level"+std::to_string(lvl)+".txt");
     if (file.is_open()) 
     {   
-        texture_ = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET,height, height);
-        SDL_SetTextureBlendMode(texture_, SDL_BLENDMODE_BLEND);
-        dst_.x = width/2 - height/2;
-        dst_.y = 0;
-        dst_.w = height;
-        dst_.h = height;
         float xmin,xmax,ymin,ymax;
         int x_center,y_center;
         float scale;
@@ -50,18 +44,14 @@ void Level::update(unsigned int player_pos)
 
 void Level::render(SDL_Renderer* renderer)
 {
-    SDL_SetRenderTarget(renderer, texture_);
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-    SDL_RenderClear(renderer);
+    
     for (auto lane : lanes_) {
         lane.render(renderer);
     }
     lanes_[player_pos_].render(renderer);
     // SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
     // SDL_RenderClear(renderer);
-    SDL_SetRenderTarget(renderer, NULL);
-    SDL_RenderCopy(renderer, texture_, NULL, &dst_);
-    SDL_SetRenderTarget(renderer, texture_);
+    
 }
 
 void Level::clean()
