@@ -14,7 +14,7 @@ class Lane {
         vertex b_right_;
     public:
         Lane(const vertex center,const float scale,const vertex f_right, const vertex f_left);
-        Lane(const Lane& lane);
+        // Lane(const Lane& lane);
         void set_active(bool is_active);
 
         bool get_active() const {return is_active_;} 

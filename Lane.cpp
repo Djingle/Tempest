@@ -9,18 +9,18 @@ Lane::Lane(const vertex center,const float scale, const vertex f_left, const ver
     b_left_{v_homothety(f_left,center,scale)},
     b_right_{v_homothety(f_right,center,scale)}
 {
-    std::cout << "New lane n : (" << f_left.first << ";" << f_left.second << ") (" << f_right.first << ";" << f_right.second << ") (" << b_left_.first << ";" << b_left_.second << ") (" << b_right_.first << "; " << b_right_.second << ")" << std::endl; 
+    // std::cout << "New lane n : (" << f_left.first << ";" << f_left.second << ") (" << f_right.first << ";" << f_right.second << ") (" << b_left_.first << ";" << b_left_.second << ") (" << b_right_.first << "; " << b_right_.second << ")" << std::endl; 
 }
 
-Lane::Lane(const Lane& lane) :
-    is_active_{lane.is_active_},
-    f_left_{lane.f_left_},
-    f_right_{lane.f_right_},
-    b_left_{lane.b_left_},
-    b_right_{lane.b_right_}
-{
-    std::cout << "New lane c : (" << f_left_.first << ";" << f_left_.second << ") (" << f_right_.first << ";" << f_right_.second << ") (" << b_left_.first << ";" << b_left_.second << ") (" << b_right_.first << "; " << b_right_.second << ")" << std::endl; 
-}
+// Lane::Lane(const Lane& lane) :
+//     is_active_{lane.is_active_},
+//     f_left_{lane.f_left_},
+//     f_right_{lane.f_right_},
+//     b_left_{lane.b_left_},
+//     b_right_{lane.b_right_}
+// {
+//     std::cout << "New lane c : (" << f_left_.first << ";" << f_left_.second << ") (" << f_right_.first << ";" << f_right_.second << ") (" << b_left_.first << ";" << b_left_.second << ") (" << b_right_.first << "; " << b_right_.second << ")" << std::endl; 
+// }
 
 void Lane::set_active(bool is_active)
 {
