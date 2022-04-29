@@ -36,7 +36,6 @@ float Level::get_angle_diff(int l1, int l2, int direction) const
 {
     if (direction == 1)
         return v_angle(lanes_[l1].get_f_right(), lanes_[l1].get_f_left(), lanes_[l2].get_f_right());
-    std::cout << "left" << std::endl;
     return v_angle(lanes_[l1].get_f_left(), lanes_[l1].get_f_right(), lanes_[l2].get_f_left());
 }
 
@@ -55,9 +54,4 @@ void Level::render(SDL_Renderer* renderer)
         lane.render(renderer);
     }
     lanes_[player_pos_].render(renderer);
-}
-
-void Level::clean()
-{
-    
 }
