@@ -107,7 +107,7 @@ void Game::generate_enemies(){
     std::uniform_int_distribution<> distrib_percentage(1,200);
     std::uniform_int_distribution<> distrib_lane(0,15);
     int value = distrib_percentage(gen);
-    switch(value){
+    switch(value){ // each ennemy has 0.5% chance to appear each frame
     case 1:
         enemies_.push_back(new Flipper(distrib_lane(gen),0.2,level_));
         break;
