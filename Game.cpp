@@ -103,7 +103,17 @@ void Game::update()
     player_.update(level_);
     // Generate randomly enemies each 10 seconds
     generate_enemies();
-
+    // detect collisions with depth
+    for (auto& enemy : enemies_)
+    {
+        if (enemy->get_lane_id() == player_.get_lane_id())
+        {
+            if (enemy->get_depth() == player_.get_depth())
+            {
+                player_.set_nb_lives(player_.get_nb_lives()-1);
+            }
+        }
+    }
     if (player_.get_is_shooting())
     {
         bullets_.push_back(Bullet(player_.get_lane_id(), 0.99, true,level_));

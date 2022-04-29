@@ -20,7 +20,7 @@ class Player: public Object {
         void shoot();
         inline int get_score() const {return score_;};
         inline int get_nb_lives() const {return nb_lives_;};
-        
+        void set_nb_lives(int nb_lives) {nb_lives_ = nb_lives;};
         void update(const Level& terrain);
         void set_is_shooting(bool is_shooting) { is_shooting_ = is_shooting; }
         const bool& get_is_shooting() const { return is_shooting_; }
