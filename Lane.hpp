@@ -22,7 +22,6 @@ class Lane {
          * @param f_left 
          */
         Lane(const vertex center,const float scale,const vertex f_right, const vertex f_left);
-        // Lane(const Lane& lane);
         /**
          * @brief Set the active object
          * 
