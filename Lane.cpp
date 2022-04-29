@@ -7,12 +7,9 @@ Lane::Lane(const vertex center,const float scale, const vertex f_left, const ver
     f_left_{f_left},
     f_right_{f_right},
     b_left_{v_homothety(f_left,center,scale)},
-    b_right_{v_homothety(f_right,center,scale)}
-{
-}
+    b_right_{v_homothety(f_right,center,scale)}{}
 
-void Lane::render(SDL_Renderer* renderer) const
-{
+void Lane::render(SDL_Renderer* renderer) const{
     SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
     // Draw front and back lines in blue
     SDL_RenderDrawLineF(renderer, f_left_.first, f_left_.second, f_right_.first, f_right_.second);

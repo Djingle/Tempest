@@ -3,8 +3,7 @@
 #include "Object.hpp"
 
 
-class Enemy : public Object
-{
+class Enemy : public Object{
     private :
         static int enemy_count_;
         int value_;

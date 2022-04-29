@@ -2,8 +2,7 @@
 #define FLIPPER_HPP
 #include "Enemy.hpp"
 
-class Flipper : public Enemy
-{
+class Flipper : public Enemy{
     private :
         bool is_shooting_;
         int destination_; // lane to the right or left where the Flipper is going

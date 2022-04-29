@@ -6,8 +6,7 @@
 
 Game *game = nullptr;
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv){
 	game = new Game();
 	const int FPS = 60;
 	const int frameDelay = 1000 / FPS;
@@ -15,8 +14,7 @@ int main(int argc, char** argv)
 	int frameTime;
 	int frameCount = 0;
 	game->init("Tempest", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800,600, false);
-	while (game->running())
-	{
+	while (game->running()){
         SDL_SetRenderDrawColor(game->get_renderer(), 0, 0, 0, 0);
 		frameStart = SDL_GetTicks();
 		game->handleEvents();
@@ -24,9 +22,7 @@ int main(int argc, char** argv)
 		game->render();
 		frameTime = SDL_GetTicks() - frameStart;
 		if (frameDelay > frameTime)
-		{
 			SDL_Delay(frameDelay - frameTime);
-		}
 	}
 	delete game;
 	return EXIT_SUCCESS;
