@@ -16,7 +16,7 @@ class Object
 
         void init(const Level& terrain) {vertices_= get_pos(terrain);}
         virtual void render(SDL_Renderer* renderer);
-        void update();
+        // void update();
         void clean();
 
         int get_lane_id() const { return lane_id_; }

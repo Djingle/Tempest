@@ -3,12 +3,18 @@
 #include <vector>
 #include "Level.hpp"
 
+// TODO : Gérer l'update des ennemies car la boucle itère sur la liste mais les objets
+// sont de types Enemy et non Flipper.
+// Peut-être tenter de faire un template pour les objets ? ( Proposition de Copilot :) )
+// ou bien avec les dynamic_cast ? 
+// TODO : Regarder pourquoi le player ne se déplace pas
+// TODO : Gérer les collisions entre les objets
+
 Game::Game() :
     is_running_{false},
     window_{NULL},
     renderer_{NULL}
 {
-    std::cout << "New game" << std::endl;
 }
 
 Game::~Game()
@@ -45,11 +51,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
                 level_.init(2,height);
                 is_running_ = true;
             }
-            //
-            std::cout << "3" << std::endl;
             player_= Player(level_);
-            std::cout << "4" << std::endl;
-            //
+            Flipper flipper = Flipper(2, 0.5,level_);
+            enemies_.push_back(flipper);
+            
         }
     }
 }
@@ -102,6 +107,12 @@ void Game::update()
             else ++bullet;
         }
     }
+    for(auto &enemy : enemies_)
+    {
+       // tester avec dynamic_cast, j'ai fais des tentatives infructueuses
+    
+
+    }
 }
 void Game::render()
 {
@@ -115,7 +126,9 @@ void Game::render()
     for (auto bullet : bullets_) {
         bullet.render(renderer_);
     }
-    // flipper.render(renderer_);
+    for(auto enemy : enemies_) {
+        enemy.render(renderer_);
+    }
     SDL_SetRenderTarget(renderer_, NULL);
     SDL_RenderCopy(renderer_, texture_, NULL, &dst_);
     SDL_RenderPresent(renderer_);

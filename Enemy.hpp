@@ -11,7 +11,7 @@ class Enemy : public Object
     public :
         Enemy(int lane_id, float depth, mesh vertices);
         virtual ~Enemy();
-
+        virtual void update();
         static const int& get_enemy_count() { return enemy_count_; }
         const int& get_value() const { return value_; }
 };

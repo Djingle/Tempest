@@ -8,7 +8,7 @@ class Flipper : public Enemy
         bool is_shooting_;
         int is_moving_; // 0 = not moving, 1 = moving right, 2 = moving left
     public : 
-        Flipper(int lane_id, float depth);
+        Flipper(int lane_id, float depth,const Level& terrain);
         virtual ~Flipper();
         void move_right(const Level& terrain);
         void move_left(const Level& terrain);
