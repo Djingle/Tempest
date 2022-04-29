@@ -24,18 +24,18 @@ class Enemy : public Object
          */
         virtual ~Enemy();
         /**
-         * @brief 
+         * @brief update the enemy
          * 
          */
         virtual void update();
         /**
-         * @brief Get the enemy count object
+         * @brief Get the number of ennemies
          * 
          * @return const int& 
          */
         static const int& get_enemy_count() { return enemy_count_; }
         /**
-         * @brief Get the value object
+         * @brief Get the value of the enemy for the score
          * 
          * @return const int& 
          */

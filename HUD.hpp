@@ -19,13 +19,13 @@ class HUD {
          */
         ~HUD();
         /**
-         * @brief 
+         * @brief init the HUD's dimensions
          * 
          * @param renderer 
          */
         void init(SDL_Renderer* renderer);
         /**
-         * @brief 
+         * @brief render the HUD and the texts on it
          * 
          * @param score 
          * @param nb_lives 

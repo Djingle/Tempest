@@ -11,11 +11,6 @@ Lane::Lane(const vertex center,const float scale, const vertex f_left, const ver
 {
 }
 
-void Lane::set_active(bool is_active)
-{
-    is_active_ = is_active;
-}
-
 void Lane::render(SDL_Renderer* renderer) const
 {
     SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
@@ -30,7 +25,3 @@ void Lane::render(SDL_Renderer* renderer) const
     SDL_RenderDrawLineF(renderer, f_right_.first, f_right_.second, b_right_.first, b_right_.second);
 } 
 
-void Lane::clean()
-{
-
-}
