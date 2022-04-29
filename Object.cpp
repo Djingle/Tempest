@@ -14,26 +14,15 @@ Object::Object(int lane_id, float depth, mesh v_template) :
 
 mesh Object::get_pos(const Level& terrain) const
 {
-    std::cout << "/1" << std::endl;
     mesh res = v_template_;
-    m_print(res);
-    std::cout << std::endl;
     // We scale the template to map the coordinates to the lane width
     res = m_scale0(res, terrain.get_lane(lane_id_).get_width()/2);
-    m_print(res);
-    std::cout << std::endl;
     // We rotate the template so that it is oriented to the center
     res = m_rotate0(res, get_angle(terrain));
-    m_print(res);
-    std::cout << std::endl;
     // We translate the template to the begining of the lane
     res = m_translate(res, terrain.get_lane(lane_id_).get_mid().first, terrain.get_lane(lane_id_).get_mid().second);
-    m_print(res);
-    std::cout << std::endl;
     // Homothety to the depth
     res = m_homothety(res, terrain.get_center(), depth_);
-    m_print(res);
-    std::cout << std::endl;
     return res;
 }
 

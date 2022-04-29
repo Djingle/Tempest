@@ -37,7 +37,6 @@ void Player::update(const Level& terrain)
 {
     if (direction_ != 0) {
         vertices_ = get_pos(terrain);
-        std::cout << "l" << lane_id_ << std::endl;
         direction_ = 0;
     }
 }

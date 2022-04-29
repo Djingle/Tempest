@@ -10,7 +10,7 @@ mesh Flipper_template {{{-1  ,-0.5},
 Flipper::Flipper(int lane_id, float depth,const Level& terrain) :
     Enemy{lane_id, depth, Flipper_template},
     is_shooting_{false},
-    is_moving_{false}
+    direction_{0}
 {
     vertices_ = get_pos(terrain);
 }
@@ -18,20 +18,26 @@ Flipper::~Flipper(){};
 
 void Flipper::move_right(const Level& terrain)
 {
+    direction_++;
     if (lane_id_ < terrain.get_nb_lanes()-1) lane_id_++;
     else if (terrain.is_circular()) lane_id_ = 0;
 }
 
 void Flipper::move_left(const Level& terrain)
 {
+    direction_--;
     if (lane_id_ > 0) lane_id_--;
     else if (terrain.is_circular()) lane_id_ = terrain.get_nb_lanes()-1;
+}
+
+void Flipper::render(SDL_Renderer* renderer)
+{
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+    Object::render(renderer);
 }
 
 
 void Flipper::update(const Level& terrain)
 {
     (depth_<1.0) ? depth_ += 0.004 : depth_ = 1.0;
-
-    std::cout << depth_ << std::endl;
 }
