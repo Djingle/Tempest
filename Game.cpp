@@ -104,7 +104,7 @@ void Game::test_collisions(){
 void Game::generate_enemies(){
     std::random_device rd;  //Will be used to obtain a seed for the random number engine
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
-    std::uniform_int_distribution<> distrib_percentage(1,100);
+    std::uniform_int_distribution<> distrib_percentage(1,200);
     std::uniform_int_distribution<> distrib_lane(0,15);
     int value = distrib_percentage(gen);
     switch(value){
