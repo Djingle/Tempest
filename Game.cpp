@@ -94,13 +94,13 @@ void Game::update()
 
     if (player_.get_is_shooting())
     {
-        bullets_.push_back(Bullet(player_.get_lane_id(), 0.99, true));
+        bullets_.push_back(Bullet(player_.get_lane_id(), 0.99, true,level_));
         player_.set_is_shooting(false);
     }
     if (Bullet::get_bullet_count() > 0) {
         std::vector<Bullet>::iterator bullet = bullets_.begin();
         while (bullet != bullets_.end()) {
-            bullet->update();
+            bullet->update(level_);
             if (bullet->get_depth() <= 0.20 || bullet->get_depth() >= 1.5) {
                 bullets_.erase(bullet);
             }
@@ -127,7 +127,7 @@ void Game::render()
     SDL_RenderClear(renderer_);
     level_.render(renderer_);
     player_.render(renderer_);
-    for (auto bullet : bullets_) {
+    for (auto& bullet : bullets_) {
         bullet.render(renderer_);
     }
     for(auto enemy : enemies_) {
