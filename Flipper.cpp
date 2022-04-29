@@ -25,7 +25,7 @@ void Flipper::move_right(const Level& terrain)
         direction_++;
         if (lane_id_ < terrain.get_nb_lanes()-1) destination_ = lane_id_+1;
         else if (terrain.is_circular()) destination_ = 0;
-        angle_ = terrain.get_angle_diff(lane_id_, destination_, direction_);
+        angle_ = abs(terrain.get_angle_diff(lane_id_, destination_, direction_))/2;
     }
 }
 
@@ -35,7 +35,7 @@ void Flipper::move_left(const Level& terrain)
         direction_--;
         if (lane_id_ > 0) destination_ = lane_id_-1;
         else if (terrain.is_circular()) destination_ = terrain.get_nb_lanes()-1;
-        angle_ = terrain.get_angle_diff(lane_id_, destination_, direction_);
+        angle_ = abs(terrain.get_angle_diff(lane_id_, destination_, direction_))/2;
     }
 }
 
@@ -54,7 +54,7 @@ void Flipper::update(const Level& terrain)
         std::cout << "Flipper is moving" << std::endl;
         std::cout << "angle_ : " << angle_ << std::endl;
         if (angle_ > 0.1) {
-            v_template_ = m_rotate(v_template_, {0, -direction_}, direction_*0.1);
+            v_template_ = m_rotate(v_template_, {0, direction_}, direction_*0.1);
             angle_ -= 0.1;
             std::cout << "oui" << std::endl;
         }

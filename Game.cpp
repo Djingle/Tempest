@@ -32,6 +32,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     }
     if (SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO ) == 0)
     {
+        std::cout << "AAAH" << v_angle({450,562.5},{525,562.5},{525,487.5}) << std::endl;
         std::cout << "Subsystems initialized..." << std::endl;
         window_ = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
         if (window_ != NULL)
@@ -48,11 +49,11 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
                 dst_.w = height;
                 dst_.h = height;
                 hud_.init(renderer_);
-                level_.init(6,height);
+                level_.init(2,height);
                 is_running_ = true;
             }
             player_= Player(level_);
-            Flipper* flipper = new Flipper(0, 0.8,level_);
+            Flipper* flipper = new Flipper(5, 0.8,level_);
             enemies_.push_back(flipper);
         }
     }
