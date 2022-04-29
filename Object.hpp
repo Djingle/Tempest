@@ -3,8 +3,7 @@
 #include <SDL.h>
 #include "Level.hpp"
 
-class Object
-{
+class Object{
     protected :
         int lane_id_;
         float depth_;

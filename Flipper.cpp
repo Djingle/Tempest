@@ -13,14 +13,12 @@ Flipper::Flipper(int lane_id, float depth,const Level& terrain) :
     is_shooting_{false},
     destination_{lane_id_},
     direction_{0},
-    angle_{}
-{
+    angle_{}{
     vertices_ = get_pos(terrain);
 }
 Flipper::~Flipper(){};
 
-void Flipper::move_right(const Level& terrain)
-{
+void Flipper::move_right(const Level& terrain){
     if (direction_ == 0) {
         direction_++;
         if (lane_id_ < terrain.get_nb_lanes()-1) destination_ = lane_id_+1;
@@ -29,8 +27,7 @@ void Flipper::move_right(const Level& terrain)
     }
 }
 
-void Flipper::move_left(const Level& terrain)
-{   
+void Flipper::move_left(const Level& terrain){   
     if (direction_ == 0) {
         direction_--;
         if (lane_id_ > 0) destination_ = lane_id_-1;
@@ -40,15 +37,13 @@ void Flipper::move_left(const Level& terrain)
     }
 }
 
-void Flipper::render(SDL_Renderer* renderer)
-{
+void Flipper::render(SDL_Renderer* renderer){
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
     Object::render(renderer);
 }
 
 
-void Flipper::update(const Level& terrain)
-{
+void Flipper::update(const Level& terrain){
     if (depth_ < 0.52 && depth_ > 0.5) move_right(terrain);
     (depth_<1.0) ? depth_ += 0.001 : depth_ = 1.0;
     if (destination_ != lane_id_) {

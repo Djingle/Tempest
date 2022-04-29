@@ -4,12 +4,10 @@
 #include <vector>
 #include "Lane.hpp"
 #include <fstream>
-void Level::init(unsigned int lvl,int height)
-{
+void Level::init(unsigned int lvl,int height){
     std::ifstream file;
     file.open("../Assets/Levels/level"+std::to_string(lvl)+".txt");
-    if (file.is_open()) 
-    {   
+    if (file.is_open()) {   
         float xmin,xmax,ymin,ymax;
         int x_center,y_center;
         float scale;
@@ -19,8 +17,7 @@ void Level::init(unsigned int lvl,int height)
         file >> x_center >> y_center;
         file >> scale;
         center_ = v_normalize(x_center,xmin,xmax,y_center,ymin,ymax,height,height);
-        while(!file.eof())
-        {
+        while(!file.eof()){
             float x_FR,y_FR,x_FL,y_FL; // FR = Front Right, FL = Front Left
             file >> x_FR >> y_FR >> x_FL >> y_FL;
             const vertex fr_norm = v_normalize(x_FR,xmin,xmax,y_FR,ymin,ymax,height,height);
@@ -32,27 +29,22 @@ void Level::init(unsigned int lvl,int height)
         std::cout << "Error opening file" << std::endl;
 }
 
-float Level::get_angle_diff(int l1, int l2, int direction) const
-{
-    if (direction == 1) {
+float Level::get_angle_diff(int l1, int l2, int direction) const{
+    if (direction == 1)
         return v_angle(lanes_[l1].get_f_left(), lanes_[l1].get_f_right(), lanes_[l2].get_mid());
-    }
-    else return v_angle(lanes_[l1].get_f_right(), lanes_[l1].get_f_left(), lanes_[l2].get_mid());
+    else 
+        return v_angle(lanes_[l1].get_f_right(), lanes_[l1].get_f_left(), lanes_[l2].get_mid());
 }
 
-void Level::update(unsigned int player_pos)
-{
+void Level::update(unsigned int player_pos){
     player_pos_ = player_pos;
-    for (auto &lane : lanes_) {
+    for (auto &lane : lanes_)
         lane.set_active(false);
-    }
     lanes_[player_pos_].set_active(true);
 }
 
-void Level::render(SDL_Renderer* renderer)
-{
-    for (auto lane : lanes_) {
+void Level::render(SDL_Renderer* renderer){
+    for (auto lane : lanes_)
         lane.render(renderer);
-    }
     lanes_[player_pos_].render(renderer);
 }

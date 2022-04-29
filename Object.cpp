@@ -6,15 +6,9 @@ Object::Object(int lane_id, float depth, mesh v_template) :
     lane_id_{lane_id},
     depth_{depth},
     vertices_{v_template},
-    v_template_{v_template}
+    v_template_{v_template}{}
 
-{
-    // std::cout << "New Object" << std::endl; 
-      
-}
-
-mesh Object::get_pos(const Level& terrain) const
-{
+mesh Object::get_pos(const Level& terrain) const{
     mesh res = v_template_;
     // We scale the template to map the coordinates to the lane width
     res = m_scale0(res, terrain.get_lane(lane_id_).get_width()/2);
@@ -27,14 +21,11 @@ mesh Object::get_pos(const Level& terrain) const
     return res;
 }
 
-float Object::get_angle(const Level& terrain) const
-{
+float Object::get_angle(const Level& terrain) const{
     return terrain.get_lane(lane_id_).get_angle();
 }
 
-void Object::render(SDL_Renderer* renderer)
-{
-    
+void Object::render(SDL_Renderer* renderer){
     vertex v1, v2;
     v1 = *vertices_.begin();
     v2 = *(vertices_.end()-1);

@@ -667,6 +667,92 @@ int simplex[95][112] = {
    -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
 };
 
+vertex v_normalize(float x,float min_x,float max_x,float y, float min_y, float max_y, int width, int height){
+    float x_norm = (x-min_x)/(max_x-min_x);
+    float y_norm = (y-min_y)/(max_y-min_y);
+    return {x_norm*width,height-(y_norm*height)};
+}
+
+vertex v_homothety(vertex obj, vertex center, float scale){
+    int x_hom = lround((obj.first-center.first)*scale)+center.first;
+    int y_hom = lround((obj.second-center.second)*scale)+center.second;
+    return {x_hom,y_hom}; 
+}
+
+mesh m_homothety(mesh obj, vertex center, float scale) {
+    for (auto &v : obj)
+        v = v_homothety(v,center,scale);
+    return obj;
+}
+
+vertex v_rotate0(vertex obj, float angle){
+    float x_rot = lround((obj.first)*cos(angle)-(obj.second)*sin(angle));
+    float y_rot = lround((obj.first)*sin(angle)+(obj.second)*cos(angle));
+    return {x_rot,y_rot}; 
+}
+
+vertex v_rotate(vertex obj, vertex center, float angle){
+    float x_rot = lround((obj.first-center.first)*cos(angle)-(obj.second-center.second)*sin(angle)+center.first);
+    float y_rot = lround((obj.first-center.first)*sin(angle)+(obj.second-center.second)*cos(angle)+center.second);
+    return {x_rot,y_rot}; 
+}
+
+vertex v_translate(vertex obj, float x, float y){
+    return {obj.first+x,obj.second+y};
+}
+
+vertex v_scale0(vertex obj, float scale){
+    int x_sc = lround(obj.first*scale);
+    int y_sc = lround(obj.second*scale);
+    return {x_sc,y_sc}; 
+}
+
+float v_distance(vertex v1, vertex v2){
+    return sqrt(pow(v1.first-v2.first,2)+pow(v1.second-v2.second,2));
+}
+
+mesh m_rotate0(mesh obj, float angle) {
+    for (auto &v : obj)
+        v = v_rotate0(v,angle);
+    return obj;
+}
+
+mesh m_rotate(mesh obj, vertex center, float angle) {
+    for (auto &v : obj)
+        v = v_rotate(v,center,angle);
+    return obj;
+}
+
+mesh m_scale0(mesh obj, float scale) {
+    for (auto &v : obj)
+        v = v_scale0(v,scale);
+    return obj;
+}
+
+mesh m_translate(mesh obj, float x, float y) {
+    for (auto &v : obj)
+        v = v_translate(v,x,y);
+    return obj;
+}
+
+void m_print(mesh obj) {
+    for (auto &v : obj)
+        std::cout << v.first << " " << v.second << std::endl;
+}
+
+float v_angle(vertex a, vertex b, vertex c){
+    float result =  atan2(c.second-b.second,c.first-b.first) -
+                    atan2(a.second-b.second,a.first-b.first);
+    return result;
+}
+
+float vv_angle(vertex a, vertex b, vertex c){
+    vertex ba = {b.first-a.first,b.second-a.second};
+    vertex bc = {b.first-c.first,b.second-c.second};
+    float result = atan2(bc.second,bc.first)-atan2(ba.second,ba.first);
+    return result;
+}
+
 void m_write(SDL_Renderer* renderer, std::string text, int x, int y, int r, int g, int b, int a){
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
     for(int i = 0; i < text.size(); i++){
