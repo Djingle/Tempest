@@ -88,7 +88,7 @@ void Game::test_collisions()
 {
     
 
-    std::vector<Enemy*>::iterator it = enemies_.begin(); 
+    std::vector<Enemy*>::const_iterator it = enemies_.begin(); 
     while (it != enemies_.end())
     {
         if ((*it)->get_lane_id() == player_.get_lane_id())
@@ -103,12 +103,13 @@ void Game::test_collisions()
         for(auto bullet : bullets_){
             if (bullet.get_lane_id() == (*it)->get_lane_id())
             {
-                if (bullet.get_depth() >= (*it)->get_depth()-0.002 && bullet.get_depth() <= (*it)->get_depth()+0.002)
+                if (bullet.get_depth() >= (*it)->get_depth()-0.005 && bullet.get_depth() <= (*it)->get_depth()+0.005)
                 {
                     std::cout << "Collision !" << std::endl;
                     player_.set_score(player_.get_score()+(*it)->get_value());
-                   std::cout << "Score : " << player_.get_score() << std::endl;
-                    // enemies_.erase(it);
+                    std::cout << "Score : " << player_.get_score() << std::endl;
+                    delete *it;     
+                    it = enemies_.erase(it);
                 }
             }       
         }
@@ -171,11 +172,11 @@ void Game::render()
     SDL_RenderClear(renderer_);
     level_.render(renderer_);
     player_.render(renderer_);
-    for (auto& bullet : bullets_) {
-        bullet.render(renderer_);
-    }
     for(auto enemy : enemies_) {
         enemy->render(renderer_);
+    }
+    for (auto& bullet : bullets_) {
+        bullet.render(renderer_);
     }
     SDL_SetRenderTarget(renderer_, NULL);
     SDL_RenderCopy(renderer_, texture_, NULL, &dst_);
@@ -184,6 +185,8 @@ void Game::render()
 
 void Game::clean()
 {
+    if(texture_ != NULL)
+        SDL_DestroyTexture(texture_);
     SDL_DestroyWindow(window_);
     SDL_DestroyRenderer(renderer_);
     SDL_Quit();
