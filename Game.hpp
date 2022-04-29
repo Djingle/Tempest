@@ -20,7 +20,7 @@ class Game {
         std::vector<Bullet> bullets_;
         HUD hud_;
         Level level_;
-        std::vector<Enemy> enemies_;
+        std::vector<Enemy*> enemies_;
         SDL_Texture* texture_;
         SDL_Rect dst_;
     public:

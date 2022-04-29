@@ -52,9 +52,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
                 is_running_ = true;
             }
             player_= Player(level_);
-            Flipper flipper = Flipper(2, 0.5,level_);
+            Flipper* flipper = new Flipper(2, 0.2,level_);
             enemies_.push_back(flipper);
-            
         }
     }
 }
@@ -108,12 +107,16 @@ void Game::update()
             else ++bullet;
         }
     }
-    for(auto &enemy : enemies_)
+    for(auto& enemy : enemies_)
     {
-       // tester avec dynamic_cast, j'ai fais des tentatives infructueuses
-    
-
+        // tester avec dynamic_cast, j'ai fais des tentatives infructueuses
+        // try dynamic cast
+        if(Flipper* f = dynamic_cast<Flipper*>(enemy))
+        {
+            f->update(level_);
+        }
     }
+    
 }
 void Game::render()
 {
@@ -128,7 +131,7 @@ void Game::render()
         bullet.render(renderer_);
     }
     for(auto enemy : enemies_) {
-        enemy.render(renderer_);
+        enemy->render(renderer_);
     }
     SDL_SetRenderTarget(renderer_, NULL);
     SDL_RenderCopy(renderer_, texture_, NULL, &dst_);
