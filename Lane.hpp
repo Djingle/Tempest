@@ -23,7 +23,7 @@ class Lane {
         const vertex& get_b_left() const {return b_left_;}
         const vertex& get_b_right() const {return b_right_;}
         vertex get_mid() const {return {(f_left_.first+f_right_.first)/2.0, (f_left_.second+f_right_.second)/2.0};}
-        float get_angle() const {return v_angle(f_left_, f_right_, {f_right_.first+1, f_right_.second});}
+        float get_angle() const {return v_angle({f_left_.first+1, f_left_.second}, f_left_, f_right_);}
         float get_width() const {return v_distance(f_left_, f_right_);}
         
         void render(SDL_Renderer* renderer) const;

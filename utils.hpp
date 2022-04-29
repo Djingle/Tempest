@@ -23,6 +23,7 @@ mesh m_homothety(mesh obj, vertex center, float scale);
 mesh m_rotate0(mesh obj, float angle);
 mesh m_scale0(mesh obj, float scale);
 mesh m_translate(mesh m, float x, float y);
+void m_print(mesh m);
 
 
 

@@ -48,7 +48,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
                 dst_.w = height;
                 dst_.h = height;
                 hud_.init(renderer_);
-                level_.init(2,height);
+                level_.init(6,height);
                 is_running_ = true;
             }
             player_= Player(level_);
@@ -91,6 +91,7 @@ void Game::handleEvents()
 void Game::update()
 {
     level_.update(player_.get_lane_id());
+    player_.update(level_);
 
     if (player_.get_is_shooting())
     {

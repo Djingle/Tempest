@@ -27,6 +27,13 @@ vertex v_rotate0(vertex obj, float angle)
     return {x_rot,y_rot}; 
 }
 
+vertex v_rotate(vertex obj, vertex center, float angle)
+{
+    float x_rot = lround((obj.first-center.first)*cos(angle)-(obj.second-center.second)*sin(angle)+center.first);
+    float y_rot = lround((obj.first-center.first)*sin(angle)+(obj.second-center.second)*cos(angle)+center.second);
+    return {x_rot,y_rot}; 
+}
+
 vertex v_translate(vertex obj, float x, float y)
 {
     return {obj.first+x,obj.second+y};
@@ -50,6 +57,12 @@ mesh m_rotate0(mesh obj, float angle) {
     return obj;
 }
 
+mesh m_rotate(mesh obj, vertex center, float angle) {
+    for (auto &v : obj)
+        v = v_rotate(v,center,angle);
+    return obj;
+}
+
 mesh m_scale0(mesh obj, float scale) {
     for (auto &v : obj)
         v = v_scale0(v,scale);
@@ -60,6 +73,11 @@ mesh m_translate(mesh obj, float x, float y) {
     for (auto &v : obj)
         v = v_translate(v,x,y);
     return obj;
+}
+
+void m_print(mesh obj) {
+    for (auto &v : obj)
+        std::cout << v.first << " " << v.second << std::endl;
 }
 
 float v_angle(vertex a, vertex b, vertex c)

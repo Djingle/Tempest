@@ -9,6 +9,7 @@ class Object
         int lane_id_;
         float depth_;
         mesh vertices_;
+        mesh v_template_;
     
     public :
         Object(int lane_id, float depth, mesh vertices);
