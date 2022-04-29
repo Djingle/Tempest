@@ -11,7 +11,6 @@ Player::Player() :
     score_{0},
     is_shooting_{false}
 {
-    std::cout << "New Player p" << std::endl;
 }
 
 Player::Player(const Level& terrain) :
@@ -21,7 +20,6 @@ Player::Player(const Level& terrain) :
     is_shooting_{false}
 {
     vertices_ = get_pos(terrain);
-    std::cout << "New Player t" << std::endl;
 }
 
 Player::Player(const Player& player) :
@@ -30,7 +28,6 @@ Player::Player(const Player& player) :
     score_{player.score_},
     is_shooting_{player.is_shooting_}
 {
-    std::cout << "New Player" << std::endl;
 }
 
 void Player::update(const Level& terrain)

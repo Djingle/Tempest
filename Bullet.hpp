@@ -34,6 +34,12 @@ class Bullet : public Object {
          */
         void update(const Level& level);
         /**
+         * @brief 
+         * 
+         * @param renderer 
+         */
+        void render(SDL_Renderer* renderer);
+        /**
          * @brief Get the bullet count object
          * 
          * @return const int& 
