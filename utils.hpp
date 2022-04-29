@@ -144,6 +144,7 @@ void m_write(SDL_Renderer* renderer, std::string text, int x, int y, int r, int 
  * @return angle in float between -pi and pi
  */
 float v_angle(vertex a, vertex b, vertex c);
+float vv_angle(vertex v1, vertex v2, vertex v3);
 
 
 #endif

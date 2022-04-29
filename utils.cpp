@@ -82,10 +82,18 @@ void m_print(mesh obj) {
 
 float v_angle(vertex a, vertex b, vertex c)
 {
-    float result = atan2(c.second-b.second,c.first-b.first)-atan2(a.second-b.second,a.first-b.first);
+    float result =  atan2(c.second-b.second,c.first-b.first) -
+                    atan2(a.second-b.second,a.first-b.first);
     return result;
 }
 
+float vv_angle(vertex a, vertex b, vertex c)
+{
+    vertex ba = {b.first-a.first,b.second-a.second};
+    vertex bc = {b.first-c.first,b.second-c.second};
+    float result = atan2(bc.second,bc.first)-atan2(ba.second,ba.first);
+    return result;
+}
 
 int simplex[95][112] = {
     0,16, /* Ascii 32 */

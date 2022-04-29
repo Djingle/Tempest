@@ -34,9 +34,10 @@ void Level::init(unsigned int lvl,int height)
 
 float Level::get_angle_diff(int l1, int l2, int direction) const
 {
-    if (direction == 1)
-        return v_angle(lanes_[l1].get_f_right(), lanes_[l1].get_f_left(), lanes_[l2].get_f_right());
-    return v_angle(lanes_[l1].get_f_left(), lanes_[l1].get_f_right(), lanes_[l2].get_f_left());
+    if (direction == 1) {
+        return v_angle(lanes_[l1].get_f_left(), lanes_[l1].get_f_right(), lanes_[l2].get_mid());
+    }
+    else return v_angle(lanes_[l1].get_f_right(), lanes_[l1].get_f_left(), lanes_[l2].get_mid());
 }
 
 void Level::update(unsigned int player_pos)
