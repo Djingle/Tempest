@@ -35,7 +35,8 @@ void Flipper::move_left(const Level& terrain)
         direction_--;
         if (lane_id_ > 0) destination_ = lane_id_-1;
         else if (terrain.is_circular()) destination_ = terrain.get_nb_lanes()-1;
-        angle_ = abs(terrain.get_angle_diff(lane_id_, destination_, direction_))/2;
+        // angle_ = abs(terrain.get_angle_diff(lane_id_, destination_, direction_))/2;
+        angle_ = M_PI;
     }
 }
 
@@ -52,7 +53,7 @@ void Flipper::update(const Level& terrain)
     (depth_<1.0) ? depth_ += 0.001 : depth_ = 1.0;
     if (destination_ != lane_id_) {
         if (angle_ > 0.1) {
-            v_template_ = m_rotate(v_template_, {0, direction_}, direction_*0.1);
+            v_template_ = m_rotate0(v_template_, 0.1);
             angle_ -= 0.1;
         }
         else {

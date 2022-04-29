@@ -121,6 +121,8 @@ mesh m_scale0(mesh obj, float scale);
  */
 mesh m_translate(mesh m, float x, float y);
 
+void m_print(mesh m);
+
 /**
  * @brief write text using hershey font on the screen at position (x,y) with color (r,g,b,a)
  * 

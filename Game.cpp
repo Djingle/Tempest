@@ -41,6 +41,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
                 level_.init(2,height);
                 is_running_ = true;
             }
+            Flipper* flipper = new Flipper(0, 0.2, level_);
+            enemies_.push_back(flipper);
             player_= Player(level_);
         }
     }
@@ -134,7 +136,7 @@ void Game::update()
     level_.update(player_.get_lane_id());
     player_.update(level_);
     // Generate randomly enemies
-    generate_enemies();
+    //generate_enemies();
     // detect collisions with depth
     test_collisions();
     if (player_.get_is_shooting())

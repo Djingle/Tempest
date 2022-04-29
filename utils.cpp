@@ -22,15 +22,14 @@ mesh m_homothety(mesh obj, vertex center, float scale) {
 
 vertex v_rotate0(vertex obj, float angle)
 {
-    float x_rot = lround((obj.first)*cos(angle)-(obj.second)*sin(angle));
-    float y_rot = lround((obj.first)*sin(angle)+(obj.second)*cos(angle));
+    float x_rot = (obj.first)*cos(angle)-(obj.second)*sin(angle);
+    float y_rot = (obj.first)*sin(angle)+(obj.second)*cos(angle);
     return {x_rot,y_rot}; 
 }
-
 vertex v_rotate(vertex obj, vertex center, float angle)
 {
-    float x_rot = lround((obj.first-center.first)*cos(angle)-(obj.second-center.second)*sin(angle)+center.first);
-    float y_rot = lround((obj.first-center.first)*sin(angle)+(obj.second-center.second)*cos(angle)+center.second);
+    float x_rot = (obj.first-center.first)*cos(angle)-(obj.second-center.second)*sin(angle)+center.first;
+    float y_rot = (obj.first-center.first)*sin(angle)+(obj.second-center.second)*cos(angle)+center.second;
     return {x_rot,y_rot}; 
 }
 
@@ -41,8 +40,8 @@ vertex v_translate(vertex obj, float x, float y)
 
 vertex v_scale0(vertex obj, float scale)
 {
-    int x_sc = lround(obj.first*scale);
-    int y_sc = lround(obj.second*scale);
+    int x_sc = obj.first*scale;
+    int y_sc = obj.second*scale;
     return {x_sc,y_sc}; 
 }
 
