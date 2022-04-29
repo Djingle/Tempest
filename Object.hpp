@@ -20,32 +20,28 @@ class Object
          * @param vertices 
          */
         Object(int lane_id, float depth, mesh vertices);
+        /**
+         * @brief Destroy the Object object
+         * 
+         */
         virtual ~Object() = default;
         /**
-         * @brief 
+         * @brief init the object with its vertices position
          * 
          * @param terrain 
          */
         void init(const Level& terrain) {vertices_= get_pos(terrain);}
         /**
-         * @brief 
-         * 
-         * @param terrain 
-         */
-        void apply_template(const Level& terrain);
-        /**
-         * @brief 
+         * @brief render the object
          * 
          * @param renderer 
          */
         virtual void render(SDL_Renderer* renderer);
-        // void update();
         /**
-         * @brief 
+         * @brief Get the lane id of the object
          * 
+         * @return int 
          */
-        void clean();
-
         int get_lane_id() const { return lane_id_; }
         /**
          * @brief Get the depth object
@@ -54,21 +50,21 @@ class Object
          */
         float get_depth() const { return depth_; }
         /**
-         * @brief Get the pos object
+         * @brief Get the good position of the object
          * 
          * @param terrain 
          * @return mesh 
          */
         mesh get_pos(const Level& terrain) const;
         /**
-         * @brief Get the angle object
+         * @brief Get the angle
          * 
          * @param terrain 
          * @return float 
          */
         float get_angle(const Level& terrain) const;
         /**
-         * @brief Get the vertices object
+         * @brief Get the vertices of the object
          * 
          * @return mesh 
          */

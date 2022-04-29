@@ -28,19 +28,25 @@ class Bullet : public Object {
          */
         virtual ~Bullet();
         /**
-         * @brief 
+         * @brief update the position of the bullet
          * 
          * @param level 
          */
         void update(const Level& level);
         /**
-         * @brief Get the bullet count object
+         * @brief render the bullet (override the render method of the Object class because it uses points instead of lines)
+         * 
+         * @param renderer 
+         */
+        void render(SDL_Renderer* renderer);
+        /**
+         * @brief Get the number of bullets
          * 
          * @return const int& 
          */
         static const int& get_bullet_count() { return bullet_count_; }
         /**
-         * @brief Get the direction object
+         * @brief Get the direction of the bullet (from player or from ennemies)
          * 
          * @return true 
          * @return false 

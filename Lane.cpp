@@ -9,12 +9,6 @@ Lane::Lane(const vertex center,const float scale, const vertex f_left, const ver
     b_left_{v_homothety(f_left,center,scale)},
     b_right_{v_homothety(f_right,center,scale)}
 {
-    // std::cout << "New lane n : (" << f_left.first << ";" << f_left.second << ") (" << f_right.first << ";" << f_right.second << ") (" << b_left_.first << ";" << b_left_.second << ") (" << b_right_.first << "; " << b_right_.second << ")" << std::endl; 
-}
-
-void Lane::set_active(bool is_active)
-{
-    is_active_ = is_active;
 }
 
 void Lane::render(SDL_Renderer* renderer) const
@@ -31,7 +25,3 @@ void Lane::render(SDL_Renderer* renderer) const
     SDL_RenderDrawLineF(renderer, f_right_.first, f_right_.second, b_right_.first, b_right_.second);
 } 
 
-void Lane::clean()
-{
-
-}

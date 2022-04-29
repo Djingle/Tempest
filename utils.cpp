@@ -688,6 +688,3 @@ void m_write(SDL_Renderer* renderer, std::string text, int x, int y, int r, int 
         x += width;
     }
 }
-void m_write(SDL_Renderer* renderer, std::string text, int x, int y){
-    m_write(renderer, text, x, y, 255, 255, 255, 255);
-}

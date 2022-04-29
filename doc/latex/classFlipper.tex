@@ -1,0 +1,184 @@
+\hypertarget{classFlipper}{}\doxysection{Référence de la classe Flipper}
+\label{classFlipper}\index{Flipper@{Flipper}}
+
+
+Graphe d\textquotesingle{}héritage de Flipper\+:
+% FIG 0
+
+
+Graphe de collaboration de Flipper\+:
+% FIG 1
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFlipper_af62ae480f41baee1aa8ce639fca9e36f}{Flipper}} (int lane\+\_\+id, float depth, const \mbox{\hyperlink{classLevel}{Level}} \&terrain)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classFlipper}{Flipper}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classFlipper_ae498ab519584627d366565705b5655e3}{$\sim$\+Flipper}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classFlipper}{Flipper}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFlipper_a903074a4b3e7ffdb64591672765c6f41}{move\+\_\+right}} (const \mbox{\hyperlink{classLevel}{Level}} \&terrain)
+\begin{DoxyCompactList}\small\item\em move the flipper to the next lane \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFlipper_a4deac7149acdef1dbdc640bf0d01e7cc}{move\+\_\+left}} (const \mbox{\hyperlink{classLevel}{Level}} \&terrain)
+\begin{DoxyCompactList}\small\item\em move the flipper to the previous lane \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFlipper_a8446bcd70d228c6ec8ba93cb22e0a916}{update}} (const \mbox{\hyperlink{classLevel}{Level}} \&terrain)
+\begin{DoxyCompactList}\small\item\em update the position and the angle of the flipper \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFlipper_abf1e4cbe67e4bc6677e7cce25539522e}{render}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em render the flipper \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFlipper_abe78aeefdbd93621a24894cceef286d2}{set\+\_\+is\+\_\+shooting}} (bool is\+\_\+shooting)
+\begin{DoxyCompactList}\small\item\em Set if the flipper is shooting. \end{DoxyCompactList}\item 
+const bool \& \mbox{\hyperlink{classFlipper_a7586ffd4e57bed568abc47c2b3c92921}{get\+\_\+is\+\_\+shooting}} () const
+\begin{DoxyCompactList}\small\item\em Get if the flipper is shooting. \end{DoxyCompactList}\item 
+mesh \mbox{\hyperlink{classFlipper_ae052907f50a35cbc239611cec92610b0}{get\+\_\+vertices}} () const override
+\begin{DoxyCompactList}\small\item\em Get the vertices of the flipper. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Membres hérités additionnels}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classFlipper_af62ae480f41baee1aa8ce639fca9e36f}\label{classFlipper_af62ae480f41baee1aa8ce639fca9e36f}} 
+\index{Flipper@{Flipper}!Flipper@{Flipper}}
+\index{Flipper@{Flipper}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{Flipper()}{Flipper()}}
+{\footnotesize\ttfamily Flipper\+::\+Flipper (\begin{DoxyParamCaption}\item[{int}]{lane\+\_\+id,  }\item[{float}]{depth,  }\item[{const \mbox{\hyperlink{classLevel}{Level}} \&}]{terrain }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classFlipper}{Flipper}} object. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lane\+\_\+id} & \\
+\hline
+{\em depth} & \\
+\hline
+{\em terrain} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFlipper_ae498ab519584627d366565705b5655e3}\label{classFlipper_ae498ab519584627d366565705b5655e3}} 
+\index{Flipper@{Flipper}!````~Flipper@{$\sim$Flipper}}
+\index{````~Flipper@{$\sim$Flipper}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{$\sim$Flipper()}{~Flipper()}}
+{\footnotesize\ttfamily Flipper\+::$\sim$\+Flipper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{classFlipper}{Flipper}} object. 
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classFlipper_a7586ffd4e57bed568abc47c2b3c92921}\label{classFlipper_a7586ffd4e57bed568abc47c2b3c92921}} 
+\index{Flipper@{Flipper}!get\_is\_shooting@{get\_is\_shooting}}
+\index{get\_is\_shooting@{get\_is\_shooting}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{get\_is\_shooting()}{get\_is\_shooting()}}
+{\footnotesize\ttfamily const bool\& Flipper\+::get\+\_\+is\+\_\+shooting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get if the flipper is shooting. 
+
+\begin{DoxyReturn}{Renvoie}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFlipper_ae052907f50a35cbc239611cec92610b0}\label{classFlipper_ae052907f50a35cbc239611cec92610b0}} 
+\index{Flipper@{Flipper}!get\_vertices@{get\_vertices}}
+\index{get\_vertices@{get\_vertices}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{get\_vertices()}{get\_vertices()}}
+{\footnotesize\ttfamily mesh Flipper\+::get\+\_\+vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the vertices of the flipper. 
+
+\begin{DoxyReturn}{Renvoie}
+mesh 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classObject_ab8681854d2d31b9bffccd538960852bd}{Object}}.
+
+\mbox{\Hypertarget{classFlipper_a4deac7149acdef1dbdc640bf0d01e7cc}\label{classFlipper_a4deac7149acdef1dbdc640bf0d01e7cc}} 
+\index{Flipper@{Flipper}!move\_left@{move\_left}}
+\index{move\_left@{move\_left}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{move\_left()}{move\_left()}}
+{\footnotesize\ttfamily void Flipper\+::move\+\_\+left (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLevel}{Level}} \&}]{terrain }\end{DoxyParamCaption})}
+
+
+
+move the flipper to the previous lane 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em terrain} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFlipper_a903074a4b3e7ffdb64591672765c6f41}\label{classFlipper_a903074a4b3e7ffdb64591672765c6f41}} 
+\index{Flipper@{Flipper}!move\_right@{move\_right}}
+\index{move\_right@{move\_right}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{move\_right()}{move\_right()}}
+{\footnotesize\ttfamily void Flipper\+::move\+\_\+right (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLevel}{Level}} \&}]{terrain }\end{DoxyParamCaption})}
+
+
+
+move the flipper to the next lane 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em terrain} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFlipper_abf1e4cbe67e4bc6677e7cce25539522e}\label{classFlipper_abf1e4cbe67e4bc6677e7cce25539522e}} 
+\index{Flipper@{Flipper}!render@{render}}
+\index{render@{render}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Flipper\+::render (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+render the flipper 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classObject_a0155f22c97ad09051cd8e700fe423f51}{Object}}.
+
+\mbox{\Hypertarget{classFlipper_abe78aeefdbd93621a24894cceef286d2}\label{classFlipper_abe78aeefdbd93621a24894cceef286d2}} 
+\index{Flipper@{Flipper}!set\_is\_shooting@{set\_is\_shooting}}
+\index{set\_is\_shooting@{set\_is\_shooting}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{set\_is\_shooting()}{set\_is\_shooting()}}
+{\footnotesize\ttfamily void Flipper\+::set\+\_\+is\+\_\+shooting (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+shooting }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set if the flipper is shooting. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em is\+\_\+shooting} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFlipper_a8446bcd70d228c6ec8ba93cb22e0a916}\label{classFlipper_a8446bcd70d228c6ec8ba93cb22e0a916}} 
+\index{Flipper@{Flipper}!update@{update}}
+\index{update@{update}!Flipper@{Flipper}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Flipper\+::update (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLevel}{Level}} \&}]{terrain }\end{DoxyParamCaption})}
+
+
+
+update the position and the angle of the flipper 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em terrain} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Flipper.\+hpp\item 
+Flipper.\+cpp\end{DoxyCompactItemize}

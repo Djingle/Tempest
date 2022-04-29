@@ -24,44 +24,44 @@ class Flipper : public Enemy
          */
         virtual ~Flipper();
         /**
-         * @brief 
+         * @brief move the flipper to the next lane
          * 
          * @param terrain 
          */
         void move_right(const Level& terrain);
         /**
-         * @brief 
+         * @brief move the flipper to the previous lane
          * 
          * @param terrain 
          */
         void move_left(const Level& terrain);
         /**
-         * @brief 
+         * @brief update the position and the angle of the flipper
          * 
          * @param terrain 
          */
         void update(const Level& terrain);
         /**
-         * @brief 
+         * @brief render the flipper
          * 
          * @param renderer 
          */
         void render(SDL_Renderer* renderer);
         /**
-         * @brief Set the is shooting object
+         * @brief Set if the flipper is shooting
          * 
          * @param is_shooting 
          */
         void set_is_shooting(bool is_shooting) { is_shooting_ = is_shooting; }
         /**
-         * @brief Get the is shooting object
+         * @brief Get if the flipper is shooting
          * 
          * @return true 
          * @return false 
          */
         const bool& get_is_shooting() const { return is_shooting_; }
         /**
-         * @brief Get the vertices object
+         * @brief Get the vertices of the flipper
          * 
          * @return mesh 
          */

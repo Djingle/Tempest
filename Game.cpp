@@ -3,13 +3,6 @@
 #include <vector>
 #include "Level.hpp"
 
-// TODO : Gérer l'update des ennemies car la boucle itère sur la liste mais les objets
-// sont de types Enemy et non Flipper.
-// Peut-être tenter de faire un template pour les objets ? ( Proposition de Copilot :) )
-// ou bien avec les dynamic_cast ? 
-// TODO : Regarder pourquoi le player ne se déplace pas
-// TODO : Gérer les collisions entre les objets
-
 Game::Game() :
     is_running_{false},
     window_{NULL},
@@ -32,16 +25,12 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     }
     if (SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO ) == 0)
     {
-        std::cout << "AAAH" << v_angle({450,562.5},{525,562.5},{525,487.5}) << std::endl;
-        std::cout << "Subsystems initialized..." << std::endl;
         window_ = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
         if (window_ != NULL)
         {
-            std::cout << "Window created..." << std::endl;
             renderer_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
             if (renderer_ != NULL)
             {
-                std::cout << "Renderer created..." << std::endl;
                 texture_ = SDL_CreateTexture(renderer_, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET,height, height);
                 SDL_SetTextureBlendMode(texture_, SDL_BLENDMODE_BLEND);
                 dst_.x = width/2 - height/2;
@@ -193,5 +182,4 @@ void Game::clean()
     SDL_DestroyWindow(window_);
     SDL_DestroyRenderer(renderer_);
     SDL_Quit();
-    std::cout << "Game cleaned..." << std::endl;
 }

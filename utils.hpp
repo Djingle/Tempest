@@ -13,7 +13,7 @@ using vertex = std::pair<float, float>;
 using mesh   = std::vector<vertex>;
 
 /**
- * @brief 
+ * @brief transform x in [min_x, max_x] to [0,width] and y in [min_y, max_y] to [0,height]
  * 
  * @param x 
  * @param min_x 
@@ -23,7 +23,7 @@ using mesh   = std::vector<vertex>;
  * @param max_y 
  * @param width 
  * @param height 
- * @return vertex 
+ * @return vertex with x between 0 and width and y between 0 and height
  */
 vertex v_normalize(float x,float min_x,float max_x,float y, float min_y, float max_y,int width, int height);
 /**
@@ -70,11 +70,11 @@ vertex v_rotate(vertex obj, vertex center, float angle);
  */
 vertex v_translate(vertex obj, float x, float y);
 /**
- * @brief 
+ * @brief calculate the distance between two points
  * 
- * @param v1 
- * @param v2 
- * @return float 
+ * @param v1 first vertex
+ * @param v2 second vertex
+ * @return distance in float between v1 and v2
  */
 float v_distance(vertex v1, vertex v2);
 /**
@@ -120,16 +120,9 @@ mesh m_scale0(mesh obj, float scale);
  * @return mesh 
  */
 mesh m_translate(mesh m, float x, float y);
-/**
- * @brief 
- * 
- * @param m 
- */
-void m_print(mesh m);
-
 
 /**
- * @brief 
+ * @brief write text using hershey font on the screen at position (x,y) with color (r,g,b,a)
  * 
  * @param renderer 
  * @param text 
@@ -141,22 +134,14 @@ void m_print(mesh m);
  * @param a 
  */
 void m_write(SDL_Renderer* renderer, std::string text, int x, int y, int r, int g, int b, int a);
+
 /**
- * @brief 
- * 
- * @param renderer 
- * @param text 
- * @param x 
- * @param y 
- */
-void m_write(SDL_Renderer* renderer, std::string text, int x, int y);
-/**
- * @brief 
+ * @brief calculate the angle in radians between three points a,b,c
  * 
  * @param a 
  * @param b 
  * @param c 
- * @return float 
+ * @return angle in float between -pi and pi
  */
 float v_angle(vertex a, vertex b, vertex c);
 float vv_angle(vertex v1, vertex v2, vertex v3);

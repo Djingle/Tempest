@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tempest:  Fichier source de Game.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Tempest
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Game.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef Game_hpp</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define Game_hpp</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Player.hpp&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Bullet.hpp&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;HUD.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Flipper.hpp&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classGame.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGame.html">Game</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">bool</span> is_running_;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        SDL_Window* window_;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        SDL_Renderer* renderer_;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="classPlayer.html">Player</a> player_;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        std::vector&lt;Bullet&gt; bullets_;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="classHUD.html">HUD</a> hud_;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="classLevel.html">Level</a> level_;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        std::vector&lt;Enemy*&gt; enemies_;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        SDL_Texture* texture_;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        SDL_Rect dst_;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="classGame.html#ad59df6562a58a614fda24622d3715b65">Game</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="classGame.html#ae3d112ca6e0e55150d2fdbc704474530">~Game</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classGame.html#a6fb6ab188f447a0b1448f77426a2ad79">init</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* title, <span class="keywordtype">int</span> xpos, <span class="keywordtype">int</span> ypos, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">bool</span> fullscreen);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classGame.html#adb5563f62c0c82e3e42ec36501aa5698">handleEvents</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classGame.html#a79df6376b332d63c9eca0dcee30305c3">update</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classGame.html#a15ddd769261d923827a3cdf41499c843">render</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classGame.html#ad4f36a72a2d06696f7973788606f57fc">clean</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classGame.html#ad4fde8fa42a85eebd065a577271320c6">test_collisions</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classGame.html#ae93b423a7f28167ba5b4d5410c535b3c">generate_enemies</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classGame.html#abeddf1b51f77f4d612fdf468100a2b39">update_enemies</a>();  </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classGame.html#af312395eec483d235561a4d28b436f03">   85</a></span>&#160;        <span class="keyword">inline</span> SDL_Renderer* <a class="code" href="classGame.html#af312395eec483d235561a4d28b436f03">get_renderer</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> renderer_;};</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classGame.html#afacd5f36976e5bfa6f20c0271a95049f">   91</a></span>&#160;        <span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; <a class="code" href="classGame.html#afacd5f36976e5bfa6f20c0271a95049f">get_level</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> level_;};</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classGame.html#af485a4c277a61df477d6f8f39b04d35f">   98</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classGame.html#af485a4c277a61df477d6f8f39b04d35f">running</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> is_running_;};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassGame_html_ae3d112ca6e0e55150d2fdbc704474530"><div class="ttname"><a href="classGame.html#ae3d112ca6e0e55150d2fdbc704474530">Game::~Game</a></div><div class="ttdeci">~Game()</div><div class="ttdoc">Destroy the Game object.</div><div class="ttdef"><b>Definition:</b> Game.cpp:13</div></div>
+<div class="ttc" id="aclassGame_html_ae93b423a7f28167ba5b4d5410c535b3c"><div class="ttname"><a href="classGame.html#ae93b423a7f28167ba5b4d5410c535b3c">Game::generate_enemies</a></div><div class="ttdeci">void generate_enemies()</div><div class="ttdoc">randomly generate enemies</div><div class="ttdef"><b>Definition:</b> Game.cpp:110</div></div>
+<div class="ttc" id="aclassGame_html_a6fb6ab188f447a0b1448f77426a2ad79"><div class="ttname"><a href="classGame.html#a6fb6ab188f447a0b1448f77426a2ad79">Game::init</a></div><div class="ttdeci">void init(const char *title, int xpos, int ypos, int width, int height, bool fullscreen)</div><div class="ttdoc">init the game with the window and the renderer</div><div class="ttdef"><b>Definition:</b> Game.cpp:18</div></div>
+<div class="ttc" id="aclassGame_html_ad59df6562a58a614fda24622d3715b65"><div class="ttname"><a href="classGame.html#ad59df6562a58a614fda24622d3715b65">Game::Game</a></div><div class="ttdeci">Game()</div><div class="ttdoc">Construct a new Game object.</div><div class="ttdef"><b>Definition:</b> Game.cpp:6</div></div>
+<div class="ttc" id="aclassGame_html_ad4fde8fa42a85eebd065a577271320c6"><div class="ttname"><a href="classGame.html#ad4fde8fa42a85eebd065a577271320c6">Game::test_collisions</a></div><div class="ttdeci">void test_collisions()</div><div class="ttdoc">verify if there is a collision between two elements</div><div class="ttdef"><b>Definition:</b> Game.cpp:77</div></div>
+<div class="ttc" id="aclassGame_html_a15ddd769261d923827a3cdf41499c843"><div class="ttname"><a href="classGame.html#a15ddd769261d923827a3cdf41499c843">Game::render</a></div><div class="ttdeci">void render()</div><div class="ttdoc">render all the game's elements</div><div class="ttdef"><b>Definition:</b> Game.cpp:157</div></div>
+<div class="ttc" id="aclassGame_html_afacd5f36976e5bfa6f20c0271a95049f"><div class="ttname"><a href="classGame.html#afacd5f36976e5bfa6f20c0271a95049f">Game::get_level</a></div><div class="ttdeci">const Level &amp; get_level() const</div><div class="ttdoc">Get the level object.</div><div class="ttdef"><b>Definition:</b> Game.hpp:91</div></div>
+<div class="ttc" id="aclassGame_html_ad4f36a72a2d06696f7973788606f57fc"><div class="ttname"><a href="classGame.html#ad4f36a72a2d06696f7973788606f57fc">Game::clean</a></div><div class="ttdeci">void clean()</div><div class="ttdoc">clean properly the game before closing</div><div class="ttdef"><b>Definition:</b> Game.cpp:178</div></div>
+<div class="ttc" id="aclassHUD_html"><div class="ttname"><a href="classHUD.html">HUD</a></div><div class="ttdef"><b>Definition:</b> HUD.hpp:6</div></div>
+<div class="ttc" id="aclassGame_html_af485a4c277a61df477d6f8f39b04d35f"><div class="ttname"><a href="classGame.html#af485a4c277a61df477d6f8f39b04d35f">Game::running</a></div><div class="ttdeci">bool running() const</div><div class="ttdoc">get if the game is running</div><div class="ttdef"><b>Definition:</b> Game.hpp:98</div></div>
+<div class="ttc" id="aclassGame_html_a79df6376b332d63c9eca0dcee30305c3"><div class="ttname"><a href="classGame.html#a79df6376b332d63c9eca0dcee30305c3">Game::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">update all the game's elements</div><div class="ttdef"><b>Definition:</b> Game.cpp:132</div></div>
+<div class="ttc" id="aclassGame_html_adb5563f62c0c82e3e42ec36501aa5698"><div class="ttname"><a href="classGame.html#adb5563f62c0c82e3e42ec36501aa5698">Game::handleEvents</a></div><div class="ttdeci">void handleEvents()</div><div class="ttdoc">handle the events</div><div class="ttdef"><b>Definition:</b> Game.cpp:49</div></div>
+<div class="ttc" id="aclassGame_html_abeddf1b51f77f4d612fdf468100a2b39"><div class="ttname"><a href="classGame.html#abeddf1b51f77f4d612fdf468100a2b39">Game::update_enemies</a></div><div class="ttdeci">void update_enemies()</div><div class="ttdoc">update the enemies' positions</div><div class="ttdef"><b>Definition:</b> Game.cpp:123</div></div>
+<div class="ttc" id="aclassGame_html_af312395eec483d235561a4d28b436f03"><div class="ttname"><a href="classGame.html#af312395eec483d235561a4d28b436f03">Game::get_renderer</a></div><div class="ttdeci">SDL_Renderer * get_renderer() const</div><div class="ttdoc">Get the renderer object.</div><div class="ttdef"><b>Definition:</b> Game.hpp:85</div></div>
+<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.hpp:10</div></div>
+<div class="ttc" id="aclassLevel_html"><div class="ttname"><a href="classLevel.html">Level</a></div><div class="ttdef"><b>Definition:</b> Level.hpp:6</div></div>
+<div class="ttc" id="aclassGame_html"><div class="ttname"><a href="classGame.html">Game</a></div><div class="ttdef"><b>Definition:</b> Game.hpp:11</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

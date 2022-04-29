@@ -34,7 +34,6 @@ void Level::init(unsigned int lvl,int height)
 
 float Level::get_angle_diff(int l1, int l2, int direction) const
 {
-    std::cout << "l1: " << l1 << " l2: " << l2 << " direction: " << direction << std::endl;
     if (direction == 1) {
         return v_angle(lanes_[l1].get_f_left(), lanes_[l1].get_f_right(), lanes_[l2].get_mid());
     }
@@ -56,9 +55,4 @@ void Level::render(SDL_Renderer* renderer)
         lane.render(renderer);
     }
     lanes_[player_pos_].render(renderer);
-}
-
-void Level::clean()
-{
-    
 }

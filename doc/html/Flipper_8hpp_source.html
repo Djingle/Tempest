@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tempest:  Fichier source de Flipper.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Tempest
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Flipper.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef FLIPPER_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define FLIPPER_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Enemy.hpp&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classFlipper.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="classFlipper.html">Flipper</a> : <span class="keyword">public</span> <a class="code" href="classEnemy.html">Enemy</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    private :</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordtype">bool</span> is_shooting_;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keywordtype">int</span> destination_; <span class="comment">// lane to the right or left where the Flipper is going</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keywordtype">int</span> direction_; <span class="comment">// 0 if not moving, 1 if moving right, -1 if moving left</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">float</span> angle_;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    public :</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="classFlipper.html#af62ae480f41baee1aa8ce639fca9e36f">Flipper</a>(<span class="keywordtype">int</span> lane_id, <span class="keywordtype">float</span> depth,<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; terrain);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classFlipper.html#ae498ab519584627d366565705b5655e3">~Flipper</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classFlipper.html#a903074a4b3e7ffdb64591672765c6f41">move_right</a>(<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; terrain);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classFlipper.html#a4deac7149acdef1dbdc640bf0d01e7cc">move_left</a>(<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; terrain);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classEnemy.html#ad55ee71b5a8c23fbd00b3c368b90cc64">update</a>(<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; terrain);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classFlipper.html#abf1e4cbe67e4bc6677e7cce25539522e">render</a>(SDL_Renderer* renderer);</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classFlipper.html#abe78aeefdbd93621a24894cceef286d2">   55</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classFlipper.html#abe78aeefdbd93621a24894cceef286d2">set_is_shooting</a>(<span class="keywordtype">bool</span> is_shooting) { is_shooting_ = is_shooting; }</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classFlipper.html#a7586ffd4e57bed568abc47c2b3c92921">   62</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; <a class="code" href="classFlipper.html#a7586ffd4e57bed568abc47c2b3c92921">get_is_shooting</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> is_shooting_; }</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classFlipper.html#ae052907f50a35cbc239611cec92610b0">   68</a></span>&#160;        mesh <a class="code" href="classFlipper.html#ae052907f50a35cbc239611cec92610b0">get_vertices</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> vertices_; }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassFlipper_html_a903074a4b3e7ffdb64591672765c6f41"><div class="ttname"><a href="classFlipper.html#a903074a4b3e7ffdb64591672765c6f41">Flipper::move_right</a></div><div class="ttdeci">void move_right(const Level &amp;terrain)</div><div class="ttdoc">move the flipper to the next lane</div><div class="ttdef"><b>Definition:</b> Flipper.cpp:22</div></div>
+<div class="ttc" id="aclassFlipper_html_af62ae480f41baee1aa8ce639fca9e36f"><div class="ttname"><a href="classFlipper.html#af62ae480f41baee1aa8ce639fca9e36f">Flipper::Flipper</a></div><div class="ttdeci">Flipper(int lane_id, float depth, const Level &amp;terrain)</div><div class="ttdoc">Construct a new Flipper object.</div><div class="ttdef"><b>Definition:</b> Flipper.cpp:11</div></div>
+<div class="ttc" id="aclassFlipper_html_abe78aeefdbd93621a24894cceef286d2"><div class="ttname"><a href="classFlipper.html#abe78aeefdbd93621a24894cceef286d2">Flipper::set_is_shooting</a></div><div class="ttdeci">void set_is_shooting(bool is_shooting)</div><div class="ttdoc">Set if the flipper is shooting.</div><div class="ttdef"><b>Definition:</b> Flipper.hpp:55</div></div>
+<div class="ttc" id="aclassFlipper_html"><div class="ttname"><a href="classFlipper.html">Flipper</a></div><div class="ttdef"><b>Definition:</b> Flipper.hpp:5</div></div>
+<div class="ttc" id="aclassEnemy_html"><div class="ttname"><a href="classEnemy.html">Enemy</a></div><div class="ttdef"><b>Definition:</b> Enemy.hpp:6</div></div>
+<div class="ttc" id="aclassEnemy_html_ad55ee71b5a8c23fbd00b3c368b90cc64"><div class="ttname"><a href="classEnemy.html#ad55ee71b5a8c23fbd00b3c368b90cc64">Enemy::update</a></div><div class="ttdeci">virtual void update()</div><div class="ttdoc">update the enemy</div><div class="ttdef"><b>Definition:</b> Enemy.cpp:11</div></div>
+<div class="ttc" id="aclassFlipper_html_ae052907f50a35cbc239611cec92610b0"><div class="ttname"><a href="classFlipper.html#ae052907f50a35cbc239611cec92610b0">Flipper::get_vertices</a></div><div class="ttdeci">mesh get_vertices() const override</div><div class="ttdoc">Get the vertices of the flipper.</div><div class="ttdef"><b>Definition:</b> Flipper.hpp:68</div></div>
+<div class="ttc" id="aclassFlipper_html_ae498ab519584627d366565705b5655e3"><div class="ttname"><a href="classFlipper.html#ae498ab519584627d366565705b5655e3">Flipper::~Flipper</a></div><div class="ttdeci">virtual ~Flipper()</div><div class="ttdoc">Destroy the Flipper object.</div><div class="ttdef"><b>Definition:</b> Flipper.cpp:20</div></div>
+<div class="ttc" id="aclassFlipper_html_abf1e4cbe67e4bc6677e7cce25539522e"><div class="ttname"><a href="classFlipper.html#abf1e4cbe67e4bc6677e7cce25539522e">Flipper::render</a></div><div class="ttdeci">void render(SDL_Renderer *renderer)</div><div class="ttdoc">render the flipper</div><div class="ttdef"><b>Definition:</b> Flipper.cpp:42</div></div>
+<div class="ttc" id="aclassFlipper_html_a4deac7149acdef1dbdc640bf0d01e7cc"><div class="ttname"><a href="classFlipper.html#a4deac7149acdef1dbdc640bf0d01e7cc">Flipper::move_left</a></div><div class="ttdeci">void move_left(const Level &amp;terrain)</div><div class="ttdoc">move the flipper to the previous lane</div><div class="ttdef"><b>Definition:</b> Flipper.cpp:32</div></div>
+<div class="ttc" id="aclassLevel_html"><div class="ttname"><a href="classLevel.html">Level</a></div><div class="ttdef"><b>Definition:</b> Level.hpp:6</div></div>
+<div class="ttc" id="aclassFlipper_html_a7586ffd4e57bed568abc47c2b3c92921"><div class="ttname"><a href="classFlipper.html#a7586ffd4e57bed568abc47c2b3c92921">Flipper::get_is_shooting</a></div><div class="ttdeci">const bool &amp; get_is_shooting() const</div><div class="ttdoc">Get if the flipper is shooting.</div><div class="ttdef"><b>Definition:</b> Flipper.hpp:62</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

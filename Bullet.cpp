@@ -1,12 +1,15 @@
 #include "Bullet.hpp"
 #include "Level.hpp"
 
-mesh Bullet_template{{{0.5,0.5},
-                        {0.5,1},
-                        {0.5,0},
-                        {-1,0.5},
-                        {1,0.5}}};
-
+mesh Bullet_template{{{0,0.5},
+                        {-0.5,0.5},
+                        {0,0},
+                        {0,1},
+                        {0.5,0.5},
+                        {0.25,0.5},
+                        {-0.25,0.5},
+                        {0,0.25},
+                        {0,0.75}}};
 int Bullet::bullet_count_{0};
 
 Bullet::Bullet(int lane_id, float depth, bool direction,const Level& terrain) : 
@@ -29,7 +32,11 @@ Bullet::~Bullet()
 {
     bullet_count_--;
 }
-
+void Bullet::render(SDL_Renderer* renderer){
+    SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
+    for(auto& vertex : vertices_)
+        SDL_RenderDrawPoint(renderer, vertex.first, vertex.second);
+}
 void Bullet::update(const Level& level)
 {
     if (direction_) depth_ -= 0.01;

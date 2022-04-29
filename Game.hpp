@@ -7,10 +7,7 @@
 #include "Flipper.hpp"
 #include <vector>
 #include <random>
-/**
- * @brief 
- * 
- */
+
 class Game {
     private:
         bool is_running_;
@@ -35,48 +32,48 @@ class Game {
          */
         ~Game();
         /**
-         * @brief 
+         * @brief init the game with the window and the renderer
          * 
-         * @param title 
-         * @param xpos 
+         * @param title
+         * @param xpos
          * @param ypos 
-         * @param width 
+         * @param width
          * @param height 
          * @param fullscreen 
          */
         void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
         /**
-         * @brief 
+         * @brief handle the events 
          * 
          */
         void handleEvents();
         /**
-         * @brief 
+         * @brief update all the game's elements
          * 
          */
         void update();
         /**
-         * @brief 
+         * @brief render all the game's elements
          * 
          */
         void render();
         /**
-         * @brief 
+         * @brief clean properly the game before closing
          * 
          */
         void clean();
         /**
-         * @brief 
+         * @brief verify if there is a collision between two elements
          * 
          */
         void test_collisions();
         /**
-         * @brief 
+         * @brief randomly generate enemies
          * 
          */
         void generate_enemies();
         /**
-         * @brief 
+         * @brief update the enemies' positions
          * 
          */
         void update_enemies();  
@@ -93,7 +90,7 @@ class Game {
          */
         const Level& get_level() const {return level_;};
         /**
-         * @brief 
+         * @brief get if the game is running
          * 
          * @return true 
          * @return false 
