@@ -86,11 +86,23 @@ void Game::handleEvents()
         break;
     }
 }
+void Game::generate_enemies()
+{
+    // TODO : Gérer la création des ennemies
 
+    if (rand() % 100 == 0)
+    {
+        Flipper* flipper = new Flipper(rand() % 16, 0.2,level_);
+        enemies_.push_back(flipper);
+    }
+
+}
 void Game::update()
 {
     level_.update(player_.get_lane_id());
     player_.update(level_);
+    // Generate randomly enemies each 10 seconds
+    generate_enemies();
 
     if (player_.get_is_shooting())
     {
