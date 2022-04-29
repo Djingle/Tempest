@@ -107,13 +107,12 @@ void Game::test_collisions()
                 {
                     std::cout << "Collision !" << std::endl;
                     player_.set_score(player_.get_score()+(*it)->get_value());
-                    std::cout << "Score : " << player_.get_score() << std::endl;
                     delete *it;     
-                    it = enemies_.erase(it);
+                    enemies_.erase(it);
                 }
-            }       
+            }     
         }
-        it++;
+        ++it;
     }           
 }       
 void Game::generate_enemies()

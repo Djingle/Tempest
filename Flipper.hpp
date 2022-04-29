@@ -9,17 +9,62 @@ class Flipper : public Enemy
         int destination_; // lane to the right or left where the Flipper is going
         int direction_; // 0 if not moving, 1 if moving right, -1 if moving left
         float angle_;
-    public : 
+    public :
+        /**
+         * @brief Construct a new Flipper object
+         * 
+         * @param lane_id 
+         * @param depth 
+         * @param terrain 
+         */
         Flipper(int lane_id, float depth,const Level& terrain);
+        /**
+         * @brief Destroy the Flipper object
+         * 
+         */
         virtual ~Flipper();
+        /**
+         * @brief 
+         * 
+         * @param terrain 
+         */
         void move_right(const Level& terrain);
+        /**
+         * @brief 
+         * 
+         * @param terrain 
+         */
         void move_left(const Level& terrain);
-
+        /**
+         * @brief 
+         * 
+         * @param terrain 
+         */
         void update(const Level& terrain);
+        /**
+         * @brief 
+         * 
+         * @param renderer 
+         */
         void render(SDL_Renderer* renderer);
-
+        /**
+         * @brief Set the is shooting object
+         * 
+         * @param is_shooting 
+         */
         void set_is_shooting(bool is_shooting) { is_shooting_ = is_shooting; }
+        /**
+         * @brief Get the is shooting object
+         * 
+         * @return true 
+         * @return false 
+         */
         const bool& get_is_shooting() const { return is_shooting_; }
+        /**
+         * @brief Get the vertices object
+         * 
+         * @return mesh 
+         */
         mesh get_vertices() const override { return vertices_; }
 };
 
