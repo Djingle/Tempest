@@ -52,8 +52,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
                 is_running_ = true;
             }
             player_= Player(level_);
-            Flipper* flipper = new Flipper(0, 0.8,level_);
-            enemies_.push_back(flipper);
         }
     }
 }
@@ -86,13 +84,46 @@ void Game::handleEvents()
         break;
     }
 }
+void Game::test_collisions()
+{
+    
+
+    std::vector<Enemy*>::iterator it = enemies_.begin(); 
+    while (it != enemies_.end())
+    {
+        if ((*it)->get_lane_id() == player_.get_lane_id())
+        {
+            if ((*it)->get_depth() == player_.get_depth())
+            {
+                player_.set_nb_lives(player_.get_nb_lives()-1);
+                
+            }
+        }
+
+        for(auto bullet : bullets_){
+            if (bullet.get_lane_id() == (*it)->get_lane_id())
+            {
+                if (bullet.get_depth() >= (*it)->get_depth()-0.002 && bullet.get_depth() <= (*it)->get_depth()+0.002)
+                {
+                    std::cout << "Collision !" << std::endl;
+                    player_.set_score(player_.get_score()+(*it)->get_value());
+                   std::cout << "Score : " << player_.get_score() << std::endl;
+                    // enemies_.erase(it);
+                }
+            }       
+        }
+        it++;
+    }           
+}       
 void Game::generate_enemies()
 {
-    // TODO : Gérer la création des ennemies
-
-    if (rand() % 100 == 0)
+    std::random_device rd;  //Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+    std::uniform_int_distribution<> distrib_percentage(1,100);
+    std::uniform_int_distribution<> distrib_lane(0,15);
+    if (distrib_percentage(gen) == 1)
     {
-        Flipper* flipper = new Flipper(rand() % 16, 0.2,level_);
+        Flipper* flipper = new Flipper(distrib_lane(gen), 0.2,level_);
         enemies_.push_back(flipper);
     }
 
@@ -102,18 +133,9 @@ void Game::update()
     level_.update(player_.get_lane_id());
     player_.update(level_);
     // Generate randomly enemies each 10 seconds
-    //generate_enemies();
+    generate_enemies();
     // detect collisions with depth
-    for (auto& enemy : enemies_)
-    {
-        if (enemy->get_lane_id() == player_.get_lane_id())
-        {
-            if (enemy->get_depth() == player_.get_depth())
-            {
-                player_.set_nb_lives(player_.get_nb_lives()-1);
-            }
-        }
-    }
+    test_collisions();
     if (player_.get_is_shooting())
     {
         bullets_.push_back(Bullet(player_.get_lane_id(), 0.99, true,level_));

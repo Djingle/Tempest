@@ -15,9 +15,6 @@ Bullet::Bullet(int lane_id, float depth, bool direction,const Level& terrain) :
 {
     bullet_count_++;
     vertices_ = get_pos(terrain);
-    for(auto& vertex : vertices_) {
-        std::cout << "Bullet " <<bullet_count_<< " : (" << vertex.first << " , " << vertex.second << ")" << std::endl;
-    }
 }
 
 

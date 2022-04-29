@@ -6,7 +6,7 @@
 #include "HUD.hpp"
 #include "Flipper.hpp"
 #include <vector>
-
+#include <random>
 /**
  * @brief 
  * 
@@ -31,6 +31,7 @@ class Game {
         void update();
         void render();
         void clean();
+        void test_collisions();
         void generate_enemies();
         inline SDL_Renderer* get_renderer() const {return renderer_;};
         const Level& get_level() const {return level_;};

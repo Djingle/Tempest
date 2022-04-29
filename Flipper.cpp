@@ -9,7 +9,7 @@ mesh Flipper_template {{{-1  ,-0.5},
 
 
 Flipper::Flipper(int lane_id, float depth,const Level& terrain) :
-    Enemy{lane_id, depth, Flipper_template},
+    Enemy{lane_id, depth, Flipper_template,150},
     is_shooting_{false},
     destination_{lane_id_},
     direction_{0},
@@ -51,7 +51,7 @@ void Flipper::update(const Level& terrain)
     if (depth_ < 0.92 && depth_ > 0.9) move_right(terrain);
     (depth_<1.0) ? depth_ += 0.004 : depth_ = 1.0;
     if (destination_ != lane_id_) {
-        std::cout << "Flipper is moving" << std::endl;
+        // std::cout << "Flipper is moving" << std::endl;
         std::cout << "angle_ : " << angle_ << std::endl;
         if (angle_ > 0.1) {
             v_template_ = m_rotate(v_template_, {0, -direction_}, direction_*0.1);

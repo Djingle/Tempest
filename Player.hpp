@@ -25,5 +25,6 @@ class Player: public Object {
         void update(const Level& terrain);
         void set_is_shooting(bool is_shooting) { is_shooting_ = is_shooting; }
         const bool& get_is_shooting() const { return is_shooting_; }
+        void set_score(int score) { score_ = score; }
 };
 #endif

@@ -9,7 +9,7 @@ class Enemy : public Object
         static int enemy_count_;
         int value_;
     public :
-        Enemy(int lane_id, float depth, mesh vertices);
+        Enemy(int lane_id, float depth, mesh vertices, int value);
         virtual ~Enemy();
         virtual void update();
         static const int& get_enemy_count() { return enemy_count_; }
