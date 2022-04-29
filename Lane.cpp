@@ -35,12 +35,3 @@ void Lane::clean()
 {
 
 }
-
-std::ostream& operator<<(std::ostream& os, const Lane& lane)
-{
-    os << "FrontRight : (" << std::to_string(lane.f_right_.first) << "," << std::to_string(lane.f_right_.second) << ")" << std::endl;
-    os << "FrontLeft : (" << std::to_string(lane.f_left_.first) << "," << std::to_string(lane.f_left_.second) << ")" << std::endl;
-    os << "BackLeft : (" << std::to_string(lane.b_left_.first) << "," << std::to_string(lane.b_left_.second) << ")" << std::endl;
-    os << "BackRight : (" << std::to_string(lane.b_right_.first) << "," << std::to_string(lane.b_right_.second) << ")" << std::endl;
-    return os;
-}

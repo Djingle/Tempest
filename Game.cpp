@@ -53,8 +53,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
                 is_running_ = true;
             }
             player_= Player(level_);
-            Flipper* flipper = new Flipper(5, 0.8,level_);
-            enemies_.push_back(flipper);
         }
     }
 }
@@ -87,34 +85,69 @@ void Game::handleEvents()
         break;
     }
 }
+void Game::test_collisions()
+{
+    std::vector<Enemy*>::const_iterator it = enemies_.begin(); 
+    while (it != enemies_.end())
+    {
+        if ((*it)->get_lane_id() == player_.get_lane_id())
+        {
+            if ((*it)->get_depth() == player_.get_depth())
+            {
+                player_.set_nb_lives(player_.get_nb_lives()-1);
+                delete *it;     
+                enemies_.erase(it);
+            }
+        }
+        std::vector<Bullet>::iterator bullet = bullets_.begin();
+        while (bullet != bullets_.end()) {
+            if (bullet->get_lane_id() == (*it)->get_lane_id())
+            {
+                if (bullet->get_depth() >= (*it)->get_depth()-0.005 && bullet->get_depth() <= (*it)->get_depth()+0.005)
+                {
+                    player_.set_score(player_.get_score()+(*it)->get_value());
+                    delete *it;
+                    bullets_.erase(bullet); 
+                    enemies_.erase(it);
+                }
+            }
+            if(bullet != bullets_.end())
+                bullet++;
+        }
+        if(it != enemies_.end())
+            it++;
+    }           
+}       
 void Game::generate_enemies()
 {
-    // TODO : Gérer la création des ennemies
-
-    if (rand() % 100 == 0)
+    std::random_device rd;  //Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+    std::uniform_int_distribution<> distrib_percentage(1,100);
+    std::uniform_int_distribution<> distrib_lane(0,15);
+    if (distrib_percentage(gen) == 1)
     {
-        Flipper* flipper = new Flipper(rand() % 16, 0.2,level_);
+        Flipper* flipper = new Flipper(distrib_lane(gen), 0.2,level_);
         enemies_.push_back(flipper);
     }
 
+}
+void Game::update_enemies(){
+    for(auto& enemy : enemies_)
+    {
+        if(Flipper* f = dynamic_cast<Flipper*>(enemy))
+        {
+            f->update(level_);
+        }
+    }
 }
 void Game::update()
 {
     level_.update(player_.get_lane_id());
     player_.update(level_);
-    // Generate randomly enemies each 10 seconds
-    //generate_enemies();
+    // Generate randomly enemies
+    generate_enemies();
     // detect collisions with depth
-    for (auto& enemy : enemies_)
-    {
-        if (enemy->get_lane_id() == player_.get_lane_id())
-        {
-            if (enemy->get_depth() == player_.get_depth())
-            {
-                player_.set_nb_lives(player_.get_nb_lives()-1);
-            }
-        }
-    }
+    test_collisions();
     if (player_.get_is_shooting())
     {
         bullets_.push_back(Bullet(player_.get_lane_id(), 0.99, true,level_));
@@ -130,31 +163,23 @@ void Game::update()
             else ++bullet;
         }
     }
-    for(auto& enemy : enemies_)
-    {
-        // tester avec dynamic_cast, j'ai fais des tentatives infructueuses
-        // try dynamic cast
-        if(Flipper* f = dynamic_cast<Flipper*>(enemy))
-        {
-            f->update(level_);
-        }
-    }
-    
+    update_enemies();
 }
 void Game::render()
 {
     SDL_RenderClear(renderer_);
-    hud_.render(player_.get_score(),player_.get_nb_lives(),1);
+    hud_.render(renderer_,player_.get_score(),player_.get_nb_lives(),1);
     SDL_SetRenderTarget(renderer_, texture_);
     SDL_SetRenderDrawColor(renderer_, 0, 0, 0, 0);
     SDL_RenderClear(renderer_);
     level_.render(renderer_);
     player_.render(renderer_);
-    for (auto& bullet : bullets_) {
-        bullet.render(renderer_);
-    }
     for(auto enemy : enemies_) {
         enemy->render(renderer_);
+    }
+    SDL_SetRenderDrawColor(renderer_, 255, 0, 255, 255);
+    for (auto& bullet : bullets_) {
+        bullet.render(renderer_);
     }
     SDL_SetRenderTarget(renderer_, NULL);
     SDL_RenderCopy(renderer_, texture_, NULL, &dst_);
@@ -163,6 +188,8 @@ void Game::render()
 
 void Game::clean()
 {
+    if(texture_ != NULL)
+        SDL_DestroyTexture(texture_);
     SDL_DestroyWindow(window_);
     SDL_DestroyRenderer(renderer_);
     SDL_Quit();
