@@ -46,11 +46,6 @@ class Bullet : public Object {
          * @return false 
          */
         const bool& get_direction() const { return direction_; }
-        /**
-         * @brief 
-         * 
-         */
-        static void print_bullet_count() { std::cout << "Bullet count : " << bullet_count_ << std::endl; }
 };
 
 #endif
