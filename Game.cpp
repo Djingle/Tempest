@@ -41,7 +41,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
                 level_.init(2,height);
                 is_running_ = true;
             }
-            Flipper* flipper = new Flipper(0, 0.2, level_);
+            Flipper* flipper = new Flipper(5, 0.2, level_);
             enemies_.push_back(flipper);
             player_= Player(level_);
         }
