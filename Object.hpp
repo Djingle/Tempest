@@ -16,6 +16,7 @@ class Object
         virtual ~Object() = default;
 
         void init(const Level& terrain) {vertices_= get_pos(terrain);}
+        void apply_template(const Level& terrain);
         virtual void render(SDL_Renderer* renderer);
         // void update();
         void clean();

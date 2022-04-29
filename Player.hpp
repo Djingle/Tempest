@@ -9,6 +9,7 @@ class Player: public Object {
         int score_;
         bool is_shooting_;
         int direction_; // 0: nothing, 1: right, -1: left
+        static mesh v_template_;
     public:
         Player(const Player& player);
         Player(const Level& terrain);

@@ -6,7 +6,9 @@ class Flipper : public Enemy
 {
     private :
         bool is_shooting_;
-        int direction_; // 0 = not moving, 1 = moving right, -1 = moving left
+        int destination_; // lane to the right or left where the Flipper is going
+        int direction_; // 0 if not moving, 1 if moving right, -1 if moving left
+        float angle_;
     public : 
         Flipper(int lane_id, float depth,const Level& terrain);
         virtual ~Flipper();
@@ -18,8 +20,6 @@ class Flipper : public Enemy
 
         void set_is_shooting(bool is_shooting) { is_shooting_ = is_shooting; }
         const bool& get_is_shooting() const { return is_shooting_; }
-        void set_direction(int direction) { direction_ = direction; }
-        const int& get_direction() const { return direction_; }
         mesh get_vertices() const override { return vertices_; }
 };
 
