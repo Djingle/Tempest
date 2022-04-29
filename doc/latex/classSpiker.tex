@@ -1,0 +1,128 @@
+\hypertarget{classSpiker}{}\doxysection{Référence de la classe Spiker}
+\label{classSpiker}\index{Spiker@{Spiker}}
+
+
+Graphe d\textquotesingle{}héritage de Spiker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=130pt]{classSpiker__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Spiker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=130pt]{classSpiker__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSpiker_a550eb2e827e7c4995f50c093081b4caa}{Spiker}} (int lane\+\_\+id, float depth, const \mbox{\hyperlink{classLevel}{Level}} \&terrain)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classSpiker}{Spiker}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classSpiker_a99a5eea0a2c184af386bafebfe436b56}{$\sim$\+Spiker}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classFlipper}{Flipper}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSpiker_a0495d9bb7be3f527ba77a89b8e651fe5}{update}} (const \mbox{\hyperlink{classLevel}{Level}} \&terrain)
+\begin{DoxyCompactList}\small\item\em update the position and the angle of the spiker \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSpiker_ab925769293e8e1bd13eec61c0ffc4274}{render}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em render the spiker \end{DoxyCompactList}\item 
+mesh \mbox{\hyperlink{classSpiker_a0c48a919a4ddcf04a13e2869082fa3ad}{get\+\_\+vertices}} () const override
+\begin{DoxyCompactList}\small\item\em Get the vertices of the spiker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Membres hérités additionnels}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classSpiker_a550eb2e827e7c4995f50c093081b4caa}\label{classSpiker_a550eb2e827e7c4995f50c093081b4caa}} 
+\index{Spiker@{Spiker}!Spiker@{Spiker}}
+\index{Spiker@{Spiker}!Spiker@{Spiker}}
+\doxysubsubsection{\texorpdfstring{Spiker()}{Spiker()}}
+{\footnotesize\ttfamily Spiker\+::\+Spiker (\begin{DoxyParamCaption}\item[{int}]{lane\+\_\+id,  }\item[{float}]{depth,  }\item[{const \mbox{\hyperlink{classLevel}{Level}} \&}]{terrain }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classSpiker}{Spiker}} object. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lane\+\_\+id} & \\
+\hline
+{\em depth} & \\
+\hline
+{\em terrain} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSpiker_a99a5eea0a2c184af386bafebfe436b56}\label{classSpiker_a99a5eea0a2c184af386bafebfe436b56}} 
+\index{Spiker@{Spiker}!````~Spiker@{$\sim$Spiker}}
+\index{````~Spiker@{$\sim$Spiker}!Spiker@{Spiker}}
+\doxysubsubsection{\texorpdfstring{$\sim$Spiker()}{~Spiker()}}
+{\footnotesize\ttfamily Spiker\+::$\sim$\+Spiker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{classFlipper}{Flipper}} object. 
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classSpiker_a0c48a919a4ddcf04a13e2869082fa3ad}\label{classSpiker_a0c48a919a4ddcf04a13e2869082fa3ad}} 
+\index{Spiker@{Spiker}!get\_vertices@{get\_vertices}}
+\index{get\_vertices@{get\_vertices}!Spiker@{Spiker}}
+\doxysubsubsection{\texorpdfstring{get\_vertices()}{get\_vertices()}}
+{\footnotesize\ttfamily mesh Spiker\+::get\+\_\+vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the vertices of the spiker. 
+
+\begin{DoxyReturn}{Renvoie}
+mesh 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classObject_ab8681854d2d31b9bffccd538960852bd}{Object}}.
+
+\mbox{\Hypertarget{classSpiker_ab925769293e8e1bd13eec61c0ffc4274}\label{classSpiker_ab925769293e8e1bd13eec61c0ffc4274}} 
+\index{Spiker@{Spiker}!render@{render}}
+\index{render@{render}!Spiker@{Spiker}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Spiker\+::render (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+render the spiker 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classObject_a0155f22c97ad09051cd8e700fe423f51}{Object}}.
+
+\mbox{\Hypertarget{classSpiker_a0495d9bb7be3f527ba77a89b8e651fe5}\label{classSpiker_a0495d9bb7be3f527ba77a89b8e651fe5}} 
+\index{Spiker@{Spiker}!update@{update}}
+\index{update@{update}!Spiker@{Spiker}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Spiker\+::update (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLevel}{Level}} \&}]{terrain }\end{DoxyParamCaption})}
+
+
+
+update the position and the angle of the spiker 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em terrain} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Spiker.\+hpp\item 
+Spiker.\+cpp\end{DoxyCompactItemize}

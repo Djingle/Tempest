@@ -6,17 +6,14 @@
 Game::Game() :
     is_running_{false},
     window_{NULL},
-    renderer_{NULL}
-{
+    renderer_{NULL}{
 }
 
-Game::~Game()
-{
+Game::~Game(){
     clean();
 }
 
-void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
-{
+void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen){
     is_running_ = false;
     int flags = 0;
     if (fullscreen)
@@ -48,12 +45,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     }
 }
 
-void Game::handleEvents()
-{
+void Game::handleEvents(){
     SDL_Event event;
     SDL_PollEvent(&event);
-    switch (event.type)
-    {
+    switch (event.type){
     case SDL_QUIT:
         is_running_ = false;
         break;
@@ -76,8 +71,7 @@ void Game::handleEvents()
         break;
     }
 }
-void Game::test_collisions()
-{
+void Game::test_collisions(){
     std::vector<Enemy*>::const_iterator it = enemies_.begin(); 
     while (it != enemies_.end())
     {
@@ -109,38 +103,39 @@ void Game::test_collisions()
             it++;
     }           
 }       
-void Game::generate_enemies()
-{
+void Game::generate_enemies(){
     std::random_device rd;  //Will be used to obtain a seed for the random number engine
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
-    std::uniform_int_distribution<> distrib_percentage(1,100);
+    std::uniform_int_distribution<> distrib_percentage(1,200);
     std::uniform_int_distribution<> distrib_lane(0,15);
-    if (distrib_percentage(gen) == 1)
-    {
-        Flipper* flipper = new Flipper(distrib_lane(gen), 0.2,level_);
-        enemies_.push_back(flipper);
+    int value = distrib_percentage(gen);
+    switch(value){ // each ennemy has 0.5% chance to appear each frame
+    case 1:
+        enemies_.push_back(new Flipper(distrib_lane(gen),0.2,level_));
+        break;
+    case 2:
+        enemies_.push_back(new Spiker(distrib_lane(gen),0.2,level_));
+        break;
     }
-
 }
 void Game::update_enemies(){
-    for(auto& enemy : enemies_)
-    {
-        if(Flipper* f = dynamic_cast<Flipper*>(enemy))
-        {
+    for(auto& enemy : enemies_) {
+        if(Flipper* f = dynamic_cast<Flipper*>(enemy)){
             f->update(level_);
+        }
+        if(Spiker* s = dynamic_cast<Spiker*>(enemy)){
+            s->update(level_);
         }
     }
 }
-void Game::update()
-{
+void Game::update(){
     level_.update(player_.get_lane_id());
     player_.update(level_);
     // Generate randomly enemies
     //generate_enemies();
     // detect collisions with depth
     test_collisions();
-    if (player_.get_is_shooting())
-    {
+    if (player_.get_is_shooting()){
         bullets_.push_back(Bullet(player_.get_lane_id(), 0.99, true,level_));
         player_.set_is_shooting(false);
     }
@@ -156,8 +151,7 @@ void Game::update()
     }
     update_enemies();
 }
-void Game::render()
-{
+void Game::render(){
     SDL_RenderClear(renderer_);
     hud_.render(renderer_,player_.get_score(),player_.get_nb_lives(),1);
     SDL_SetRenderTarget(renderer_, texture_);
@@ -177,8 +171,7 @@ void Game::render()
     SDL_RenderPresent(renderer_);
 }
 
-void Game::clean()
-{
+void Game::clean(){
     if(texture_ != NULL)
         SDL_DestroyTexture(texture_);
     SDL_DestroyWindow(window_);

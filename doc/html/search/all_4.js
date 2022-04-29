@@ -25,6 +25,6 @@ var searchData=
   ['get_5frenderer_26',['get_renderer',['../classGame.html#af312395eec483d235561a4d28b436f03',1,'Game']]],
   ['get_5fscore_27',['get_score',['../classPlayer.html#a26a3837d4f71891127e3f72e373dc4f2',1,'Player']]],
   ['get_5fvalue_28',['get_value',['../classEnemy.html#a469100f609f916d57fc12c6be0ab1dc2',1,'Enemy']]],
-  ['get_5fvertices_29',['get_vertices',['../classFlipper.html#ae052907f50a35cbc239611cec92610b0',1,'Flipper::get_vertices()'],['../classObject.html#ab8681854d2d31b9bffccd538960852bd',1,'Object::get_vertices()']]],
+  ['get_5fvertices_29',['get_vertices',['../classFlipper.html#ae052907f50a35cbc239611cec92610b0',1,'Flipper::get_vertices()'],['../classObject.html#ab8681854d2d31b9bffccd538960852bd',1,'Object::get_vertices()'],['../classSpiker.html#a0c48a919a4ddcf04a13e2869082fa3ad',1,'Spiker::get_vertices()']]],
   ['get_5fwidth_30',['get_width',['../classLane.html#ae14877ac37ee1feb4214963895bc0340',1,'Lane']]]
 ];

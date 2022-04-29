@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tempest:  Fichier source de Spiker.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Tempest
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Spiker.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SPIKER_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SPIKER_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Enemy.hpp&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classSpiker.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSpiker.html">Spiker</a> : <span class="keyword">public</span> <a class="code" href="classEnemy.html">Enemy</a>{</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    private :</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        <span class="keywordtype">int</span> destination_; <span class="comment">// lane to the right or left where the Spiker is going</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordtype">int</span> direction_; <span class="comment">// 0 if not moving, 1 if moving right, -1 if moving left</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keywordtype">float</span> angle_;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    public :</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="classSpiker.html#a550eb2e827e7c4995f50c093081b4caa">Spiker</a>(<span class="keywordtype">int</span> lane_id, <span class="keywordtype">float</span> depth,<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; terrain);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classSpiker.html#a99a5eea0a2c184af386bafebfe436b56">~Spiker</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classEnemy.html#ad55ee71b5a8c23fbd00b3c368b90cc64">update</a>(<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; terrain);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSpiker.html#ab925769293e8e1bd13eec61c0ffc4274">render</a>(SDL_Renderer* renderer);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;       </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classSpiker.html#a0c48a919a4ddcf04a13e2869082fa3ad">   43</a></span>&#160;        mesh <a class="code" href="classSpiker.html#a0c48a919a4ddcf04a13e2869082fa3ad">get_vertices</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> vertices_; }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassSpiker_html_a0c48a919a4ddcf04a13e2869082fa3ad"><div class="ttname"><a href="classSpiker.html#a0c48a919a4ddcf04a13e2869082fa3ad">Spiker::get_vertices</a></div><div class="ttdeci">mesh get_vertices() const override</div><div class="ttdoc">Get the vertices of the spiker.</div><div class="ttdef"><b>Definition:</b> Spiker.hpp:43</div></div>
+<div class="ttc" id="aclassSpiker_html_a550eb2e827e7c4995f50c093081b4caa"><div class="ttname"><a href="classSpiker.html#a550eb2e827e7c4995f50c093081b4caa">Spiker::Spiker</a></div><div class="ttdeci">Spiker(int lane_id, float depth, const Level &amp;terrain)</div><div class="ttdoc">Construct a new Spiker object.</div><div class="ttdef"><b>Definition:</b> Spiker.cpp:19</div></div>
+<div class="ttc" id="aclassSpiker_html_a99a5eea0a2c184af386bafebfe436b56"><div class="ttname"><a href="classSpiker.html#a99a5eea0a2c184af386bafebfe436b56">Spiker::~Spiker</a></div><div class="ttdeci">virtual ~Spiker()</div><div class="ttdoc">Destroy the Flipper object.</div><div class="ttdef"><b>Definition:</b> Spiker.cpp:26</div></div>
+<div class="ttc" id="aclassEnemy_html"><div class="ttname"><a href="classEnemy.html">Enemy</a></div><div class="ttdef"><b>Definition:</b> Enemy.hpp:6</div></div>
+<div class="ttc" id="aclassEnemy_html_ad55ee71b5a8c23fbd00b3c368b90cc64"><div class="ttname"><a href="classEnemy.html#ad55ee71b5a8c23fbd00b3c368b90cc64">Enemy::update</a></div><div class="ttdeci">virtual void update()</div><div class="ttdoc">update the enemy</div><div class="ttdef"><b>Definition:</b> Enemy.cpp:10</div></div>
+<div class="ttc" id="aclassSpiker_html_ab925769293e8e1bd13eec61c0ffc4274"><div class="ttname"><a href="classSpiker.html#ab925769293e8e1bd13eec61c0ffc4274">Spiker::render</a></div><div class="ttdeci">void render(SDL_Renderer *renderer)</div><div class="ttdoc">render the spiker</div><div class="ttdef"><b>Definition:</b> Spiker.cpp:28</div></div>
+<div class="ttc" id="aclassLevel_html"><div class="ttname"><a href="classLevel.html">Level</a></div><div class="ttdef"><b>Definition:</b> Level.hpp:6</div></div>
+<div class="ttc" id="aclassSpiker_html"><div class="ttname"><a href="classSpiker.html">Spiker</a></div><div class="ttdef"><b>Definition:</b> Spiker.hpp:5</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

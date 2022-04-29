@@ -5,6 +5,7 @@
 #include "Bullet.hpp"
 #include "HUD.hpp"
 #include "Flipper.hpp"
+#include "Spiker.hpp"
 #include <vector>
 #include <random>
 
