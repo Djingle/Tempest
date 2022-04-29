@@ -26,9 +26,9 @@ void HUD::render(int score,int nb_lives,int lvl) {
     SDL_SetRenderTarget(renderer_, texture_);
     SDL_SetRenderDrawColor(renderer_, 0, 0, 0, 0);
     SDL_RenderClear(renderer_);
-    m_write(renderer_,std::to_string(score),dst_.w/4,dst_.h/2,0,255,0,255);
-    m_write(renderer_,std::to_string(nb_lives),dst_.w/8,dst_.h-10,255,255,0,255);
-    m_write(renderer_,std::to_string(lvl),dst_.w/2,dst_.h/2,0,0,255,255);
+    m_write(renderer_,"SCORE : " + std::to_string(score),dst_.w/1.5,dst_.h/2,0,255,0,255);
+    m_write(renderer_,"LIVES : " + std::to_string(nb_lives),dst_.w/8,dst_.h/2,255,255,0,255);
+    m_write(renderer_,"LEVEL "+std::to_string(lvl),dst_.w/2-dst_.w/10,dst_.h/2,0,0,255,255);
     SDL_SetRenderTarget(renderer_, NULL);
     SDL_RenderCopy(renderer_, texture_, NULL, &dst_);
 }
