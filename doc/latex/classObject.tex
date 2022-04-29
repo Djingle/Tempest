@@ -1,0 +1,196 @@
+\hypertarget{classObject}{}\doxysection{Référence de la classe Object}
+\label{classObject}\index{Object@{Object}}
+
+
+Graphe d\textquotesingle{}héritage de Object\+:
+% FIG 0
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classObject_a65c8726cb32d42e1be824253a8e19ae3}{Object}} (int lane\+\_\+id, float depth, mesh vertices)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classObject}{Object}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classObject_a226f2ae2af766b77d83c09a4d766b725}{$\sim$\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classObject}{Object}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classObject_a0351dee5067c3c2afa7dea326e1130a7}{init}} (const \mbox{\hyperlink{classLevel}{Level}} \&terrain)
+\begin{DoxyCompactList}\small\item\em init the object with its vertices position \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classObject_a0155f22c97ad09051cd8e700fe423f51}{render}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em render the object \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classObject_aa77d474239cadb053601caffd840bbbc}{get\+\_\+lane\+\_\+id}} () const
+\begin{DoxyCompactList}\small\item\em Get the lane id of the object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classObject_a75c33a0a2d4b28117e1cda86bb29e1ae}{get\+\_\+depth}} () const
+\begin{DoxyCompactList}\small\item\em Get the depth object. \end{DoxyCompactList}\item 
+mesh \mbox{\hyperlink{classObject_aee99f6d5c27bc4db1e1eadccc017b165}{get\+\_\+pos}} (const \mbox{\hyperlink{classLevel}{Level}} \&terrain) const
+\begin{DoxyCompactList}\small\item\em Get the good position of the object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classObject_a0560fa15afbd1d350356dcc89b727ed3}{get\+\_\+angle}} (const \mbox{\hyperlink{classLevel}{Level}} \&terrain) const
+\begin{DoxyCompactList}\small\item\em Get the angle. \end{DoxyCompactList}\item 
+virtual mesh \mbox{\hyperlink{classObject_ab8681854d2d31b9bffccd538960852bd}{get\+\_\+vertices}} () const
+\begin{DoxyCompactList}\small\item\em Get the vertices of the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classObject_a1b6f0600648efd318bea0e8356c7e65e}\label{classObject_a1b6f0600648efd318bea0e8356c7e65e}} 
+int {\bfseries lane\+\_\+id\+\_\+}
+\item 
+\mbox{\Hypertarget{classObject_a0eb316969e9fb4025bb1e25baef691b3}\label{classObject_a0eb316969e9fb4025bb1e25baef691b3}} 
+float {\bfseries depth\+\_\+}
+\item 
+\mbox{\Hypertarget{classObject_a3970c5a089285e87dd6e18dd3ee5fed2}\label{classObject_a3970c5a089285e87dd6e18dd3ee5fed2}} 
+mesh {\bfseries vertices\+\_\+}
+\item 
+\mbox{\Hypertarget{classObject_a5c0afd39d7497e1742ab1ce1ccbb6cad}\label{classObject_a5c0afd39d7497e1742ab1ce1ccbb6cad}} 
+mesh {\bfseries v\+\_\+template\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classObject_a65c8726cb32d42e1be824253a8e19ae3}\label{classObject_a65c8726cb32d42e1be824253a8e19ae3}} 
+\index{Object@{Object}!Object@{Object}}
+\index{Object@{Object}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{Object()}{Object()}}
+{\footnotesize\ttfamily Object\+::\+Object (\begin{DoxyParamCaption}\item[{int}]{lane\+\_\+id,  }\item[{float}]{depth,  }\item[{mesh}]{vertices }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classObject}{Object}} object. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lane\+\_\+id} & \\
+\hline
+{\em depth} & \\
+\hline
+{\em vertices} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classObject_a226f2ae2af766b77d83c09a4d766b725}\label{classObject_a226f2ae2af766b77d83c09a4d766b725}} 
+\index{Object@{Object}!````~Object@{$\sim$Object}}
+\index{````~Object@{$\sim$Object}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{$\sim$Object()}{~Object()}}
+{\footnotesize\ttfamily virtual Object\+::$\sim$\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classObject}{Object}} object. 
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classObject_a0560fa15afbd1d350356dcc89b727ed3}\label{classObject_a0560fa15afbd1d350356dcc89b727ed3}} 
+\index{Object@{Object}!get\_angle@{get\_angle}}
+\index{get\_angle@{get\_angle}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{get\_angle()}{get\_angle()}}
+{\footnotesize\ttfamily float Object\+::get\+\_\+angle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLevel}{Level}} \&}]{terrain }\end{DoxyParamCaption}) const}
+
+
+
+Get the angle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em terrain} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObject_a75c33a0a2d4b28117e1cda86bb29e1ae}\label{classObject_a75c33a0a2d4b28117e1cda86bb29e1ae}} 
+\index{Object@{Object}!get\_depth@{get\_depth}}
+\index{get\_depth@{get\_depth}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{get\_depth()}{get\_depth()}}
+{\footnotesize\ttfamily float Object\+::get\+\_\+depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the depth object. 
+
+\begin{DoxyReturn}{Renvoie}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObject_aa77d474239cadb053601caffd840bbbc}\label{classObject_aa77d474239cadb053601caffd840bbbc}} 
+\index{Object@{Object}!get\_lane\_id@{get\_lane\_id}}
+\index{get\_lane\_id@{get\_lane\_id}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{get\_lane\_id()}{get\_lane\_id()}}
+{\footnotesize\ttfamily int Object\+::get\+\_\+lane\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the lane id of the object. 
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObject_aee99f6d5c27bc4db1e1eadccc017b165}\label{classObject_aee99f6d5c27bc4db1e1eadccc017b165}} 
+\index{Object@{Object}!get\_pos@{get\_pos}}
+\index{get\_pos@{get\_pos}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{get\_pos()}{get\_pos()}}
+{\footnotesize\ttfamily mesh Object\+::get\+\_\+pos (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLevel}{Level}} \&}]{terrain }\end{DoxyParamCaption}) const}
+
+
+
+Get the good position of the object. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em terrain} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+mesh 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObject_ab8681854d2d31b9bffccd538960852bd}\label{classObject_ab8681854d2d31b9bffccd538960852bd}} 
+\index{Object@{Object}!get\_vertices@{get\_vertices}}
+\index{get\_vertices@{get\_vertices}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{get\_vertices()}{get\_vertices()}}
+{\footnotesize\ttfamily virtual mesh Object\+::get\+\_\+vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the vertices of the object. 
+
+\begin{DoxyReturn}{Renvoie}
+mesh 
+\end{DoxyReturn}
+
+
+Réimplémentée dans \mbox{\hyperlink{classFlipper_ae052907f50a35cbc239611cec92610b0}{Flipper}}.
+
+\mbox{\Hypertarget{classObject_a0351dee5067c3c2afa7dea326e1130a7}\label{classObject_a0351dee5067c3c2afa7dea326e1130a7}} 
+\index{Object@{Object}!init@{init}}
+\index{init@{init}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Object\+::init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLevel}{Level}} \&}]{terrain }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+init the object with its vertices position 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em terrain} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classObject_a0155f22c97ad09051cd8e700fe423f51}\label{classObject_a0155f22c97ad09051cd8e700fe423f51}} 
+\index{Object@{Object}!render@{render}}
+\index{render@{render}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Object\+::render (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+render the object 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée dans \mbox{\hyperlink{classFlipper_abf1e4cbe67e4bc6677e7cce25539522e}{Flipper}}, et \mbox{\hyperlink{classBullet_a9ec9d926279ce76b5fc3d21ad2cbe47b}{Bullet}}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Object.\+hpp\item 
+Object.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,158 @@
+\hypertarget{classLevel}{}\doxysection{Référence de la classe Level}
+\label{classLevel}\index{Level@{Level}}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classLevel_aaada2667d552be73556b239896da368a}{get\+\_\+nb\+\_\+lanes}} () const
+\begin{DoxyCompactList}\small\item\em Get the number of lanes. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classLane}{Lane}} \& \mbox{\hyperlink{classLevel_a271c7818a98bf06e2e4ac3202d10958c}{get\+\_\+lane}} (unsigned int i) const
+\begin{DoxyCompactList}\small\item\em Get the i\textquotesingle{}th lane. \end{DoxyCompactList}\item 
+const bool \& \mbox{\hyperlink{classLevel_adeca117113ded63c3862253afa282aeb}{is\+\_\+circular}} () const
+\begin{DoxyCompactList}\small\item\em get if the level is circular \end{DoxyCompactList}\item 
+const vertex \& \mbox{\hyperlink{classLevel_a77f42a5e730584f35b6f01f0ba5a3e5c}{get\+\_\+center}} () const
+\begin{DoxyCompactList}\small\item\em Get the vanishing point. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classLevel_ae0b7936003881adffc023b92e0be13c9}{get\+\_\+angle\+\_\+diff}} (int l1, int l2, int direction) const
+\begin{DoxyCompactList}\small\item\em Get the angle difference between two lanes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLevel_aacfb73d8a99f36a9262e2b26ef58505b}{init}} (unsigned int lvl, int height)
+\begin{DoxyCompactList}\small\item\em creates level with given parameters \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLevel_ae02196eaa43a810a429be60e4c839b81}{update}} (unsigned int player\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em update the selected lane \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLevel_a4b91466a0194730f96074ec058565062}{render}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em iterate through all lanes and render them \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classLevel_ae0b7936003881adffc023b92e0be13c9}\label{classLevel_ae0b7936003881adffc023b92e0be13c9}} 
+\index{Level@{Level}!get\_angle\_diff@{get\_angle\_diff}}
+\index{get\_angle\_diff@{get\_angle\_diff}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{get\_angle\_diff()}{get\_angle\_diff()}}
+{\footnotesize\ttfamily float Level\+::get\+\_\+angle\+\_\+diff (\begin{DoxyParamCaption}\item[{int}]{l1,  }\item[{int}]{l2,  }\item[{int}]{direction }\end{DoxyParamCaption}) const}
+
+
+
+Get the angle difference between two lanes. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l1} & \\
+\hline
+{\em l2} & \\
+\hline
+{\em direction} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLevel_a77f42a5e730584f35b6f01f0ba5a3e5c}\label{classLevel_a77f42a5e730584f35b6f01f0ba5a3e5c}} 
+\index{Level@{Level}!get\_center@{get\_center}}
+\index{get\_center@{get\_center}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{get\_center()}{get\_center()}}
+{\footnotesize\ttfamily const vertex\& Level\+::get\+\_\+center (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the vanishing point. 
+
+\begin{DoxyReturn}{Renvoie}
+const vertex\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLevel_a271c7818a98bf06e2e4ac3202d10958c}\label{classLevel_a271c7818a98bf06e2e4ac3202d10958c}} 
+\index{Level@{Level}!get\_lane@{get\_lane}}
+\index{get\_lane@{get\_lane}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{get\_lane()}{get\_lane()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classLane}{Lane}}\& Level\+::get\+\_\+lane (\begin{DoxyParamCaption}\item[{unsigned int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the i\textquotesingle{}th lane. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em i} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+const \mbox{\hyperlink{classLane}{Lane}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLevel_aaada2667d552be73556b239896da368a}\label{classLevel_aaada2667d552be73556b239896da368a}} 
+\index{Level@{Level}!get\_nb\_lanes@{get\_nb\_lanes}}
+\index{get\_nb\_lanes@{get\_nb\_lanes}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{get\_nb\_lanes()}{get\_nb\_lanes()}}
+{\footnotesize\ttfamily int Level\+::get\+\_\+nb\+\_\+lanes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of lanes. 
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLevel_aacfb73d8a99f36a9262e2b26ef58505b}\label{classLevel_aacfb73d8a99f36a9262e2b26ef58505b}} 
+\index{Level@{Level}!init@{init}}
+\index{init@{init}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Level\+::init (\begin{DoxyParamCaption}\item[{unsigned int}]{lvl,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+creates level with given parameters 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lvl} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLevel_adeca117113ded63c3862253afa282aeb}\label{classLevel_adeca117113ded63c3862253afa282aeb}} 
+\index{Level@{Level}!is\_circular@{is\_circular}}
+\index{is\_circular@{is\_circular}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{is\_circular()}{is\_circular()}}
+{\footnotesize\ttfamily const bool\& Level\+::is\+\_\+circular (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get if the level is circular 
+
+\begin{DoxyReturn}{Renvoie}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLevel_a4b91466a0194730f96074ec058565062}\label{classLevel_a4b91466a0194730f96074ec058565062}} 
+\index{Level@{Level}!render@{render}}
+\index{render@{render}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Level\+::render (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+iterate through all lanes and render them 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLevel_ae02196eaa43a810a429be60e4c839b81}\label{classLevel_ae02196eaa43a810a429be60e4c839b81}} 
+\index{Level@{Level}!update@{update}}
+\index{update@{update}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Level\+::update (\begin{DoxyParamCaption}\item[{unsigned int}]{player\+\_\+pos }\end{DoxyParamCaption})}
+
+
+
+update the selected lane 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player\+\_\+pos} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Level.\+hpp\item 
+Level.\+cpp\end{DoxyCompactItemize}

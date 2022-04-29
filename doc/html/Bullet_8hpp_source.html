@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tempest:  Fichier source de Bullet.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Tempest
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Bullet.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef BULLET_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define BULLET_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Object.hpp&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classBullet.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBullet.html">Bullet</a> : <span class="keyword">public</span> <a class="code" href="classObject.html">Object</a> {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> bullet_count_;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordtype">bool</span> direction_; <span class="comment">// true = fired by player, false = fired by enemy</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="classBullet.html#a5b8454c121ee994100221be0c6529f6b">Bullet</a>(<span class="keywordtype">int</span> lane_id, <span class="keywordtype">float</span> depth, <span class="keywordtype">bool</span> direction,<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; terrain);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="classBullet.html#a5b8454c121ee994100221be0c6529f6b">Bullet</a>(<span class="keyword">const</span> <a class="code" href="classBullet.html">Bullet</a>&amp; bullet);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classBullet.html#aaeb5cb41d7db89f49007b08b41f1bfcf">~Bullet</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classBullet.html#aace06519c14bed0cf731812c7f11b4c1">update</a>(<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; level);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classBullet.html#a9ec9d926279ce76b5fc3d21ad2cbe47b">render</a>(SDL_Renderer* renderer);</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classBullet.html#afdab1d6c63b1d891f37466f95a8efee5">   47</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; <a class="code" href="classBullet.html#afdab1d6c63b1d891f37466f95a8efee5">get_bullet_count</a>() { <span class="keywordflow">return</span> bullet_count_; }</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classBullet.html#a78f70ee2bf1634c487f6350e1f5a4326">   54</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; <a class="code" href="classBullet.html#a78f70ee2bf1634c487f6350e1f5a4326">get_direction</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> direction_; }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassBullet_html"><div class="ttname"><a href="classBullet.html">Bullet</a></div><div class="ttdef"><b>Definition:</b> Bullet.hpp:5</div></div>
+<div class="ttc" id="aclassBullet_html_a9ec9d926279ce76b5fc3d21ad2cbe47b"><div class="ttname"><a href="classBullet.html#a9ec9d926279ce76b5fc3d21ad2cbe47b">Bullet::render</a></div><div class="ttdeci">void render(SDL_Renderer *renderer)</div><div class="ttdoc">render the bullet (override the render method of the Object class because it uses points instead of l...</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:35</div></div>
+<div class="ttc" id="aclassBullet_html_aaeb5cb41d7db89f49007b08b41f1bfcf"><div class="ttname"><a href="classBullet.html#aaeb5cb41d7db89f49007b08b41f1bfcf">Bullet::~Bullet</a></div><div class="ttdeci">virtual ~Bullet()</div><div class="ttdoc">Destroy the Bullet object.</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:31</div></div>
+<div class="ttc" id="aclassObject_html"><div class="ttname"><a href="classObject.html">Object</a></div><div class="ttdef"><b>Definition:</b> Object.hpp:6</div></div>
+<div class="ttc" id="aclassBullet_html_afdab1d6c63b1d891f37466f95a8efee5"><div class="ttname"><a href="classBullet.html#afdab1d6c63b1d891f37466f95a8efee5">Bullet::get_bullet_count</a></div><div class="ttdeci">static const int &amp; get_bullet_count()</div><div class="ttdoc">Get the number of bullets.</div><div class="ttdef"><b>Definition:</b> Bullet.hpp:47</div></div>
+<div class="ttc" id="aclassBullet_html_a5b8454c121ee994100221be0c6529f6b"><div class="ttname"><a href="classBullet.html#a5b8454c121ee994100221be0c6529f6b">Bullet::Bullet</a></div><div class="ttdeci">Bullet(int lane_id, float depth, bool direction, const Level &amp;terrain)</div><div class="ttdoc">Construct a new Bullet object.</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:15</div></div>
+<div class="ttc" id="aclassBullet_html_aace06519c14bed0cf731812c7f11b4c1"><div class="ttname"><a href="classBullet.html#aace06519c14bed0cf731812c7f11b4c1">Bullet::update</a></div><div class="ttdeci">void update(const Level &amp;level)</div><div class="ttdoc">update the position of the bullet</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:40</div></div>
+<div class="ttc" id="aclassLevel_html"><div class="ttname"><a href="classLevel.html">Level</a></div><div class="ttdef"><b>Definition:</b> Level.hpp:6</div></div>
+<div class="ttc" id="aclassBullet_html_a78f70ee2bf1634c487f6350e1f5a4326"><div class="ttname"><a href="classBullet.html#a78f70ee2bf1634c487f6350e1f5a4326">Bullet::get_direction</a></div><div class="ttdeci">const bool &amp; get_direction() const</div><div class="ttdoc">Get the direction of the bullet (from player or from ennemies)</div><div class="ttdef"><b>Definition:</b> Bullet.hpp:54</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

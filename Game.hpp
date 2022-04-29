@@ -7,10 +7,7 @@
 #include "Flipper.hpp"
 #include <vector>
 #include <random>
-/**
- * @brief 
- * 
- */
+
 class Game {
     private:
         bool is_running_;

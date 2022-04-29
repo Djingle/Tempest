@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tempest:  Fichier source de Player.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Tempest
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Player.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef Player_hpp</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define Player_hpp</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Object.hpp&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Level.hpp&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Bullet.hpp&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classPlayer.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlayer.html">Player</a>: <span class="keyword">public</span> <a class="code" href="classObject.html">Object</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">int</span> nb_lives_;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">int</span> score_;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">bool</span> is_shooting_;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">int</span> direction_; <span class="comment">// 0: nothing, 1: right, -1: left</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">static</span> mesh v_template_;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classPlayer.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a>(<span class="keyword">const</span> <a class="code" href="classPlayer.html">Player</a>&amp; player);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="classPlayer.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a>(<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; terrain);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="classPlayer.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classPlayer.html#a8981c201ffb2270c0b6dbd467b627376">   38</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classPlayer.html#a8981c201ffb2270c0b6dbd467b627376">~Player</a>(){};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPlayer.html#a7190d3cf970bfb2127eade92a3258180">move_right</a>(<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; terrain);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPlayer.html#a9419bc4ee664200172d7dc487658b0e8">move_left</a>(<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; terrain);</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classPlayer.html#a26a3837d4f71891127e3f72e373dc4f2">   56</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="classPlayer.html#a26a3837d4f71891127e3f72e373dc4f2">get_score</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> score_;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classPlayer.html#aa559faa9715fab6cce34a00cf189b914">   62</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="classPlayer.html#aa559faa9715fab6cce34a00cf189b914">get_nb_lives</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> nb_lives_;};</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classPlayer.html#ae1df332cb301bebf984c2dafd258ba06">   68</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPlayer.html#ae1df332cb301bebf984c2dafd258ba06">set_nb_lives</a>(<span class="keywordtype">int</span> nb_lives) {nb_lives_ = nb_lives;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPlayer.html#abf020a23b96de4fc20a2d14d20d8cfcf">update</a>(<span class="keyword">const</span> <a class="code" href="classLevel.html">Level</a>&amp; terrain);</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classPlayer.html#abaef2e976913d8e54a8a10a5d824d750">   80</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPlayer.html#abaef2e976913d8e54a8a10a5d824d750">set_is_shooting</a>(<span class="keywordtype">bool</span> is_shooting) { is_shooting_ = is_shooting; }</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classPlayer.html#a527a3cabfbaaab62d34548dd6080dd03">   87</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; <a class="code" href="classPlayer.html#a527a3cabfbaaab62d34548dd6080dd03">get_is_shooting</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> is_shooting_; }</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classPlayer.html#aed5ebcd988a99fcbf8ef0e657a9dad24">   93</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPlayer.html#aed5ebcd988a99fcbf8ef0e657a9dad24">set_score</a>(<span class="keywordtype">int</span> score) { score_ = score; }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassPlayer_html_a8981c201ffb2270c0b6dbd467b627376"><div class="ttname"><a href="classPlayer.html#a8981c201ffb2270c0b6dbd467b627376">Player::~Player</a></div><div class="ttdeci">virtual ~Player()</div><div class="ttdoc">Destroy the Player object.</div><div class="ttdef"><b>Definition:</b> Player.hpp:38</div></div>
+<div class="ttc" id="aclassPlayer_html_aa559faa9715fab6cce34a00cf189b914"><div class="ttname"><a href="classPlayer.html#aa559faa9715fab6cce34a00cf189b914">Player::get_nb_lives</a></div><div class="ttdeci">int get_nb_lives() const</div><div class="ttdoc">Get the player's number of lives.</div><div class="ttdef"><b>Definition:</b> Player.hpp:62</div></div>
+<div class="ttc" id="aclassPlayer_html_a7190d3cf970bfb2127eade92a3258180"><div class="ttname"><a href="classPlayer.html#a7190d3cf970bfb2127eade92a3258180">Player::move_right</a></div><div class="ttdeci">void move_right(const Level &amp;terrain)</div><div class="ttdoc">move the player to the next lane</div><div class="ttdef"><b>Definition:</b> Player.cpp:41</div></div>
+<div class="ttc" id="aclassPlayer_html_abaef2e976913d8e54a8a10a5d824d750"><div class="ttname"><a href="classPlayer.html#abaef2e976913d8e54a8a10a5d824d750">Player::set_is_shooting</a></div><div class="ttdeci">void set_is_shooting(bool is_shooting)</div><div class="ttdoc">Set if the player is shooting.</div><div class="ttdef"><b>Definition:</b> Player.hpp:80</div></div>
+<div class="ttc" id="aclassObject_html"><div class="ttname"><a href="classObject.html">Object</a></div><div class="ttdef"><b>Definition:</b> Object.hpp:6</div></div>
+<div class="ttc" id="aclassPlayer_html_a9419bc4ee664200172d7dc487658b0e8"><div class="ttname"><a href="classPlayer.html#a9419bc4ee664200172d7dc487658b0e8">Player::move_left</a></div><div class="ttdeci">void move_left(const Level &amp;terrain)</div><div class="ttdoc">move the player to the previous lane</div><div class="ttdef"><b>Definition:</b> Player.cpp:48</div></div>
+<div class="ttc" id="aclassPlayer_html_aed5ebcd988a99fcbf8ef0e657a9dad24"><div class="ttname"><a href="classPlayer.html#aed5ebcd988a99fcbf8ef0e657a9dad24">Player::set_score</a></div><div class="ttdeci">void set_score(int score)</div><div class="ttdoc">Set the player's score.</div><div class="ttdef"><b>Definition:</b> Player.hpp:93</div></div>
+<div class="ttc" id="aclassPlayer_html_a26a3837d4f71891127e3f72e373dc4f2"><div class="ttname"><a href="classPlayer.html#a26a3837d4f71891127e3f72e373dc4f2">Player::get_score</a></div><div class="ttdeci">int get_score() const</div><div class="ttdoc">Get the player's score.</div><div class="ttdef"><b>Definition:</b> Player.hpp:56</div></div>
+<div class="ttc" id="aclassPlayer_html_ae1df332cb301bebf984c2dafd258ba06"><div class="ttname"><a href="classPlayer.html#ae1df332cb301bebf984c2dafd258ba06">Player::set_nb_lives</a></div><div class="ttdeci">void set_nb_lives(int nb_lives)</div><div class="ttdoc">Set the player's number of lives.</div><div class="ttdef"><b>Definition:</b> Player.hpp:68</div></div>
+<div class="ttc" id="aclassPlayer_html_affe0cc3cb714f6deb4e62f0c0d3f1fd8"><div class="ttname"><a href="classPlayer.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player::Player</a></div><div class="ttdeci">Player()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> Player.cpp:8</div></div>
+<div class="ttc" id="aclassPlayer_html_a527a3cabfbaaab62d34548dd6080dd03"><div class="ttname"><a href="classPlayer.html#a527a3cabfbaaab62d34548dd6080dd03">Player::get_is_shooting</a></div><div class="ttdeci">const bool &amp; get_is_shooting() const</div><div class="ttdoc">Get if the player is shooting.</div><div class="ttdef"><b>Definition:</b> Player.hpp:87</div></div>
+<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.hpp:10</div></div>
+<div class="ttc" id="aclassLevel_html"><div class="ttname"><a href="classLevel.html">Level</a></div><div class="ttdef"><b>Definition:</b> Level.hpp:6</div></div>
+<div class="ttc" id="aclassPlayer_html_abf020a23b96de4fc20a2d14d20d8cfcf"><div class="ttname"><a href="classPlayer.html#abf020a23b96de4fc20a2d14d20d8cfcf">Player::update</a></div><div class="ttdeci">void update(const Level &amp;terrain)</div><div class="ttdoc">update the player's position</div><div class="ttdef"><b>Definition:</b> Player.cpp:33</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

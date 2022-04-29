@@ -1,0 +1,196 @@
+\hypertarget{classLane}{}\doxysection{Référence de la classe Lane}
+\label{classLane}\index{Lane@{Lane}}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLane_a1fc422a4ad5ffd244567bb3716176a5f}{Lane}} (const vertex center, const float scale, const vertex f\+\_\+right, const vertex f\+\_\+left)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classLane}{Lane}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLane_a429affe3165b31d18cf1c4f6311475cb}{set\+\_\+active}} (bool is\+\_\+active)
+\begin{DoxyCompactList}\small\item\em Set if player is on the lane. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLane_a0a7b0f683c2ecb210fa7bcf438101077}{get\+\_\+active}} () const
+\begin{DoxyCompactList}\small\item\em get if player is on the lane \end{DoxyCompactList}\item 
+const vertex \& \mbox{\hyperlink{classLane_a48c17e55a5218734ec4a0d0f443e7797}{get\+\_\+f\+\_\+left}} () const
+\begin{DoxyCompactList}\small\item\em Get the front left vertex of lane. \end{DoxyCompactList}\item 
+const vertex \& \mbox{\hyperlink{classLane_a180b39cdaded2dee21a1238479193d43}{get\+\_\+f\+\_\+right}} () const
+\begin{DoxyCompactList}\small\item\em Get the front right vertex of lane. \end{DoxyCompactList}\item 
+const vertex \& \mbox{\hyperlink{classLane_a8ba21d4413db38f191c5dbf5fa00e8f5}{get\+\_\+b\+\_\+left}} () const
+\begin{DoxyCompactList}\small\item\em Get the back left vertex of lane. \end{DoxyCompactList}\item 
+const vertex \& \mbox{\hyperlink{classLane_a04d5875f24ed7dc409df94de687fd269}{get\+\_\+b\+\_\+right}} () const
+\begin{DoxyCompactList}\small\item\em Get the back right vertex of lane. \end{DoxyCompactList}\item 
+vertex \mbox{\hyperlink{classLane_a95b71a2ba55ca89ae99f346f99e592ff}{get\+\_\+mid}} () const
+\begin{DoxyCompactList}\small\item\em Get the middle point between front left and front right. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classLane_aa20543217e9681ce427264fab9de0e3d}{get\+\_\+angle}} () const
+\begin{DoxyCompactList}\small\item\em Get the angle. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classLane_ae14877ac37ee1feb4214963895bc0340}{get\+\_\+width}} () const
+\begin{DoxyCompactList}\small\item\em Get the width of the lane. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLane_a128cd9cdf9f4065715b408e8bd28463d}{render}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer) const
+\begin{DoxyCompactList}\small\item\em render the lane on the screen in blue if not selected, yellow if selected \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classLane_a1fc422a4ad5ffd244567bb3716176a5f}\label{classLane_a1fc422a4ad5ffd244567bb3716176a5f}} 
+\index{Lane@{Lane}!Lane@{Lane}}
+\index{Lane@{Lane}!Lane@{Lane}}
+\doxysubsubsection{\texorpdfstring{Lane()}{Lane()}}
+{\footnotesize\ttfamily Lane\+::\+Lane (\begin{DoxyParamCaption}\item[{const vertex}]{center,  }\item[{const float}]{scale,  }\item[{const vertex}]{f\+\_\+right,  }\item[{const vertex}]{f\+\_\+left }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classLane}{Lane}} object. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em center} & \\
+\hline
+{\em scale} & \\
+\hline
+{\em f\+\_\+right} & \\
+\hline
+{\em f\+\_\+left} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classLane_a0a7b0f683c2ecb210fa7bcf438101077}\label{classLane_a0a7b0f683c2ecb210fa7bcf438101077}} 
+\index{Lane@{Lane}!get\_active@{get\_active}}
+\index{get\_active@{get\_active}!Lane@{Lane}}
+\doxysubsubsection{\texorpdfstring{get\_active()}{get\_active()}}
+{\footnotesize\ttfamily bool Lane\+::get\+\_\+active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get if player is on the lane 
+
+\begin{DoxyReturn}{Renvoie}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLane_aa20543217e9681ce427264fab9de0e3d}\label{classLane_aa20543217e9681ce427264fab9de0e3d}} 
+\index{Lane@{Lane}!get\_angle@{get\_angle}}
+\index{get\_angle@{get\_angle}!Lane@{Lane}}
+\doxysubsubsection{\texorpdfstring{get\_angle()}{get\_angle()}}
+{\footnotesize\ttfamily float Lane\+::get\+\_\+angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the angle. 
+
+\begin{DoxyReturn}{Renvoie}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLane_a8ba21d4413db38f191c5dbf5fa00e8f5}\label{classLane_a8ba21d4413db38f191c5dbf5fa00e8f5}} 
+\index{Lane@{Lane}!get\_b\_left@{get\_b\_left}}
+\index{get\_b\_left@{get\_b\_left}!Lane@{Lane}}
+\doxysubsubsection{\texorpdfstring{get\_b\_left()}{get\_b\_left()}}
+{\footnotesize\ttfamily const vertex\& Lane\+::get\+\_\+b\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the back left vertex of lane. 
+
+\begin{DoxyReturn}{Renvoie}
+const vertex\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLane_a04d5875f24ed7dc409df94de687fd269}\label{classLane_a04d5875f24ed7dc409df94de687fd269}} 
+\index{Lane@{Lane}!get\_b\_right@{get\_b\_right}}
+\index{get\_b\_right@{get\_b\_right}!Lane@{Lane}}
+\doxysubsubsection{\texorpdfstring{get\_b\_right()}{get\_b\_right()}}
+{\footnotesize\ttfamily const vertex\& Lane\+::get\+\_\+b\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the back right vertex of lane. 
+
+\begin{DoxyReturn}{Renvoie}
+const vertex\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLane_a48c17e55a5218734ec4a0d0f443e7797}\label{classLane_a48c17e55a5218734ec4a0d0f443e7797}} 
+\index{Lane@{Lane}!get\_f\_left@{get\_f\_left}}
+\index{get\_f\_left@{get\_f\_left}!Lane@{Lane}}
+\doxysubsubsection{\texorpdfstring{get\_f\_left()}{get\_f\_left()}}
+{\footnotesize\ttfamily const vertex\& Lane\+::get\+\_\+f\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the front left vertex of lane. 
+
+\begin{DoxyReturn}{Renvoie}
+const vertex\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLane_a180b39cdaded2dee21a1238479193d43}\label{classLane_a180b39cdaded2dee21a1238479193d43}} 
+\index{Lane@{Lane}!get\_f\_right@{get\_f\_right}}
+\index{get\_f\_right@{get\_f\_right}!Lane@{Lane}}
+\doxysubsubsection{\texorpdfstring{get\_f\_right()}{get\_f\_right()}}
+{\footnotesize\ttfamily const vertex\& Lane\+::get\+\_\+f\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the front right vertex of lane. 
+
+\begin{DoxyReturn}{Renvoie}
+const vertex\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLane_a95b71a2ba55ca89ae99f346f99e592ff}\label{classLane_a95b71a2ba55ca89ae99f346f99e592ff}} 
+\index{Lane@{Lane}!get\_mid@{get\_mid}}
+\index{get\_mid@{get\_mid}!Lane@{Lane}}
+\doxysubsubsection{\texorpdfstring{get\_mid()}{get\_mid()}}
+{\footnotesize\ttfamily vertex Lane\+::get\+\_\+mid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the middle point between front left and front right. 
+
+\begin{DoxyReturn}{Renvoie}
+vertex 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLane_ae14877ac37ee1feb4214963895bc0340}\label{classLane_ae14877ac37ee1feb4214963895bc0340}} 
+\index{Lane@{Lane}!get\_width@{get\_width}}
+\index{get\_width@{get\_width}!Lane@{Lane}}
+\doxysubsubsection{\texorpdfstring{get\_width()}{get\_width()}}
+{\footnotesize\ttfamily float Lane\+::get\+\_\+width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the width of the lane. 
+
+\begin{DoxyReturn}{Renvoie}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLane_a128cd9cdf9f4065715b408e8bd28463d}\label{classLane_a128cd9cdf9f4065715b408e8bd28463d}} 
+\index{Lane@{Lane}!render@{render}}
+\index{render@{render}!Lane@{Lane}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Lane\+::render (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption}) const}
+
+
+
+render the lane on the screen in blue if not selected, yellow if selected 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLane_a429affe3165b31d18cf1c4f6311475cb}\label{classLane_a429affe3165b31d18cf1c4f6311475cb}} 
+\index{Lane@{Lane}!set\_active@{set\_active}}
+\index{set\_active@{set\_active}!Lane@{Lane}}
+\doxysubsubsection{\texorpdfstring{set\_active()}{set\_active()}}
+{\footnotesize\ttfamily void Lane\+::set\+\_\+active (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+active }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set if player is on the lane. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em is\+\_\+active} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Lane.\+hpp\item 
+Lane.\+cpp\end{DoxyCompactItemize}

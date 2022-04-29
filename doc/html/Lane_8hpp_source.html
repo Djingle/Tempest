@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tempest:  Fichier source de Lane.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Tempest
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Lane.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef Lane_hpp</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define Lane_hpp</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;utils.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classLane.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLane.html">Lane</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keywordtype">bool</span> is_active_;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        vertex f_left_;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        vertex f_right_;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        vertex b_left_;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        vertex b_right_;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="classLane.html#a1fc422a4ad5ffd244567bb3716176a5f">Lane</a>(<span class="keyword">const</span> vertex center,<span class="keyword">const</span> <span class="keywordtype">float</span> scale,<span class="keyword">const</span> vertex f_right, <span class="keyword">const</span> vertex f_left);</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classLane.html#a429affe3165b31d18cf1c4f6311475cb">   30</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classLane.html#a429affe3165b31d18cf1c4f6311475cb">set_active</a>(<span class="keywordtype">bool</span> is_active){is_active_ = is_active;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classLane.html#a0a7b0f683c2ecb210fa7bcf438101077">   37</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classLane.html#a0a7b0f683c2ecb210fa7bcf438101077">get_active</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> is_active_;} </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classLane.html#a48c17e55a5218734ec4a0d0f443e7797">   43</a></span>&#160;        <span class="keyword">const</span> vertex&amp; <a class="code" href="classLane.html#a48c17e55a5218734ec4a0d0f443e7797">get_f_left</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> f_left_;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classLane.html#a180b39cdaded2dee21a1238479193d43">   49</a></span>&#160;        <span class="keyword">const</span> vertex&amp; <a class="code" href="classLane.html#a180b39cdaded2dee21a1238479193d43">get_f_right</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> f_right_;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classLane.html#a8ba21d4413db38f191c5dbf5fa00e8f5">   55</a></span>&#160;        <span class="keyword">const</span> vertex&amp; <a class="code" href="classLane.html#a8ba21d4413db38f191c5dbf5fa00e8f5">get_b_left</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> b_left_;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classLane.html#a04d5875f24ed7dc409df94de687fd269">   61</a></span>&#160;        <span class="keyword">const</span> vertex&amp; <a class="code" href="classLane.html#a04d5875f24ed7dc409df94de687fd269">get_b_right</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> b_right_;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classLane.html#a95b71a2ba55ca89ae99f346f99e592ff">   67</a></span>&#160;        vertex <a class="code" href="classLane.html#a95b71a2ba55ca89ae99f346f99e592ff">get_mid</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> {(f_left_.first+f_right_.first)/2.0, (f_left_.second+f_right_.second)/2.0};}</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classLane.html#aa20543217e9681ce427264fab9de0e3d">   73</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classLane.html#aa20543217e9681ce427264fab9de0e3d">get_angle</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> v_angle({f_left_.first+1, f_left_.second}, f_left_, f_right_);}</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classLane.html#ae14877ac37ee1feb4214963895bc0340">   79</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classLane.html#ae14877ac37ee1feb4214963895bc0340">get_width</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> v_distance(f_left_, f_right_);}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classLane.html#a128cd9cdf9f4065715b408e8bd28463d">render</a>(SDL_Renderer* renderer) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassLane_html_a04d5875f24ed7dc409df94de687fd269"><div class="ttname"><a href="classLane.html#a04d5875f24ed7dc409df94de687fd269">Lane::get_b_right</a></div><div class="ttdeci">const vertex &amp; get_b_right() const</div><div class="ttdoc">Get the back right vertex of lane.</div><div class="ttdef"><b>Definition:</b> Lane.hpp:61</div></div>
+<div class="ttc" id="aclassLane_html_a8ba21d4413db38f191c5dbf5fa00e8f5"><div class="ttname"><a href="classLane.html#a8ba21d4413db38f191c5dbf5fa00e8f5">Lane::get_b_left</a></div><div class="ttdeci">const vertex &amp; get_b_left() const</div><div class="ttdoc">Get the back left vertex of lane.</div><div class="ttdef"><b>Definition:</b> Lane.hpp:55</div></div>
+<div class="ttc" id="aclassLane_html_a429affe3165b31d18cf1c4f6311475cb"><div class="ttname"><a href="classLane.html#a429affe3165b31d18cf1c4f6311475cb">Lane::set_active</a></div><div class="ttdeci">void set_active(bool is_active)</div><div class="ttdoc">Set if player is on the lane.</div><div class="ttdef"><b>Definition:</b> Lane.hpp:30</div></div>
+<div class="ttc" id="aclassLane_html_a180b39cdaded2dee21a1238479193d43"><div class="ttname"><a href="classLane.html#a180b39cdaded2dee21a1238479193d43">Lane::get_f_right</a></div><div class="ttdeci">const vertex &amp; get_f_right() const</div><div class="ttdoc">Get the front right vertex of lane.</div><div class="ttdef"><b>Definition:</b> Lane.hpp:49</div></div>
+<div class="ttc" id="aclassLane_html_ae14877ac37ee1feb4214963895bc0340"><div class="ttname"><a href="classLane.html#ae14877ac37ee1feb4214963895bc0340">Lane::get_width</a></div><div class="ttdeci">float get_width() const</div><div class="ttdoc">Get the width of the lane.</div><div class="ttdef"><b>Definition:</b> Lane.hpp:79</div></div>
+<div class="ttc" id="aclassLane_html"><div class="ttname"><a href="classLane.html">Lane</a></div><div class="ttdef"><b>Definition:</b> Lane.hpp:8</div></div>
+<div class="ttc" id="aclassLane_html_a1fc422a4ad5ffd244567bb3716176a5f"><div class="ttname"><a href="classLane.html#a1fc422a4ad5ffd244567bb3716176a5f">Lane::Lane</a></div><div class="ttdeci">Lane(const vertex center, const float scale, const vertex f_right, const vertex f_left)</div><div class="ttdoc">Construct a new Lane object.</div><div class="ttdef"><b>Definition:</b> Lane.cpp:5</div></div>
+<div class="ttc" id="aclassLane_html_a48c17e55a5218734ec4a0d0f443e7797"><div class="ttname"><a href="classLane.html#a48c17e55a5218734ec4a0d0f443e7797">Lane::get_f_left</a></div><div class="ttdeci">const vertex &amp; get_f_left() const</div><div class="ttdoc">Get the front left vertex of lane.</div><div class="ttdef"><b>Definition:</b> Lane.hpp:43</div></div>
+<div class="ttc" id="aclassLane_html_a95b71a2ba55ca89ae99f346f99e592ff"><div class="ttname"><a href="classLane.html#a95b71a2ba55ca89ae99f346f99e592ff">Lane::get_mid</a></div><div class="ttdeci">vertex get_mid() const</div><div class="ttdoc">Get the middle point between front left and front right.</div><div class="ttdef"><b>Definition:</b> Lane.hpp:67</div></div>
+<div class="ttc" id="aclassLane_html_aa20543217e9681ce427264fab9de0e3d"><div class="ttname"><a href="classLane.html#aa20543217e9681ce427264fab9de0e3d">Lane::get_angle</a></div><div class="ttdeci">float get_angle() const</div><div class="ttdoc">Get the angle.</div><div class="ttdef"><b>Definition:</b> Lane.hpp:73</div></div>
+<div class="ttc" id="aclassLane_html_a0a7b0f683c2ecb210fa7bcf438101077"><div class="ttname"><a href="classLane.html#a0a7b0f683c2ecb210fa7bcf438101077">Lane::get_active</a></div><div class="ttdeci">bool get_active() const</div><div class="ttdoc">get if player is on the lane</div><div class="ttdef"><b>Definition:</b> Lane.hpp:37</div></div>
+<div class="ttc" id="aclassLane_html_a128cd9cdf9f4065715b408e8bd28463d"><div class="ttname"><a href="classLane.html#a128cd9cdf9f4065715b408e8bd28463d">Lane::render</a></div><div class="ttdeci">void render(SDL_Renderer *renderer) const</div><div class="ttdoc">render the lane on the screen in blue if not selected, yellow if selected</div><div class="ttdef"><b>Definition:</b> Lane.cpp:14</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

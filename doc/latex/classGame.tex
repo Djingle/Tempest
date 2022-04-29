@@ -1,0 +1,199 @@
+\hypertarget{classGame}{}\doxysection{Référence de la classe Game}
+\label{classGame}\index{Game@{Game}}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGame_ad59df6562a58a614fda24622d3715b65}{Game}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classGame}{Game}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGame_ae3d112ca6e0e55150d2fdbc704474530}{$\sim$\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classGame}{Game}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a6fb6ab188f447a0b1448f77426a2ad79}{init}} (const char $\ast$title, int xpos, int ypos, int width, int height, bool fullscreen)
+\begin{DoxyCompactList}\small\item\em init the game with the window and the renderer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_adb5563f62c0c82e3e42ec36501aa5698}{handle\+Events}} ()
+\begin{DoxyCompactList}\small\item\em handle the events \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a79df6376b332d63c9eca0dcee30305c3}{update}} ()
+\begin{DoxyCompactList}\small\item\em update all the game\textquotesingle{}s elements \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a15ddd769261d923827a3cdf41499c843}{render}} ()
+\begin{DoxyCompactList}\small\item\em render all the game\textquotesingle{}s elements \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_ad4f36a72a2d06696f7973788606f57fc}{clean}} ()
+\begin{DoxyCompactList}\small\item\em clean properly the game before closing \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_ad4fde8fa42a85eebd065a577271320c6}{test\+\_\+collisions}} ()
+\begin{DoxyCompactList}\small\item\em verify if there is a collision between two elements \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_ae93b423a7f28167ba5b4d5410c535b3c}{generate\+\_\+enemies}} ()
+\begin{DoxyCompactList}\small\item\em randomly generate enemies \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_abeddf1b51f77f4d612fdf468100a2b39}{update\+\_\+enemies}} ()
+\begin{DoxyCompactList}\small\item\em update the enemies\textquotesingle{} positions \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Renderer $\ast$ \mbox{\hyperlink{classGame_af312395eec483d235561a4d28b436f03}{get\+\_\+renderer}} () const
+\begin{DoxyCompactList}\small\item\em Get the renderer object. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classLevel}{Level}} \& \mbox{\hyperlink{classGame_afacd5f36976e5bfa6f20c0271a95049f}{get\+\_\+level}} () const
+\begin{DoxyCompactList}\small\item\em Get the level object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGame_af485a4c277a61df477d6f8f39b04d35f}{running}} () const
+\begin{DoxyCompactList}\small\item\em get if the game is running \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classGame_ad59df6562a58a614fda24622d3715b65}\label{classGame_ad59df6562a58a614fda24622d3715b65}} 
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classGame}{Game}} object. 
+
+\mbox{\Hypertarget{classGame_ae3d112ca6e0e55150d2fdbc704474530}\label{classGame_ae3d112ca6e0e55150d2fdbc704474530}} 
+\index{Game@{Game}!````~Game@{$\sim$Game}}
+\index{````~Game@{$\sim$Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{$\sim$Game()}{~Game()}}
+{\footnotesize\ttfamily Game\+::$\sim$\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{classGame}{Game}} object. 
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classGame_ad4f36a72a2d06696f7973788606f57fc}\label{classGame_ad4f36a72a2d06696f7973788606f57fc}} 
+\index{Game@{Game}!clean@{clean}}
+\index{clean@{clean}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{clean()}{clean()}}
+{\footnotesize\ttfamily void Game\+::clean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+clean properly the game before closing 
+
+\mbox{\Hypertarget{classGame_ae93b423a7f28167ba5b4d5410c535b3c}\label{classGame_ae93b423a7f28167ba5b4d5410c535b3c}} 
+\index{Game@{Game}!generate\_enemies@{generate\_enemies}}
+\index{generate\_enemies@{generate\_enemies}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{generate\_enemies()}{generate\_enemies()}}
+{\footnotesize\ttfamily void Game\+::generate\+\_\+enemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+randomly generate enemies 
+
+\mbox{\Hypertarget{classGame_afacd5f36976e5bfa6f20c0271a95049f}\label{classGame_afacd5f36976e5bfa6f20c0271a95049f}} 
+\index{Game@{Game}!get\_level@{get\_level}}
+\index{get\_level@{get\_level}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{get\_level()}{get\_level()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classLevel}{Level}}\& Game\+::get\+\_\+level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the level object. 
+
+\begin{DoxyReturn}{Renvoie}
+const \mbox{\hyperlink{classLevel}{Level}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame_af312395eec483d235561a4d28b436f03}\label{classGame_af312395eec483d235561a4d28b436f03}} 
+\index{Game@{Game}!get\_renderer@{get\_renderer}}
+\index{get\_renderer@{get\_renderer}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{get\_renderer()}{get\_renderer()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Renderer$\ast$ Game\+::get\+\_\+renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the renderer object. 
+
+\begin{DoxyReturn}{Renvoie}
+S\+D\+L\+\_\+\+Renderer$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame_adb5563f62c0c82e3e42ec36501aa5698}\label{classGame_adb5563f62c0c82e3e42ec36501aa5698}} 
+\index{Game@{Game}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily void Game\+::handle\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+handle the events 
+
+\mbox{\Hypertarget{classGame_a6fb6ab188f447a0b1448f77426a2ad79}\label{classGame_a6fb6ab188f447a0b1448f77426a2ad79}} 
+\index{Game@{Game}!init@{init}}
+\index{init@{init}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Game\+::init (\begin{DoxyParamCaption}\item[{const char $\ast$}]{title,  }\item[{int}]{xpos,  }\item[{int}]{ypos,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{bool}]{fullscreen }\end{DoxyParamCaption})}
+
+
+
+init the game with the window and the renderer 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em title} & \\
+\hline
+{\em xpos} & \\
+\hline
+{\em ypos} & \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+{\em fullscreen} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGame_a15ddd769261d923827a3cdf41499c843}\label{classGame_a15ddd769261d923827a3cdf41499c843}} 
+\index{Game@{Game}!render@{render}}
+\index{render@{render}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Game\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+render all the game\textquotesingle{}s elements 
+
+\mbox{\Hypertarget{classGame_af485a4c277a61df477d6f8f39b04d35f}\label{classGame_af485a4c277a61df477d6f8f39b04d35f}} 
+\index{Game@{Game}!running@{running}}
+\index{running@{running}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{running()}{running()}}
+{\footnotesize\ttfamily bool Game\+::running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get if the game is running 
+
+\begin{DoxyReturn}{Renvoie}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame_ad4fde8fa42a85eebd065a577271320c6}\label{classGame_ad4fde8fa42a85eebd065a577271320c6}} 
+\index{Game@{Game}!test\_collisions@{test\_collisions}}
+\index{test\_collisions@{test\_collisions}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{test\_collisions()}{test\_collisions()}}
+{\footnotesize\ttfamily void Game\+::test\+\_\+collisions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+verify if there is a collision between two elements 
+
+\mbox{\Hypertarget{classGame_a79df6376b332d63c9eca0dcee30305c3}\label{classGame_a79df6376b332d63c9eca0dcee30305c3}} 
+\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+update all the game\textquotesingle{}s elements 
+
+\mbox{\Hypertarget{classGame_abeddf1b51f77f4d612fdf468100a2b39}\label{classGame_abeddf1b51f77f4d612fdf468100a2b39}} 
+\index{Game@{Game}!update\_enemies@{update\_enemies}}
+\index{update\_enemies@{update\_enemies}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{update\_enemies()}{update\_enemies()}}
+{\footnotesize\ttfamily void Game\+::update\+\_\+enemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+update the enemies\textquotesingle{} positions 
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Game.\+hpp\item 
+Game.\+cpp\end{DoxyCompactItemize}
