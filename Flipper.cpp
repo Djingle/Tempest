@@ -48,14 +48,14 @@ void Flipper::render(SDL_Renderer* renderer)
 
 void Flipper::update(const Level& terrain)
 {
-    if (depth_ < 0.64 && depth_ > 0.6) move_left(terrain);
+    if (depth_ < 0.92 && depth_ > 0.9) move_right(terrain);
     (depth_<1.0) ? depth_ += 0.004 : depth_ = 1.0;
     if (destination_ != lane_id_) {
         std::cout << "Flipper is moving" << std::endl;
         std::cout << "angle_ : " << angle_ << std::endl;
         if (angle_ > 0.1) {
-            v_template_ = m_rotate(v_template_, {0, -direction_}, direction_*0.001);
-            angle_ -= 0.001;
+            v_template_ = m_rotate(v_template_, {0, -direction_}, direction_*0.1);
+            angle_ -= 0.1;
             std::cout << "oui" << std::endl;
         }
         else {

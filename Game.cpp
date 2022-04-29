@@ -52,7 +52,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
                 is_running_ = true;
             }
             player_= Player(level_);
-            Flipper* flipper = new Flipper(2, 0.2,level_);
+            Flipper* flipper = new Flipper(0, 0.8,level_);
             enemies_.push_back(flipper);
         }
     }
@@ -102,7 +102,7 @@ void Game::update()
     level_.update(player_.get_lane_id());
     player_.update(level_);
     // Generate randomly enemies each 10 seconds
-    generate_enemies();
+    //generate_enemies();
     // detect collisions with depth
     for (auto& enemy : enemies_)
     {
