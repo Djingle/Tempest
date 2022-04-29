@@ -29,8 +29,9 @@ void Flipper::move_left(const Level& terrain)
 }
 
 
-void Flipper::update()
+void Flipper::update(const Level& terrain)
 {
-    if (depth_<1.0) depth_ += 0.04;
+    (depth_<1.0) ? depth_ += 0.004 : depth_ = 1.0;
+
     std::cout << depth_ << std::endl;
 }
