@@ -86,8 +86,6 @@ void Game::handleEvents()
 }
 void Game::test_collisions()
 {
-    
-
     std::vector<Enemy*>::const_iterator it = enemies_.begin(); 
     while (it != enemies_.end())
     {
@@ -96,23 +94,27 @@ void Game::test_collisions()
             if ((*it)->get_depth() == player_.get_depth())
             {
                 player_.set_nb_lives(player_.get_nb_lives()-1);
-                
+                delete *it;     
+                enemies_.erase(it);
             }
         }
-
-        for(auto bullet : bullets_){
-            if (bullet.get_lane_id() == (*it)->get_lane_id())
+        std::vector<Bullet>::iterator bullet = bullets_.begin();
+        while (bullet != bullets_.end()) {
+            if (bullet->get_lane_id() == (*it)->get_lane_id())
             {
-                if (bullet.get_depth() >= (*it)->get_depth()-0.005 && bullet.get_depth() <= (*it)->get_depth()+0.005)
+                if (bullet->get_depth() >= (*it)->get_depth()-0.005 && bullet->get_depth() <= (*it)->get_depth()+0.005)
                 {
-                    std::cout << "Collision !" << std::endl;
                     player_.set_score(player_.get_score()+(*it)->get_value());
-                    delete *it;     
+                    delete *it;
+                    bullets_.erase(bullet); 
                     enemies_.erase(it);
                 }
-            }     
+            }
+            if(bullet != bullets_.end())
+                bullet++;
         }
-        ++it;
+        if(it != enemies_.end())
+            it++;
     }           
 }       
 void Game::generate_enemies()
@@ -128,11 +130,20 @@ void Game::generate_enemies()
     }
 
 }
+void Game::update_enemies(){
+    for(auto& enemy : enemies_)
+    {
+        if(Flipper* f = dynamic_cast<Flipper*>(enemy))
+        {
+            f->update(level_);
+        }
+    }
+}
 void Game::update()
 {
     level_.update(player_.get_lane_id());
     player_.update(level_);
-    // Generate randomly enemies each 10 seconds
+    // Generate randomly enemies
     generate_enemies();
     // detect collisions with depth
     test_collisions();
@@ -151,21 +162,12 @@ void Game::update()
             else ++bullet;
         }
     }
-    for(auto& enemy : enemies_)
-    {
-        // tester avec dynamic_cast, j'ai fais des tentatives infructueuses
-        // try dynamic cast
-        if(Flipper* f = dynamic_cast<Flipper*>(enemy))
-        {
-            f->update(level_);
-        }
-    }
-    
+    update_enemies();
 }
 void Game::render()
 {
     SDL_RenderClear(renderer_);
-    hud_.render(player_.get_score(),player_.get_nb_lives(),1);
+    hud_.render(renderer_,player_.get_score(),player_.get_nb_lives(),1);
     SDL_SetRenderTarget(renderer_, texture_);
     SDL_SetRenderDrawColor(renderer_, 0, 0, 0, 0);
     SDL_RenderClear(renderer_);
@@ -174,6 +176,7 @@ void Game::render()
     for(auto enemy : enemies_) {
         enemy->render(renderer_);
     }
+    SDL_SetRenderDrawColor(renderer_, 255, 0, 255, 255);
     for (auto& bullet : bullets_) {
         bullet.render(renderer_);
     }

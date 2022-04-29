@@ -30,7 +30,6 @@ Bullet::~Bullet()
     bullet_count_--;
 }
 
-
 void Bullet::update(const Level& level)
 {
     if (direction_) depth_ -= 0.01;

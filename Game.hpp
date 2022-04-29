@@ -76,6 +76,11 @@ class Game {
          */
         void generate_enemies();
         /**
+         * @brief 
+         * 
+         */
+        void update_enemies();  
+        /**
          * @brief Get the renderer object
          * 
          * @return SDL_Renderer* 
