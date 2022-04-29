@@ -3,3 +3,161 @@
 
 
 Graphe d\textquotesingle{}héritage de Bullet\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=128pt]{classBullet__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Bullet\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=128pt]{classBullet__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBullet_a5b8454c121ee994100221be0c6529f6b}{Bullet}} (int lane\+\_\+id, float depth, bool direction, const \mbox{\hyperlink{classLevel}{Level}} \&terrain)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classBullet}{Bullet}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBullet_a888001578e4c30812af085d7a9b4b393}{Bullet}} (const \mbox{\hyperlink{classBullet}{Bullet}} \&bullet)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classBullet}{Bullet}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classBullet_aaeb5cb41d7db89f49007b08b41f1bfcf}{$\sim$\+Bullet}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classBullet}{Bullet}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBullet_aace06519c14bed0cf731812c7f11b4c1}{update}} (const \mbox{\hyperlink{classLevel}{Level}} \&level)
+\begin{DoxyCompactList}\small\item\em update the position of the bullet \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBullet_a9ec9d926279ce76b5fc3d21ad2cbe47b}{render}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em render the bullet (override the render method of the \mbox{\hyperlink{classObject}{Object}} class because it uses points instead of lines) \end{DoxyCompactList}\item 
+const bool \& \mbox{\hyperlink{classBullet_a78f70ee2bf1634c487f6350e1f5a4326}{get\+\_\+direction}} () const
+\begin{DoxyCompactList}\small\item\em Get the direction of the bullet (from player or from ennemies) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static const int \& \mbox{\hyperlink{classBullet_afdab1d6c63b1d891f37466f95a8efee5}{get\+\_\+bullet\+\_\+count}} ()
+\begin{DoxyCompactList}\small\item\em Get the number of bullets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Membres hérités additionnels}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classBullet_a5b8454c121ee994100221be0c6529f6b}\label{classBullet_a5b8454c121ee994100221be0c6529f6b}} 
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{Bullet()}{Bullet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Bullet\+::\+Bullet (\begin{DoxyParamCaption}\item[{int}]{lane\+\_\+id,  }\item[{float}]{depth,  }\item[{bool}]{direction,  }\item[{const \mbox{\hyperlink{classLevel}{Level}} \&}]{terrain }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classBullet}{Bullet}} object. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lane\+\_\+id} & \\
+\hline
+{\em depth} & \\
+\hline
+{\em direction} & \\
+\hline
+{\em terrain} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBullet_a888001578e4c30812af085d7a9b4b393}\label{classBullet_a888001578e4c30812af085d7a9b4b393}} 
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{Bullet()}{Bullet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Bullet\+::\+Bullet (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBullet}{Bullet}} \&}]{bullet }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classBullet}{Bullet}} object. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bullet} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBullet_aaeb5cb41d7db89f49007b08b41f1bfcf}\label{classBullet_aaeb5cb41d7db89f49007b08b41f1bfcf}} 
+\index{Bullet@{Bullet}!````~Bullet@{$\sim$Bullet}}
+\index{````~Bullet@{$\sim$Bullet}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{$\sim$Bullet()}{~Bullet()}}
+{\footnotesize\ttfamily Bullet\+::$\sim$\+Bullet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{classBullet}{Bullet}} object. 
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classBullet_afdab1d6c63b1d891f37466f95a8efee5}\label{classBullet_afdab1d6c63b1d891f37466f95a8efee5}} 
+\index{Bullet@{Bullet}!get\_bullet\_count@{get\_bullet\_count}}
+\index{get\_bullet\_count@{get\_bullet\_count}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{get\_bullet\_count()}{get\_bullet\_count()}}
+{\footnotesize\ttfamily static const int\& Bullet\+::get\+\_\+bullet\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the number of bullets. 
+
+\begin{DoxyReturn}{Renvoie}
+const int\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBullet_a78f70ee2bf1634c487f6350e1f5a4326}\label{classBullet_a78f70ee2bf1634c487f6350e1f5a4326}} 
+\index{Bullet@{Bullet}!get\_direction@{get\_direction}}
+\index{get\_direction@{get\_direction}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{get\_direction()}{get\_direction()}}
+{\footnotesize\ttfamily const bool\& Bullet\+::get\+\_\+direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the direction of the bullet (from player or from ennemies) 
+
+\begin{DoxyReturn}{Renvoie}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBullet_a9ec9d926279ce76b5fc3d21ad2cbe47b}\label{classBullet_a9ec9d926279ce76b5fc3d21ad2cbe47b}} 
+\index{Bullet@{Bullet}!render@{render}}
+\index{render@{render}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Bullet\+::render (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+render the bullet (override the render method of the \mbox{\hyperlink{classObject}{Object}} class because it uses points instead of lines) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classObject_a0155f22c97ad09051cd8e700fe423f51}{Object}}.
+
+\mbox{\Hypertarget{classBullet_aace06519c14bed0cf731812c7f11b4c1}\label{classBullet_aace06519c14bed0cf731812c7f11b4c1}} 
+\index{Bullet@{Bullet}!update@{update}}
+\index{update@{update}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Bullet\+::update (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLevel}{Level}} \&}]{level }\end{DoxyParamCaption})}
+
+
+
+update the position of the bullet 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Bullet.\+hpp\item 
+Bullet.\+cpp\end{DoxyCompactItemize}
