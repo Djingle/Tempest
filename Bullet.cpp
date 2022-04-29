@@ -9,11 +9,15 @@ mesh Bullet_template{{{0.5,0.5},
 
 int Bullet::bullet_count_{0};
 
-Bullet::Bullet(int lane_id, float depth, bool direction) : 
+Bullet::Bullet(int lane_id, float depth, bool direction,const Level& terrain) : 
     Object(lane_id, depth, Bullet_template),
     direction_{direction}
 {
     bullet_count_++;
+    vertices_ = get_pos(terrain);
+    for(auto& vertex : vertices_) {
+        std::cout << "Bullet " <<bullet_count_<< " : (" << vertex.first << " , " << vertex.second << ")" << std::endl;
+    }
 }
 
 
@@ -30,8 +34,9 @@ Bullet::~Bullet()
 }
 
 
-void Bullet::update()
+void Bullet::update(const Level& level)
 {
     if (direction_) depth_ -= 0.01;
     else depth_ += 0.01;
+    vertices_ = get_pos(level);
 }

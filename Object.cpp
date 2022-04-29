@@ -9,7 +9,8 @@ Object::Object(int lane_id, float depth, mesh v_template) :
     v_template_{v_template}
 
 {
-    // std::cout << "New Object" << std::endl;   
+    // std::cout << "New Object" << std::endl; 
+      
 }
 
 mesh Object::get_pos(const Level& terrain) const
@@ -33,6 +34,7 @@ float Object::get_angle(const Level& terrain) const
 
 void Object::render(SDL_Renderer* renderer)
 {
+    
     vertex v1, v2;
     v1 = *vertices_.begin();
     v2 = *(vertices_.end()-1);

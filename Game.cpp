@@ -86,21 +86,43 @@ void Game::handleEvents()
         break;
     }
 }
+void Game::generate_enemies()
+{
+    // TODO : Gérer la création des ennemies
 
+    if (rand() % 100 == 0)
+    {
+        Flipper* flipper = new Flipper(rand() % 16, 0.2,level_);
+        enemies_.push_back(flipper);
+    }
+
+}
 void Game::update()
 {
     level_.update(player_.get_lane_id());
     player_.update(level_);
-
+    // Generate randomly enemies each 10 seconds
+    generate_enemies();
+    // detect collisions with depth
+    for (auto& enemy : enemies_)
+    {
+        if (enemy->get_lane_id() == player_.get_lane_id())
+        {
+            if (enemy->get_depth() == player_.get_depth())
+            {
+                player_.set_nb_lives(player_.get_nb_lives()-1);
+            }
+        }
+    }
     if (player_.get_is_shooting())
     {
-        bullets_.push_back(Bullet(player_.get_lane_id(), 0.99, true));
+        bullets_.push_back(Bullet(player_.get_lane_id(), 0.99, true,level_));
         player_.set_is_shooting(false);
     }
     if (Bullet::get_bullet_count() > 0) {
         std::vector<Bullet>::iterator bullet = bullets_.begin();
         while (bullet != bullets_.end()) {
-            bullet->update();
+            bullet->update(level_);
             if (bullet->get_depth() <= 0.20 || bullet->get_depth() >= 1.5) {
                 bullets_.erase(bullet);
             }
@@ -127,7 +149,7 @@ void Game::render()
     SDL_RenderClear(renderer_);
     level_.render(renderer_);
     player_.render(renderer_);
-    for (auto bullet : bullets_) {
+    for (auto& bullet : bullets_) {
         bullet.render(renderer_);
     }
     for(auto enemy : enemies_) {
